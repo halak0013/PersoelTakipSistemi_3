@@ -8,6 +8,8 @@ public class DbHelper {
 private static String dbUrl="jdbc:sqlite:personel_data.db";
 
     public static Connection getConnection() throws SQLException{
+        Personel p1=new Personel();
+        
         return (Connection)DriverManager.getConnection(dbUrl);
     }
 
