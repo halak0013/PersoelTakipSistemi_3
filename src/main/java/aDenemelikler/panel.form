@@ -24,7 +24,12 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
               <Component id="yazıYeri" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="205" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="193" max="32767" attributes="0"/>
+              <Component id="textFeild1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -33,7 +38,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
               <Component id="yazıYeri" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="164" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <Component id="textFeild1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="84" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,6 +54,11 @@
             <MatteColorBorder bottom="2" left="0" right="0" top="0"/>
           </Border>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="view.TextField.TextFeild" name="textFeild1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="textFeild1"/>
       </Properties>
     </Component>
   </SubComponents>

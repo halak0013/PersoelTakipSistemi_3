@@ -9,6 +9,7 @@ public class TextFeild extends JTextField{
 
     public TextFeild() {
         setBorder(createMatteBorder(0,0,2,0,new Color(0,0,0)));
+        setBackground(new Color(0,0,0,0));
     }
     
     
