@@ -17,7 +17,7 @@ private short radius=33;
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2=(Graphics2D)g;
-        //? panelin köşelrini daha yumaşak yapılor
+        //? panelin köşelrini daha yumaşak yapılıyor
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(getBackground());
         //? x  y  genişlik  uzunluk    yuvarlık yarıçapı

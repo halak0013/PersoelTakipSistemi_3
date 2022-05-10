@@ -18,9 +18,14 @@
             <version>3.36.0.3</version>
         </dependency>
         <dependency>
-            <groupId>com.formdev</groupId>
-            <artifactId>flatlaf-intellij-themes</artifactId>
-            <version>2.2</version>
-        </dependency>
+  <groupId>com.formdev</groupId>
+  <artifactId>flatlaf</artifactId>
+  <version>2.2</version>
+</dependency>
+<dependency>
+  <groupId>com.formdev</groupId>
+  <artifactId>flatlaf-intellij-themes</artifactId>
+  <version>2.2</version>
+</dependency>
     </dependencies>
 </project>
