@@ -27,9 +27,13 @@ public class MainP extends javax.swing.JFrame {
         // ? sonrasında ek bir panel daha ekliyoruz ki
         // ? eklenen parçalar acayip gözükmesin
         setBackground(new Color(1.0f, 1.0f, 1.0f, 0.0f));
-
+        scaling();
     }
 
+    private void scaling() {
+    bt_close.scale();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,32 +46,72 @@ public class MainP extends javax.swing.JFrame {
 
         backPanel1 = new view.panels.BackPanel();
         topPanel1 = new view.panels.TopPanel();
+        bt_close = new view.image.SvgImage();
+        textFeild1 = new view.TextField.TextFeild();
+        textFeild2 = new view.TextField.TextFeild();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
 
         javax.swing.GroupLayout topPanel1Layout = new javax.swing.GroupLayout(topPanel1);
         topPanel1.setLayout(topPanel1Layout);
         topPanel1Layout.setHorizontalGroup(
             topPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 635, Short.MAX_VALUE)
         );
         topPanel1Layout.setVerticalGroup(
             topPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 51, Short.MAX_VALUE)
         );
 
+        bt_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                bt_closeMousePressed(evt);
+            }
+        });
+
+        textFeild1.setText("textFeild1");
+        textFeild1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                textFeild1PropertyChange(evt);
+            }
+        });
+        textFeild1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textFeild1KeyTyped(evt);
+            }
+        });
+
+        textFeild2.setText("textFeild1");
+
         javax.swing.GroupLayout backPanel1Layout = new javax.swing.GroupLayout(backPanel1);
         backPanel1.setLayout(backPanel1Layout);
         backPanel1Layout.setHorizontalGroup(
             backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(topPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(backPanel1Layout.createSequentialGroup()
+                .addComponent(topPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bt_close, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(backPanel1Layout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textFeild1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                    .addComponent(textFeild2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backPanel1Layout.setVerticalGroup(
             backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backPanel1Layout.createSequentialGroup()
-                .addComponent(topPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 349, Short.MAX_VALUE))
+                .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bt_close, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(topPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(83, 83, 83)
+                .addComponent(textFeild1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFeild2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 186, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,6 +128,19 @@ public class MainP extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bt_closeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_closeMousePressed
+        System.exit(0);
+    }//GEN-LAST:event_bt_closeMousePressed
+int ab=0,cd=0;
+    private void textFeild1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_textFeild1PropertyChange
+        
+        //System.out.println("yazıyor"+ab++);
+    }//GEN-LAST:event_textFeild1PropertyChange
+
+    private void textFeild1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFeild1KeyTyped
+        System.out.println("sil"+cd++);
+    }//GEN-LAST:event_textFeild1KeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -99,6 +156,9 @@ public class MainP extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.panels.BackPanel backPanel1;
+    private view.image.SvgImage bt_close;
+    private view.TextField.TextFeild textFeild1;
+    private view.TextField.TextFeild textFeild2;
     private view.panels.TopPanel topPanel1;
     // End of variables declaration//GEN-END:variables
 }

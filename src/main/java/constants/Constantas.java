@@ -21,4 +21,7 @@ public class Constantas {
         return new Color(250, 164, 1);
     }
 
+public static Color hintColor() {
+        return new Color(202, 202, 202);
+    }
 }
