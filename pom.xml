@@ -18,14 +18,24 @@
             <version>3.36.0.3</version>
         </dependency>
         <dependency>
-  <groupId>com.formdev</groupId>
-  <artifactId>flatlaf</artifactId>
-  <version>2.2</version>
-</dependency>
-<dependency>
-  <groupId>com.formdev</groupId>
-  <artifactId>flatlaf-intellij-themes</artifactId>
-  <version>2.2</version>
-</dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf-intellij-themes</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mycompany.personeltakipsistemi1_1</groupId>
+            <artifactId>PersonelTakipSistemi1_1</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf-extras</artifactId>
+            <version>2.2</version>
+        </dependency>
     </dependencies>
 </project>

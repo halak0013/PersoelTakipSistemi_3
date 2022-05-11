@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="close.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.2-beta (1b65182, 2022-04-05)"
+   sodipodi:docname="çizim.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="38.493125"
+     inkscape:cx="5.8192209"
+     inkscape:cy="9.066554"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Katman 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect184"
+       style="fill:#f73958;fill-opacity:1;stroke:#000000;stroke-width:0.18106729;stroke-opacity:0.54732466;stroke-dasharray:none"
+       d="M 11.199538 -10.435183 C 11.045863 -10.287391 10.944383 -10.083148 10.931302 -9.860721 L 10.399459 -0.80084358 L 1.4029149 -0.80078326 C 0.95829958 -0.80078326 0.60063305 -0.44138673 0.60063305 0.0032285438 L 0.60075205 0.090329748 C 0.60075205 0.53494502 0.95877263 0.89283714 1.4033879 0.89283714 L 10.299083 0.89338513 L 9.7586035 10.08039 C 9.7324425 10.525245 10.070083 10.876845 10.514937 10.868717 L 10.603424 10.866631 C 11.048279 10.858503 11.427125 10.494013 11.453286 10.049159 L 11.99236 0.89255906 L 21.334186 0.89238439 C 21.778802 0.89238439 22.13634 0.53575197 22.13634 0.091136697 L 22.136349 0.0012713846 C 22.136349 -0.44334389 21.778329 -0.801236 21.333713 -0.801236 L 12.091292 -0.8002982 L 12.625984 -9.8919523 C 12.652145 -10.336807 12.314505 -10.688407 11.869651 -10.680279 L 11.782608 -10.679564 C 11.560181 -10.6755 11.353213 -10.582974 11.199538 -10.435183 z "
+       transform="matrix(0.71250868,0.70166329,-0.67368228,0.7390211,0,0)" />
+  </g>
+</svg>

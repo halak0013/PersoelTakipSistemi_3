@@ -27,7 +27,7 @@ public class MainP extends javax.swing.JFrame {
         // ? sonrasında ek bir panel daha ekliyoruz ki
         // ? eklenen parçalar acayip gözükmesin
         setBackground(new Color(1.0f, 1.0f, 1.0f, 0.0f));
-        topPanel1.MovePanel(this);
+
     }
 
     /**
@@ -54,7 +54,7 @@ public class MainP extends javax.swing.JFrame {
         );
         topPanel1Layout.setVerticalGroup(
             topPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 51, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout backPanel1Layout = new javax.swing.GroupLayout(backPanel1);
@@ -67,7 +67,7 @@ public class MainP extends javax.swing.JFrame {
             backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backPanel1Layout.createSequentialGroup()
                 .addComponent(topPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 350, Short.MAX_VALUE))
+                .addGap(0, 349, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

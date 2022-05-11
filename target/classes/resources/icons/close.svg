@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="close.png"
+   inkscape:export-xdpi="198"
+   inkscape:export-ydpi="198"
+   inkscape:version="1.2-beta (1b65182, 2022-04-05)"
+   sodipodi:docname="close.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="32"
+     inkscape:cx="6.53125"
+     inkscape:cy="6.6875"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Katman 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect457"
+       style="fill:#f73958;stroke:#000000;stroke-width:0.181;stroke-opacity:0.547325"
+       d="M 9.7732355 -7.4495946 C 9.6178587 -7.2748169 9.5307499 -7.0406882 9.5456159 -6.7877067 L 9.8412319 -1.7598502 L 4.8049303 -1.759675 C 4.2980944 -1.759675 3.888764 -1.3510292 3.888764 -0.84419332 L 3.8881838 0.4183474 C 3.8881838 0.92518327 4.2981839 1.3331063 4.8050197 1.3331063 L 10.022287 1.3335944 L 10.330597 6.5905064 C 10.360329 7.0964694 10.791524 7.480163 11.297487 7.450431 L 12.558594 7.3764473 C 13.064557 7.3467153 13.44825 6.9155201 13.418518 6.4095571 L 13.120592 1.3333987 L 18.206603 1.3322674 C 18.713439 1.3322674 19.121415 0.92502896 19.121415 0.41819309 L 19.121995 -0.84434763 C 19.121995 -1.3511835 18.713349 -1.7605139 18.206513 -1.7605139 L 12.939536 -1.7600459 L 12.63213 -6.9700103 C 12.602398 -7.4759733 12.171203 -7.8596669 11.66524 -7.8299348 L 10.404133 -7.7559512 C 10.151152 -7.7410852 9.9286123 -7.6243724 9.7732355 -7.4495946 z "
+       transform="rotate(46.101887)" />
+  </g>
+</svg>
