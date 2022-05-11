@@ -14,4 +14,11 @@ public class Constantas {
     public static Color btClickColor() {
         return new Color(70, 70, 70);
     }
+    public static Color txColor() {
+        return new Color(250, 250, 250);
+    }
+    public static Color borderColor() {
+        return new Color(250, 164, 1);
+    }
+
 }

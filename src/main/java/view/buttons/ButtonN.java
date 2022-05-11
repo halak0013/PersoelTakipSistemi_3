@@ -16,45 +16,52 @@ public class ButtonN extends JButton {
     private Color colorMain = Constantas.btMainColor();
     private Color colorOver = Constantas.btOverColor();
     private Color colorClick = Constantas.btClickColor();
+    private Color colorText=Constantas.txColor();
+    private Color colorBorder=Constantas.borderColor();
     private boolean over;
     private short radius = 25;
 
     public ButtonN() {
         // !!!!!!!!!! bu çok önemli yoksa buton başta renksiz oluyor
         setBackground(colorMain);
+        //? butonun eski görüntüsünü siliyor
         setContentAreaFilled(false);
+
+        //?yazının rengini ayarlıyoruz
+        setForeground(colorText);
+
+
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                // ? fare üzerine geldiğinde olan renk
-                setBackground(Color.orange);
+                // ? mousu üzerine geldiğinde olan renk
+                setBackground(colorOver);
                 over = true;
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 // ? mousu bıraktıktan sonraki renk
-                setBackground(Color.pink);
+                setBackground(colorMain);
                 over = false;
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
                 // ? basılı tutulduğundaki renk
-                setBackground(Color.magenta);
+                setBackground(colorClick);
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
                 if (over) {
                     // ? basıp bıraktıktan sonra üzerinde durduğu sürece olan renk
-                    setBackground(Color.CYAN);
+                    setBackground(colorOver);
                 } else {
                     // ? fareye basıp eğer üzerinde bırkamzsak olacak renk
-                    setBackground(Color.yellow);
+                    setBackground(colorClick);
                 }
             }
-
         });
     }
 
@@ -66,7 +73,7 @@ public class ButtonN extends JButton {
         // RenderingHints.VALUE_INTERPOLATION_BILINEAR);
 
         // ? kenar rengi
-        g2.setColor(Color.red);
+        g2.setColor(colorBorder);
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius);
         g2.setColor(getBackground());
         g2.fillRoundRect(2, 2, getWidth() - 4, getHeight() - 4, radius, radius);
