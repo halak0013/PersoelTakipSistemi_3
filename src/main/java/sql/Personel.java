@@ -22,7 +22,9 @@ public class Personel {
 
     
     
-    public Personel(int id, String name, String surname, String passqord, String mail, int salary, String tel, boolean gender, Date startingOfWork, String tc, short experiencYear, String educaitonStatus, String about) {
+    public Personel(int id, String name, String surname, String passqord, 
+    String mail, int salary, String tel, boolean gender, Date startingOfWork, 
+    String tc, short experiencYear, String educaitonStatus, String about) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -37,6 +39,7 @@ public class Personel {
         this.educaitonStatus = educaitonStatus;
         this.about = about;
     }
+
 
     
 

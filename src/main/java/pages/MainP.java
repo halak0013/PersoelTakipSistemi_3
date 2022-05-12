@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package pages;
 
 import com.formdev.flatlaf.intellijthemes.*;
@@ -11,11 +8,6 @@ import java.awt.Color;
 
 import functions.PageP;
 
-
-/**
- *
- * @author bismih
- */
 public class MainP extends javax.swing.JFrame {
 
     /**
@@ -28,6 +20,8 @@ public class MainP extends javax.swing.JFrame {
         // ? eklenen parçalar acayip gözükmesin
         setBackground(new Color(1.0f, 1.0f, 1.0f, 0.0f));
         scaling();
+        
+        bt_singUp.setVisible(false);
     }
 
     private void scaling() {
@@ -44,13 +38,22 @@ public class MainP extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         backPanel1 = new view.panels.BackPanel();
         topPanel1 = new view.panels.TopPanel();
         bt_close = new view.image.SvgImage();
         textFeild1 = new view.TextField.TextFeild();
         textFeild2 = new view.TextField.TextFeild();
+        lb_userName = new javax.swing.JLabel();
+        lb_password = new javax.swing.JLabel();
+        btr_admin = new javax.swing.JRadioButton();
+        btr_personel = new javax.swing.JRadioButton();
+        bt_singIn = new view.buttons.ButtonN();
+        bt_singUp = new view.buttons.ButtonN();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(726, 500));
+        setMinimumSize(new java.awt.Dimension(726, 500));
         setUndecorated(true);
         setResizable(false);
 
@@ -58,7 +61,7 @@ public class MainP extends javax.swing.JFrame {
         topPanel1.setLayout(topPanel1Layout);
         topPanel1Layout.setHorizontalGroup(
             topPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 635, Short.MAX_VALUE)
+            .addGap(0, 661, Short.MAX_VALUE)
         );
         topPanel1Layout.setVerticalGroup(
             topPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,21 +88,61 @@ public class MainP extends javax.swing.JFrame {
 
         textFeild2.setText("textFeild1");
 
+        lb_userName.setText("Kullanıcı adı");
+
+        lb_password.setText("Şifre");
+
+        btr_admin.setText("Yönetici");
+
+        btr_personel.setSelected(true);
+        btr_personel.setText("Personel");
+
+        bt_singIn.setText("Giriş Yap");
+        bt_singIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_singInActionPerformed(evt);
+            }
+        });
+
+        bt_singUp.setText("Kayıt Ol");
+        bt_singUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_singUpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout backPanel1Layout = new javax.swing.GroupLayout(backPanel1);
         backPanel1.setLayout(backPanel1Layout);
         backPanel1Layout.setHorizontalGroup(
             backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backPanel1Layout.createSequentialGroup()
-                .addComponent(topPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bt_close, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backPanel1Layout.createSequentialGroup()
+                        .addComponent(topPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bt_close, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(backPanel1Layout.createSequentialGroup()
+                        .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(backPanel1Layout.createSequentialGroup()
+                                .addGap(194, 194, 194)
+                                .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(backPanel1Layout.createSequentialGroup()
+                                        .addGap(61, 61, 61)
+                                        .addComponent(btr_admin)
+                                        .addGap(46, 46, 46)
+                                        .addComponent(btr_personel))
+                                    .addComponent(lb_userName)
+                                    .addComponent(lb_password)
+                                    .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(textFeild2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(textFeild1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(backPanel1Layout.createSequentialGroup()
+                                .addGap(300, 300, 300)
+                                .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bt_singUp, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bt_singIn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(backPanel1Layout.createSequentialGroup()
-                .addGap(260, 260, 260)
-                .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textFeild1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                    .addComponent(textFeild2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backPanel1Layout.setVerticalGroup(
             backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,11 +150,23 @@ public class MainP extends javax.swing.JFrame {
                 .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(bt_close, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(topPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lb_userName)
+                .addGap(14, 14, 14)
                 .addComponent(textFeild1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(lb_password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(textFeild2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 186, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btr_admin)
+                    .addComponent(btr_personel))
+                .addGap(46, 46, 46)
+                .addComponent(bt_singIn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(bt_singUp, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,7 +188,7 @@ public class MainP extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_closeMousePressed
 int ab=0,cd=0;
     private void textFeild1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_textFeild1PropertyChange
-        
+
         //System.out.println("yazıyor"+ab++);
     }//GEN-LAST:event_textFeild1PropertyChange
 
@@ -141,11 +196,19 @@ int ab=0,cd=0;
         System.out.println("sil"+cd++);
     }//GEN-LAST:event_textFeild1KeyTyped
 
+    private void bt_singInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_singInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_singInActionPerformed
+
+    private void bt_singUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_singUpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_singUpActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        FlatArcDarkOrangeIJTheme.setup();
+        PageP.theme();
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -157,6 +220,13 @@ int ab=0,cd=0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.panels.BackPanel backPanel1;
     private view.image.SvgImage bt_close;
+    private view.buttons.ButtonN bt_singIn;
+    private view.buttons.ButtonN bt_singUp;
+    private javax.swing.JRadioButton btr_admin;
+    private javax.swing.JRadioButton btr_personel;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel lb_password;
+    private javax.swing.JLabel lb_userName;
     private view.TextField.TextFeild textFeild1;
     private view.TextField.TextFeild textFeild2;
     private view.panels.TopPanel topPanel1;
