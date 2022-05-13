@@ -9,9 +9,15 @@ public class DataBank extends javax.swing.JFrame {
     public DataBank() {
         initComponents();
         ListModels.tblModel(tbl_data);
+        imageP();
+    }
+
+    private void imageP() {
+        svg_search.scale();
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -47,6 +53,11 @@ public class DataBank extends javax.swing.JFrame {
         cmb_educaiton = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_data = new javax.swing.JTable();
+        svg_search = new view.image.SvgImage();
+        txf_search = new view.TextField.TextFeild();
+        bt_update = new view.buttons.ButtonN();
+        bt_sil = new view.buttons.ButtonN();
+        bt_add = new view.buttons.ButtonN();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1040, 700));
@@ -54,55 +65,55 @@ public class DataBank extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_name.setText("İsim");
-        getContentPane().add(lb_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        getContentPane().add(lb_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         txf_surname.setText("textFeild1");
-        getContentPane().add(txf_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 123, 35));
+        getContentPane().add(txf_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 123, 35));
 
         lb_surname.setText("Soyisim");
-        getContentPane().add(lb_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
+        getContentPane().add(lb_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
 
         txf_mail.setText("textFeild1");
-        getContentPane().add(txf_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 123, 35));
+        getContentPane().add(txf_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 123, 35));
 
         lb_mail.setText("Mail");
-        getContentPane().add(lb_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, -1));
+        getContentPane().add(lb_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
 
         lb_salary.setText("Maaş");
-        getContentPane().add(lb_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        getContentPane().add(lb_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         txf_phone.setText("textFeild1");
-        getContentPane().add(txf_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 123, 35));
+        getContentPane().add(txf_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 123, 35));
 
         lb_phone.setText("Telofon");
-        getContentPane().add(lb_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
+        getContentPane().add(lb_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
 
         lb_gender.setText("Cinsiyet");
-        getContentPane().add(lb_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, -1));
+        getContentPane().add(lb_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
 
         txf_salary.setText("textFeild1");
-        getContentPane().add(txf_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 123, 35));
+        getContentPane().add(txf_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 123, 35));
 
         lb_startToWork.setText("Başlama Tarihi");
-        getContentPane().add(lb_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+        getContentPane().add(lb_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, -1, -1));
 
         txf_tc.setText("textFeild1");
-        getContentPane().add(txf_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 123, 35));
+        getContentPane().add(txf_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 123, 35));
 
         lb_tc.setText("Kimlik Numarası");
-        getContentPane().add(lb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
+        getContentPane().add(lb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
         txf_experience.setText("textFeild1");
-        getContentPane().add(txf_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 123, 35));
+        getContentPane().add(txf_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 123, 35));
 
         lb_experience.setText("Çalışma Tecrübesi");
-        getContentPane().add(lb_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
+        getContentPane().add(lb_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
 
         txf_startToWork.setText("textFeild1");
-        getContentPane().add(txf_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 123, 35));
+        getContentPane().add(txf_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, 123, 35));
 
         lb_education.setText("Eğitim Durumu");
-        getContentPane().add(lb_education, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
+        getContentPane().add(lb_education, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
 
         jScrollPane2.setToolTipText("");
 
@@ -112,36 +123,36 @@ public class DataBank extends javax.swing.JFrame {
         txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
         jScrollPane2.setViewportView(txa_about);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 530, 210));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 530, 210));
 
         txf_name.setText("textFeild1");
-        getContentPane().add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 123, 35));
+        getContentPane().add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 123, 35));
 
         lb_about.setText("Hakkında");
-        getContentPane().add(lb_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
+        getContentPane().add(lb_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, -1));
 
         lb_password.setText("Parola");
-        getContentPane().add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+        getContentPane().add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
         txf_password.setText("textFeild1");
-        getContentPane().add(txf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 123, 35));
+        getContentPane().add(txf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 123, 35));
 
         txf_id.setText("textFeild1");
-        getContentPane().add(txf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 123, 35));
+        getContentPane().add(txf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 123, 35));
 
         lb_id.setText("İd");
-        getContentPane().add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+        getContentPane().add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
 
         buttonGroup1.add(btr_male);
         btr_male.setText("Erkek");
-        getContentPane().add(btr_male, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, -1, -1));
+        getContentPane().add(btr_male, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, -1, -1));
 
         buttonGroup1.add(btr_fmale);
         btr_fmale.setText("Kadın");
-        getContentPane().add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, -1));
+        getContentPane().add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, -1, -1));
 
         cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
-        getContentPane().add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 120, -1));
+        getContentPane().add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 120, -1));
 
         tbl_data.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -154,12 +165,38 @@ public class DataBank extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_data.setMinimumSize(new java.awt.Dimension(300, 100));
+        tbl_data.setPreferredSize(new java.awt.Dimension(300, 100));
         jScrollPane1.setViewportView(tbl_data);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 690, 650));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 690, 760));
+
+        svg_search.setImage("search");
+        svg_search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                svg_searchMousePressed(evt);
+            }
+        });
+        getContentPane().add(svg_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 20, 20));
+
+        txf_search.setText("textFeild1");
+        getContentPane().add(txf_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 260, 40));
+
+        bt_update.setText("Güncelle");
+        getContentPane().add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 100, 40));
+
+        bt_sil.setText("Sil");
+        getContentPane().add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 100, 40));
+
+        bt_add.setText("Ekle");
+        getContentPane().add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 100, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svg_searchMousePressed
+        System.out.println("arıyor");
+    }//GEN-LAST:event_svg_searchMousePressed
 
     /**
      * @param args the command line arguments
@@ -174,6 +211,9 @@ public class DataBank extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private view.buttons.ButtonN bt_add;
+    private view.buttons.ButtonN bt_sil;
+    private view.buttons.ButtonN bt_update;
     private javax.swing.JRadioButton btr_fmale;
     private javax.swing.JRadioButton btr_male;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -193,6 +233,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JLabel lb_startToWork;
     private javax.swing.JLabel lb_surname;
     private javax.swing.JLabel lb_tc;
+    private view.image.SvgImage svg_search;
     private javax.swing.JTable tbl_data;
     private javax.swing.JTextArea txa_about;
     private view.TextField.TextFeild txf_experience;
@@ -202,6 +243,7 @@ public class DataBank extends javax.swing.JFrame {
     private view.TextField.TextFeild txf_password;
     private view.TextField.TextFeild txf_phone;
     private view.TextField.TextFeild txf_salary;
+    private view.TextField.TextFeild txf_search;
     private view.TextField.TextFeild txf_startToWork;
     private view.TextField.TextFeild txf_surname;
     private view.TextField.TextFeild txf_tc;
