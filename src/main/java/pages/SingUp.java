@@ -31,7 +31,6 @@ public class SingUp extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         lb_experience = new javax.swing.JLabel();
         txf_name = new view.TextField.TextFeild();
-        txf_educaiton = new view.TextField.TextFeild();
         lb_education = new javax.swing.JLabel();
         lb_name = new javax.swing.JLabel();
         txf_surname = new view.TextField.TextFeild();
@@ -54,8 +53,14 @@ public class SingUp extends javax.swing.JFrame {
         btr_fmale = new javax.swing.JRadioButton();
         bt_endSaving = new view.buttons.ButtonN();
         spn_experience = new javax.swing.JSpinner();
+        cmb_educaiton = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_experience.setText("Çalışma Tecrübesi");
@@ -63,9 +68,6 @@ public class SingUp extends javax.swing.JFrame {
 
         txf_name.setText("textFeild1");
         getContentPane().add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 123, 35));
-
-        txf_educaiton.setText("textFeild1");
-        getContentPane().add(txf_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 123, 35));
 
         lb_education.setText("Eğitim Durumu");
         getContentPane().add(lb_education, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
@@ -144,12 +146,19 @@ public class SingUp extends javax.swing.JFrame {
         spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
         getContentPane().add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 110, -1));
 
+        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
+        getContentPane().add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 120, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_endSavingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_endSavingActionPerformed
         
     }//GEN-LAST:event_bt_endSavingActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        
+    }//GEN-LAST:event_formFocusGained
 
     /**
      * @param args the command line arguments
@@ -168,6 +177,7 @@ public class SingUp extends javax.swing.JFrame {
     private javax.swing.JRadioButton btr_fmale;
     private javax.swing.JRadioButton btr_male;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cmb_educaiton;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_about;
     private javax.swing.JLabel lb_education;
@@ -182,7 +192,6 @@ public class SingUp extends javax.swing.JFrame {
     private javax.swing.JLabel lb_tc;
     private javax.swing.JSpinner spn_experience;
     private javax.swing.JTextArea txa_about;
-    private view.TextField.TextFeild txf_educaiton;
     private view.TextField.TextFeild txf_mail;
     private view.TextField.TextFeild txf_name;
     private view.TextField.TextFeild txf_password;

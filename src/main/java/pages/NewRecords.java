@@ -28,6 +28,7 @@ public class NewRecords extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         list_newer = new javax.swing.JList<>();
         lb_newer = new javax.swing.JLabel();
@@ -40,21 +41,22 @@ public class NewRecords extends javax.swing.JFrame {
         lb_salary = new javax.swing.JLabel();
         txf_phone = new view.TextField.TextFeild();
         lb_phone = new javax.swing.JLabel();
-        txf_gender = new view.TextField.TextFeild();
         lb_gender = new javax.swing.JLabel();
         txf_salary = new view.TextField.TextFeild();
         lb_startToWork = new javax.swing.JLabel();
         txf_tc = new view.TextField.TextFeild();
         lb_tc = new javax.swing.JLabel();
-        txf_experience = new view.TextField.TextFeild();
         lb_experience = new javax.swing.JLabel();
         txf_startToWork = new view.TextField.TextFeild();
-        txf_educaiton = new view.TextField.TextFeild();
         lb_education = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txa_about = new javax.swing.JTextArea();
         lb_about = new javax.swing.JLabel();
         bt_endSaving = new view.buttons.ButtonN();
+        btr_male = new javax.swing.JRadioButton();
+        btr_fmale = new javax.swing.JRadioButton();
+        spn_experience = new javax.swing.JSpinner();
+        cmb_educaiton = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,8 +82,6 @@ public class NewRecords extends javax.swing.JFrame {
 
         lb_phone.setText("Telofon");
 
-        txf_gender.setText("textFeild1");
-
         lb_gender.setText("Cinsiyet");
 
         txf_salary.setText("textFeild1");
@@ -92,13 +92,9 @@ public class NewRecords extends javax.swing.JFrame {
 
         lb_tc.setText("Kimlik Numarası");
 
-        txf_experience.setText("textFeild1");
-
         lb_experience.setText("Çalışma Tecrübesi");
 
         txf_startToWork.setText("textFeild1");
-
-        txf_educaiton.setText("textFeild1");
 
         lb_education.setText("Eğitim Durumu");
 
@@ -118,6 +114,16 @@ public class NewRecords extends javax.swing.JFrame {
                 bt_endSavingActionPerformed(evt);
             }
         });
+
+        buttonGroup1.add(btr_male);
+        btr_male.setText("Erkek");
+
+        buttonGroup1.add(btr_fmale);
+        btr_fmale.setText("Kadın");
+
+        spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
+
+        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,32 +151,38 @@ public class NewRecords extends javax.swing.JFrame {
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lb_education)
-                            .addComponent(txf_educaiton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cmb_educaiton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(189, 189, 189)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lb_tc)
                             .addComponent(txf_tc, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lb_gender)
-                            .addComponent(txf_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lb_mail)
+                                    .addComponent(txf_mail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_experience)
+                                    .addComponent(spn_experience, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lb_phone)
+                                    .addComponent(txf_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_startToWork)
+                                    .addComponent(txf_startToWork, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(150, 150, 150))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btr_fmale)
+                                .addGap(19, 19, 19)
+                                .addComponent(btr_male)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lb_experience)
-                            .addComponent(txf_experience, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lb_mail)
-                            .addComponent(txf_mail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lb_phone)
-                            .addComponent(txf_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lb_startToWork)
-                            .addComponent(txf_startToWork, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(150, 150, 150))))
+                        .addGap(113, 113, 113)
+                        .addComponent(lb_gender)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -221,18 +233,19 @@ public class NewRecords extends javax.swing.JFrame {
                                                 .addComponent(txf_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(lb_education)
-                                                .addGap(5, 5, 5)
-                                                .addComponent(txf_educaiton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cmb_educaiton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lb_startToWork)
                                         .addGap(5, 5, 5)
-                                        .addComponent(txf_startToWork, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(txf_startToWork, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(45, 45, 45))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lb_experience)
-                                .addGap(5, 5, 5)
-                                .addComponent(txf_experience, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(45, 45, 45)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spn_experience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lb_tc)
@@ -240,8 +253,11 @@ public class NewRecords extends javax.swing.JFrame {
                                 .addComponent(txf_tc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lb_gender)
-                                .addGap(5, 5, 5)
-                                .addComponent(txf_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btr_fmale)
+                                    .addComponent(btr_male))
+                                .addGap(5, 5, 5)))))
                 .addGap(41, 41, 41)
                 .addComponent(lb_about)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -272,6 +288,10 @@ public class NewRecords extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.buttons.ButtonN bt_endSaving;
+    private javax.swing.JRadioButton btr_fmale;
+    private javax.swing.JRadioButton btr_male;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cmb_educaiton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_about;
@@ -287,10 +307,8 @@ public class NewRecords extends javax.swing.JFrame {
     private javax.swing.JLabel lb_surname;
     private javax.swing.JLabel lb_tc;
     private javax.swing.JList<String> list_newer;
+    private javax.swing.JSpinner spn_experience;
     private javax.swing.JTextArea txa_about;
-    private view.TextField.TextFeild txf_educaiton;
-    private view.TextField.TextFeild txf_experience;
-    private view.TextField.TextFeild txf_gender;
     private view.TextField.TextFeild txf_mail;
     private view.TextField.TextFeild txf_name;
     private view.TextField.TextFeild txf_phone;
