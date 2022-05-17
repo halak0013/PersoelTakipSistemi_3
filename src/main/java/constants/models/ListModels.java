@@ -13,7 +13,7 @@ public class ListModels {
         return educationStatus;
     }
 
-    static DefaultTableModel tbl_table_model;
+    public static DefaultTableModel tbl_table_model;
     public static void tblModel(JTable table) {
         tbl_table_model = new DefaultTableModel();
         tbl_table_model.setColumnIdentifiers(new String[] { "İd", "İsim", "Soyad","Şifre", "Mail", "Maaş", "Telefono", "Cinsiyet", "Başlangıç Tarihi", "TC","Çalışma Tecrübesi ", "Eğitim Durumu", "Açıklama" });

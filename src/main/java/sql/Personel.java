@@ -10,10 +10,10 @@ public class Personel {
     private String mail;
     private int salary;
     private String tel;
-    private boolean gender;
+    private String gender;
     private Date startingOfWork;
     private String tc;
-    private short experiencYear;
+    private int experiencYear;
     private String educaitonStatus;
     private String about;
 
@@ -23,8 +23,8 @@ public class Personel {
     
     
     public Personel(int id, String name, String surname, String password, 
-    String mail, int salary, String tel, boolean gender, Date startingOfWork, 
-    String tc, short experiencYear, String educaitonStatus, String about) {
+    String mail, int salary, String tel, String gender, Date startingOfWork, 
+    String tc, int experiencYear, String educaitonStatus, String about) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -40,7 +40,22 @@ public class Personel {
         this.about = about;
     }
 
-
+    public Personel(String name, String surname, String password, 
+    String mail, int salary, String tel, String gender, Date startingOfWork, 
+    String tc, int experiencYear, String educaitonStatus, String about) {
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.mail = mail;
+        this.salary = salary;
+        this.tel = tel;
+        this.gender = gender;
+        this.startingOfWork = startingOfWork;
+        this.tc = tc;
+        this.experiencYear = experiencYear;
+        this.educaitonStatus = educaitonStatus;
+        this.about = about;
+    }
 
 
     /**
@@ -145,14 +160,14 @@ public class Personel {
      * @return String return the gender
      */
     public String getGender() {
-        String gen=gender==true?"Erkek":"Kadın";
-        return gen;
+        
+        return gender;
     }
 
     /**
      * @param gender the gender to set
      */
-    public void setGender(boolean gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -185,16 +200,16 @@ public class Personel {
     }
 
     /**
-     * @return short return the experiencYear
+     * @return int return the experiencYear
      */
-    public short getExperiencYear() {
+    public int getExperiencYear() {
         return experiencYear;
     }
 
     /**
      * @param experiencYear the experiencYear to set
      */
-    public void setExperiencYear(short experiencYear) {
+    public void setExperiencYear(int experiencYear) {
         this.experiencYear = experiencYear;
     }
 

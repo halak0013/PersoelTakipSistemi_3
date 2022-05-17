@@ -9,6 +9,8 @@ import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
+import constants.models.ListModels;
+
 public class DbHelper {
     private static String dbUrl = "jdbc:sqlite:personel_data.db";
     static Connection con;
@@ -28,7 +30,7 @@ public class DbHelper {
     }
 
     public static int getMaxId() {
-        String query = "SELECT MAX(id) as mId FROM personel";
+        String query = "SELECT MAX(id) as mId FROM info";
         int maxId = 0;
         try {
             con = DbHelper.getConnection();
@@ -40,11 +42,45 @@ public class DbHelper {
         } catch (SQLException e) {
             showError(e);
         }
-        return maxId;
+        return 1 + maxId;
+    }
+
+    public void fillTable() {
+        ListModels.tbl_table_model.setRowCount(0);
+        String query = "SELECT * FROM info";
+
+        try {
+            con = DbHelper.getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
+
+            while (rs.next()) {
+                Personel p = new Personel();
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setSurname(rs.getString("surname"));
+                p.setPassword(rs.getString("password"));
+                p.setMail(rs.getString("mail"));
+                p.setSalary(rs.getInt("salary"));
+                p.setTel(rs.getString("tel"));
+                p.setGender(rs.getString("gender"));
+                p.setStartingOfWork(rs.getDate("starting_of_work"));
+                p.setTc(rs.getString("tc"));
+                p.setExperiencYear(rs.getInt("experience_year"));
+                p.setEducaitonStatus(rs.getString("education_status"));
+                p.setAbout(rs.getString("about"));
+                ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
+                        p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
+                        p.getTc(), p.getExperiencYear(), p.getEducationStatus(), p.getAbout() });
+            }
+            con.close();
+        } catch (SQLException e) {
+            showError(e);
+        }
     }
 
     public static void deleteData(int id) {
-        String query = "DELETE FROM personel where id ="+id;
+        String query = "DELETE FROM info where id =" + id;
 
         try {
             con = DbHelper.getConnection();
@@ -59,13 +95,13 @@ public class DbHelper {
 
     }
 
-    public static void addData(Personel p) throws SQLException {
-        String query = "INSERT INTO personel (id, name, surname, password, mail, salary, tel, gender, starting_of_work, tc, experience_year, education_satus, about) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    public void addData(Personel p) {
+        String query = "INSERT INTO info (id, name, surname, password, mail, salary, tel, gender, starting_of_work, tc, experience_year, education_status, about) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             con = DbHelper.getConnection();
             pStm = con.prepareStatement(query);
 
-            pStm.setInt(1, p.getId());
+            pStm.setInt(1, getMaxId());
             pStm.setString(2, p.getName());
             pStm.setString(3, p.getSurname());
             pStm.setString(4, p.getPassword());
@@ -80,18 +116,18 @@ public class DbHelper {
             pStm.setString(13, p.getAbout());
             pStm.executeUpdate();
             JOptionPane.showMessageDialog(null, "Kayıt Başarılı bir şekilde eklendi");
+            pStm.close();
+            con.close();
         } catch (SQLException e) {
             showError(e);
             JOptionPane.showMessageDialog(null, "Hata oluştu");
-        } finally {
-            pStm.close();
-            con.close();
         }
     }
 
     public void updateData(int id, Personel p) {
-        String query = "UPDATE personel SET  name   = ?, surname = ?, password = ?, mail = ?, salary = ?, tel = ?, gender= ?, starting_of_work =?,tc=?,experience_year=?, education_satus=?,about=? WHERE id ="+id;
-    
+        String query = "UPDATE info SET  name   = ?, surname = ?, password = ?, mail = ?, salary = ?, tel = ?, gender= ?, starting_of_work =?,tc=?,experience_year=?, education_status=?,about=? WHERE id ="
+                + id;
+
         try {
             con = DbHelper.getConnection();
             pStm = con.prepareStatement(query);
@@ -118,7 +154,5 @@ public class DbHelper {
             JOptionPane.showMessageDialog(null, "Hata oluştu");
         }
     }
-
-    
 
 }

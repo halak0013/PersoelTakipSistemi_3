@@ -2,7 +2,6 @@
 package pages;
 
 import java.sql.Date;
-import java.sql.SQLException;
 
 import constants.models.ListModels;
 import functions.PageP;
@@ -22,6 +21,10 @@ public class DataBank extends javax.swing.JFrame {
     private void imageP() {
         svg_search.scale();
         lb_perValue.setText("Yüzde " + sld_percent.getValue() + "% göster");
+    }
+
+    public void name() {
+    
     }
 
     @SuppressWarnings("unchecked")
@@ -114,7 +117,7 @@ public class DataBank extends javax.swing.JFrame {
         lb_gender.setText("Cinsiyet");
         getContentPane().add(lb_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
 
-        txf_salary.setText("textFeild1");
+        txf_salary.setText("2131223");
         getContentPane().add(txf_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 123, 35));
 
         lb_startToWork.setText("Başlama Tarihi");
@@ -129,7 +132,7 @@ public class DataBank extends javax.swing.JFrame {
         lb_experience.setText("Çalışma Tecrübesi");
         getContentPane().add(lb_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
 
-        txf_startToWork.setText("textFeild1");
+        txf_startToWork.setText("2020-03-29");
         getContentPane().add(txf_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 123, 35));
 
         lb_education.setText("Eğitim Durumu");
@@ -281,7 +284,8 @@ public class DataBank extends javax.swing.JFrame {
 
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
         // RegexC.textPatern(txf_name.getText());
-        RegexC.passwordPatern(txf_password.getText());
+        //RegexC.passwordPatern(txf_password.getText());
+        db.addData(objectPro());
     }// GEN-LAST:event_bt_addActionPerformed
 
     private void sld_percentStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_sld_percentStateChanged
@@ -306,15 +310,17 @@ public class DataBank extends javax.swing.JFrame {
     }// GEN-LAST:event_bt_updateActionPerformed
 
     public Personel objectPro() {
-        boolean gender = false;
+        String gender="";
         if (btr_male.isSelected()) {
-            gender = true;
+            gender = "Erkek";
+        }else{
+        gender="Kadın";
         }
-        return new Personel(Integer.parseInt(txf_id.getText()), txf_name.getText(),
+        return new Personel( txf_name.getText(),
                 txf_surname.getText(), txf_password.getText(), txf_mail.getText(),
                 Integer.parseInt(txf_salary.getText()), txf_phone.getText(),
                 gender, Date.valueOf(txf_startToWork.getText()), txf_tc.getText(),
-                (short) spn_experience.getValue(),
+                Integer.parseInt(spn_experience.getValue().toString()) ,
                 cmb_educaiton.getSelectedItem().toString(), txa_about.getText());
     }
 
