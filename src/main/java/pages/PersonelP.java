@@ -10,12 +10,12 @@ import functions.PageP;
  *
  * @author bismih
  */
-public class Personel extends javax.swing.JFrame {
+public class PersonelP extends javax.swing.JFrame {
 
     /**
      * Creates new form Personel
      */
-    public Personel() {
+    public PersonelP() {
         initComponents();
     }
 
@@ -51,7 +51,7 @@ public class Personel extends javax.swing.JFrame {
         PageP.theme();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Personel().setVisible(true);
+                new PersonelP().setVisible(true);
             }
         });
     }

@@ -89,7 +89,7 @@ public class DbHelper {
         }
     }
 
-    public void updateData(int id, Personel p) throws SQLException {
+    public void updateData(int id, Personel p) {
         String query = "UPDATE personel SET  name   = ?, surname = ?, password = ?, mail = ?, salary = ?, tel = ?, gender= ?, starting_of_work =?,tc=?,experience_year=?, education_satus=?,about=? WHERE id ="+id;
     
         try {
@@ -111,12 +111,11 @@ public class DbHelper {
             pStm.setString(13, p.getAbout());
             pStm.executeUpdate();
             JOptionPane.showMessageDialog(null, "Kayıt Başarılı bir şekilde güncellendi");
+            pStm.close();
+            con.close();
         } catch (SQLException e) {
             showError(e);
             JOptionPane.showMessageDialog(null, "Hata oluştu");
-        } finally {
-            pStm.close();
-            con.close();
         }
     }
 

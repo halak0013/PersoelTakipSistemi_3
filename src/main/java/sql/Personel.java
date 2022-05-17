@@ -1,7 +1,6 @@
 package sql;
 
 import java.sql.Date;
-import java.sql.SQLException;
 
 public class Personel {
     private int id;
