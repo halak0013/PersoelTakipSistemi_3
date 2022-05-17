@@ -3,6 +3,7 @@ package pages;
 
 import constants.models.ListModels;
 import functions.PageP;
+import regex.RegexC;
 
 public class DataBank extends javax.swing.JFrame {
 
@@ -58,6 +59,7 @@ public class DataBank extends javax.swing.JFrame {
         bt_update = new view.buttons.ButtonN();
         bt_sil = new view.buttons.ButtonN();
         bt_add = new view.buttons.ButtonN();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1040, 700));
@@ -189,7 +191,15 @@ public class DataBank extends javax.swing.JFrame {
         getContentPane().add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 100, 40));
 
         bt_add.setText("Ekle");
+        bt_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_addActionPerformed(evt);
+            }
+        });
         getContentPane().add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 100, 40));
+
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -197,6 +207,11 @@ public class DataBank extends javax.swing.JFrame {
     private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svg_searchMousePressed
         System.out.println("arıyor");
     }//GEN-LAST:event_svg_searchMousePressed
+
+    private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_addActionPerformed
+        //RegexC.textPatern(txf_name.getText());
+        RegexC.passwordPatern(txf_password.getText());
+    }//GEN-LAST:event_bt_addActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +233,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JRadioButton btr_male;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmb_educaiton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_about;

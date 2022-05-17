@@ -22,6 +22,7 @@ public class ButtonN extends JButton {
     private short radius = 25;
 
     public ButtonN() {
+        super();
         // !!!!!!!!!! bu çok önemli yoksa buton başta renksiz oluyor
         setBackground(colorMain);
         //? butonun eski görüntüsünü siliyor
