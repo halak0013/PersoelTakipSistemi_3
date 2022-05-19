@@ -483,6 +483,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="chk_id">
               <Properties>
+                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="&#x130;d"/>
               </Properties>
               <Constraints>

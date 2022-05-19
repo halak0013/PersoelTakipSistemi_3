@@ -6,8 +6,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
 import constants.models.ListModels;
 import functions.PageP;
+import regex.RegexC;
 import sql.DbHelper;
 import sql.Personel;
 
@@ -26,18 +29,10 @@ public class DataBank extends javax.swing.JFrame {
         svg_search.scale();
         lb_perValue.setText("Yüzde " + sld_percent.getValue() + "% göster");
         clearFields();
-        // clan_startToWork.setDate();
     }
 
-
-
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
+
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -245,6 +240,7 @@ public class DataBank extends javax.swing.JFrame {
         chkb_tc.setText("Kimlik No");
         jPanel2.add(chkb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
+        chk_id.setSelected(true);
         chk_id.setText("İd");
         jPanel2.add(chk_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
@@ -358,7 +354,6 @@ public class DataBank extends javax.swing.JFrame {
             }
         }
         System.out.println(sortItem);
-        
 
         if (btr_startSort.isSelected()) {
             model = "SELECT  * from info ORDER BY " + sortItem + " LIMIT " + percent;
@@ -374,11 +369,16 @@ public class DataBank extends javax.swing.JFrame {
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
         // RegexC.textPatern(txf_name.getText());
         // RegexC.passwordPatern(txf_password.getText());
-        db.addData(objectPro());
+        try {
+                db.addData(objectPro());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları tam doludurunuz", "hata", JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
         db.fillTable();
         clearFields();
     }// GEN-LAST:event_bt_addActionPerformed
-    
+
     // !yüzde değiştir
     private void sld_percentStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_sld_percentStateChanged
         lb_perValue.setText("Yüzde " + sld_percent.getValue() + "% göster");
@@ -389,11 +389,11 @@ public class DataBank extends javax.swing.JFrame {
         int id;
         if (tbl_dataa.getSelectedRow() > -1) {
             id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
-            int[] ids=tbl_dataa.getSelectedRows();
+            int[] ids = tbl_dataa.getSelectedRows();
             System.out.println(ids.length);
-            
+
             for (int i = 0; i < ids.length; i++) {
-                System.out.println(ids[i] +" silindi");
+                System.out.println(ids[i] + " silindi");
                 id = (int) tbl_dataa.getValueAt(ids[i], 0);
                 DbHelper.deleteData(id);
             }
@@ -401,18 +401,23 @@ public class DataBank extends javax.swing.JFrame {
         db.fillTable();
         clearFields();
     }// GEN-LAST:event_bt_silActionPerformed
-    
+
     // !güncelleme
     private void bt_updateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_updateActionPerformed
         int id;
         if (tbl_dataa.getSelectedRow() > -1) {
             id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
-            db.updateData(id, objectPro());
+            try {
+                db.updateData(id, objectPro());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları tam doludurunuz", "hata", JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
         }
         db.fillTable();
     }// GEN-LAST:event_bt_updateActionPerformed
 
-    private Personel objectPro() {
+    private Personel objectPro()throws Exception{
         String gender = "";
         if (btr_male.isSelected()) {
             gender = "Erkek";
@@ -430,24 +435,52 @@ public class DataBank extends javax.swing.JFrame {
     }
 
     private void clearFields() {
-    txa_about.setText("");
-    txf_mail.setText("");
-    txf_name.setText("");
-    txf_password.setText("");
-    txf_phone.setText("");
-    txf_salary.setText("");
-    txf_surname.setText("");
-    txf_tc.setText("");
-    txf_id.setText("");
-    try {
-        Date date = new SimpleDateFormat("yyyy-MM-dd").parse("2022-01-01");
-        clan_startToWork.setDate(date);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    spn_experience.setValue(0);
-    cmb_educaiton.setSelectedIndex(0);
+        txa_about.setText("");
+        txf_mail.setText("");
+        txf_name.setText("");
+        txf_password.setText("");
+        txf_phone.setText("");
+        txf_salary.setText("");
+        txf_surname.setText("");
+        txf_tc.setText("");
+        txf_id.setText("");
+        try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse("2022-01-01");
+            clan_startToWork.setDate(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        spn_experience.setValue(0);
+        cmb_educaiton.setSelectedIndex(0);
 
+    }
+
+    private boolean fieldController() {
+        if (!RegexC.textPatern(txf_name.getText(),"Lütfen adı doğru giriniz\n Ör: Ahmet")) {
+            return false;
+        }
+        if (!RegexC.textPatern(txf_surname.getText(),"Lütfen soyadı doğru giriniz\n Ör: Demir")) {
+            return false;
+        }
+        if (!RegexC.passwordPatern(txf_password.getText(),"Lütfen prolayı doğru giriniz\nen az 1 küçük harf\nen az 1 büyük harf\n en az 1 rakam \n en az 1 özel karakter \nolmak üzer en az 8 karakter \n Ör: dl12A*eai")) {
+            return false;
+        }
+        if (!RegexC.mailPatern(txf_mail.getText(),"Lütfen maili uygun giriniz\n Ör: ahmet@mail.com")) {
+            return false;
+        }
+        if (!RegexC.numberPatern(txf_salary.getText(),4,"Lütfen maaşı uygun giriniz\n Ör: 9999")) {
+            return false;
+        }
+        if (!RegexC.numberPatern(txf_tc.getText(),11,"Lütfen Kimlik numarasını uygun giriniz\n Ör: 12345678910")) {
+            return false;
+        }
+        if (!RegexC.phonePatern(txf_mail.getText(),"Lütfen teleofnu uygun giriniz\n Ör: 555 666 77 88 veya 5559994477 veya 555-666-77-88")) {
+            return false;
+        }
+        if(btr_fmale.isSelected() || btr_male.isSelected()){
+        return false;
+        }
+        return true;
     }
 
     /**
