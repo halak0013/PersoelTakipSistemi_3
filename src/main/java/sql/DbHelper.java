@@ -47,13 +47,14 @@ public class DbHelper {
         ListModels.tbl_table_model.setRowCount(0);
         String query = "SELECT * FROM info";
         int a=0;
+        Personel p = new Personel();
         try {
             con = DbHelper.getConnection();
             state = con.createStatement();
             rs = state.executeQuery(query);
 
             while (rs.next()) {
-                Personel p = new Personel();
+                
                 p.setId(rs.getInt("id"));
                 p.setName(rs.getString("name"));
                 p.setSurname(rs.getString("surname"));
@@ -70,7 +71,7 @@ public class DbHelper {
                 ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
                         p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
                         p.getTc(), p.getExperiencYear(), p.getEducationStatus(), p.getAbout() });
-            System.out.println(ListModels.tbl_table_model.getDataVector());
+            //System.out.println(ListModels.tbl_table_model.getDataVector());
             
                     }
             con.close();

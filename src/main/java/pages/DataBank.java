@@ -13,11 +13,13 @@ import sql.DbHelper;
 import sql.Personel;
 
 public class DataBank extends javax.swing.JFrame {
+
     DbHelper db = new DbHelper();
 
     public DataBank() {
         initComponents();
-        ListModels.tblModel(tbl_data);
+        ListModels.tblModel(tbl_dataa);
+
         db.fillTable();
         imageP();
     }
@@ -70,8 +72,6 @@ public class DataBank extends javax.swing.JFrame {
         btr_male = new javax.swing.JRadioButton();
         btr_fmale = new javax.swing.JRadioButton();
         cmb_educaiton = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_data = new javax.swing.JTable();
         svg_search = new view.image.SvgImage();
         txf_search = new view.TextField.TextFeild();
         bt_update = new view.buttons.ButtonN();
@@ -89,6 +89,8 @@ public class DataBank extends javax.swing.JFrame {
         chk_salary = new javax.swing.JCheckBox();
         spn_experience = new javax.swing.JSpinner();
         clan_startToWork = new com.toedter.calendar.JDateChooser();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbl_dataa = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
@@ -180,29 +182,6 @@ public class DataBank extends javax.swing.JFrame {
         cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
         getContentPane().add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
 
-        tbl_data.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tbl_data.setGridColor(new java.awt.Color(1, 1, 1));
-        tbl_data.setMinimumSize(new java.awt.Dimension(300, 100));
-        tbl_data.setPreferredSize(new java.awt.Dimension(300, 100));
-        tbl_data.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_dataMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tbl_data);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 1260, 320));
-
         svg_search.setImage("search");
         svg_search.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -284,23 +263,42 @@ public class DataBank extends javax.swing.JFrame {
         getContentPane().add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 110, -1));
         getContentPane().add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, -1));
 
+        tbl_dataa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tbl_dataaMousePressed(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbl_dataa);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1300, 300));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
-    // !tabloya basma
-    private void tbl_dataMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tbl_dataMouseClicked
+
+    private void tbl_dataaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_dataaMousePressed
         System.out.println("bastı");
-        int sR = tbl_data.getSelectedRow();
-        int id = Integer.parseInt(tbl_data.getValueAt(sR, 0).toString());
-        
+        int sR = tbl_dataa.getSelectedRow();
+        int id = Integer.parseInt(tbl_dataa.getValueAt(sR, 0).toString());
+
         Personel p = db.fillObject(id);
-        
+
         String[] model = ListModels.cmbEduList;
         String edu = p.getEducationStatus();
 
         try {
-            Date date=new SimpleDateFormat("yyyy-MM-dd").parse(p.getStartingOfWork());
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(p.getStartingOfWork());
             clan_startToWork.setDate(date);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -328,6 +326,48 @@ public class DataBank extends javax.swing.JFrame {
                 cmb_educaiton.setSelectedIndex(i);
             }
         }
+    }//GEN-LAST:event_tbl_dataaMousePressed
+
+    // !tabloya basma
+    private void tbl_dataMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tbl_dataMouseClicked
+        /* System.out.println("bastı");
+        int sR = tbl_data.getSelectedRow();
+        int id = Integer.parseInt(tbl_data.getValueAt(sR, 0).toString());
+
+        Personel p = db.fillObject(id);
+
+        String[] model = ListModels.cmbEduList;
+        String edu = p.getEducationStatus();
+
+        try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(p.getStartingOfWork());
+            clan_startToWork.setDate(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        txf_id.setText(p.getId() + "");
+        txf_name.setText(p.getName());
+        txf_surname.setText(p.getSurname());
+        txf_tc.setText(p.getTc());
+        txf_salary.setText(p.getSalary() + "");
+        txf_salary.setText(p.getSalary() + "");
+        txf_phone.setText(p.getTel());
+        txf_mail.setText(p.getMail());
+        txf_password.setText(p.getPassword());
+        if (p.getGender() == "Erkek") {
+            btr_male.setSelected(true);
+            btr_male.setSelected(false);
+        } else {
+            btr_male.setSelected(true);
+        }
+        spn_experience.setValue(p.getExperiencYear());
+
+        for (int i = 0; i < model.length; i++) {
+            System.out.println(ListModels.cmbEduList[i]);
+            if (edu.equals(ListModels.cmbEduList[i])) {
+                cmb_educaiton.setSelectedIndex(i);
+            } 
+        }*/
 
 
         /*
@@ -339,12 +379,12 @@ public class DataBank extends javax.swing.JFrame {
          * cmb_educaiton.getSelectedItem().toString(), txa_about.getText());
          */
     }// GEN-LAST:event_tbl_dataMouseClicked
-     // !ara
+    // !ara
 
     private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_svg_searchMousePressed
 
     }// GEN-LAST:event_svg_searchMousePressed
-     // !ekle
+    // !ekle
 
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
         // RegexC.textPatern(txf_name.getText());
@@ -352,7 +392,7 @@ public class DataBank extends javax.swing.JFrame {
         db.addData(objectPro());
         db.fillTable();
     }// GEN-LAST:event_bt_addActionPerformed
-     // !yüzde değiştir
+    // !yüzde değiştir
 
     private void sld_percentStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_sld_percentStateChanged
         lb_perValue.setText("Yüzde " + sld_percent.getValue() + "% göster");
@@ -361,17 +401,18 @@ public class DataBank extends javax.swing.JFrame {
     // !sil
     private void bt_silActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_silActionPerformed
         int id;
-        if (tbl_data.getSelectedRow() > -1) {
-            id = (int) tbl_data.getValueAt(tbl_data.getSelectedRow(), 0);
+        if (tbl_dataa.getSelectedRow() > -1) {
+            id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
             DbHelper.deleteData(id);
         }
         db.fillTable();
     }// GEN-LAST:event_bt_silActionPerformed
 //!güncelleme
+
     private void bt_updateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_updateActionPerformed
         int id;
-        if (tbl_data.getSelectedRow() > -1) {
-            id = (int) tbl_data.getValueAt(tbl_data.getSelectedRow(), 0);
+        if (tbl_dataa.getSelectedRow() > -1) {
+            id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
             db.updateData(id, objectPro());
         }
         db.fillTable();
@@ -424,8 +465,8 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmb_educaiton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lb_about;
     private javax.swing.JLabel lb_education;
     private javax.swing.JLabel lb_experience;
@@ -443,7 +484,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JSlider sld_percent;
     private javax.swing.JSpinner spn_experience;
     private view.image.SvgImage svg_search;
-    private javax.swing.JTable tbl_data;
+    private javax.swing.JTable tbl_dataa;
     private javax.swing.JTextArea txa_about;
     private view.TextField.TextFeild txf_id;
     private view.TextField.TextFeild txf_mail;
