@@ -7,9 +7,9 @@ import javax.swing.table.DefaultTableModel;
 import sql.Personel;
 
 public class ListModels {
+    public static String[] cmbEduList = { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" };
     public static DefaultComboBoxModel<String> educationStatus() {
-        String[] list = new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" };
-        final DefaultComboBoxModel<String> educationStatus = new DefaultComboBoxModel<String>(list);
+        final DefaultComboBoxModel<String> educationStatus = new DefaultComboBoxModel<String>(cmbEduList);
         return educationStatus;
     }
 

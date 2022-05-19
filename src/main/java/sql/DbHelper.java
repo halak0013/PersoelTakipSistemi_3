@@ -6,7 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.text.SimpleDateFormat;
+import java.sql.Date;
 import javax.swing.JOptionPane;
 
 import constants.models.ListModels;
@@ -19,8 +20,6 @@ public class DbHelper {
     static PreparedStatement pStm;
 
     public static Connection getConnection() throws SQLException {
-        Personel p1 = new Personel();
-
         return (Connection) DriverManager.getConnection(dbUrl);
     }
 
@@ -44,11 +43,10 @@ public class DbHelper {
         }
         return 1 + maxId;
     }
-
-    public void fillTable() {
+    public static void fillTable() {
         ListModels.tbl_table_model.setRowCount(0);
         String query = "SELECT * FROM info";
-
+        int a=0;
         try {
             con = DbHelper.getConnection();
             state = con.createStatement();
@@ -64,7 +62,7 @@ public class DbHelper {
                 p.setSalary(rs.getInt("salary"));
                 p.setTel(rs.getString("tel"));
                 p.setGender(rs.getString("gender"));
-                p.setStartingOfWork(rs.getDate("starting_of_work"));
+                p.setStartingOfWork(rs.getString("starting_of_work"));// !hatalı
                 p.setTc(rs.getString("tc"));
                 p.setExperiencYear(rs.getInt("experience_year"));
                 p.setEducaitonStatus(rs.getString("education_status"));
@@ -72,11 +70,47 @@ public class DbHelper {
                 ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
                         p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
                         p.getTc(), p.getExperiencYear(), p.getEducationStatus(), p.getAbout() });
+            System.out.println(ListModels.tbl_table_model.getDataVector());
+            
+                    }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+    }
+
+
+
+
+    public static Personel fillObject(int id) {
+        String query = "SELECT * FROM info WHERE id =" + id;
+        Personel p = new Personel();
+        try {
+            con = DbHelper.getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
+
+            while (rs.next()) {
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setSurname(rs.getString("surname"));
+                p.setPassword(rs.getString("password"));
+                p.setMail(rs.getString("mail"));
+                p.setSalary(rs.getInt("salary"));
+                p.setTel(rs.getString("tel"));
+                p.setGender(rs.getString("gender"));
+                p.setStartingOfWork(rs.getString("starting_of_work"));// !hatalı olabilir
+                p.setTc(rs.getString("tc"));
+                p.setExperiencYear(rs.getInt("experience_year"));
+                p.setEducaitonStatus(rs.getString("education_status"));
+                p.setAbout(rs.getString("about"));
             }
             con.close();
-        } catch (SQLException e) {
-            showError(e);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+        return p;
     }
 
     public static void deleteData(int id) {
@@ -85,7 +119,6 @@ public class DbHelper {
         try {
             con = DbHelper.getConnection();
             state = con.createStatement();
-            rs = state.executeQuery(query);
             state.executeUpdate(query);
             con.close();
         } catch (SQLException e) {
@@ -109,7 +142,7 @@ public class DbHelper {
             pStm.setInt(6, p.getSalary());
             pStm.setString(7, p.getTel());
             pStm.setString(8, p.getGender());
-            pStm.setDate(9, p.getStartingOfWork());
+            pStm.setString(9, p.getStartingOfWork());
             pStm.setString(10, p.getTc());
             pStm.setInt(11, p.getExperiencYear());
             pStm.setString(12, p.getEducationStatus());
@@ -132,19 +165,18 @@ public class DbHelper {
             con = DbHelper.getConnection();
             pStm = con.prepareStatement(query);
 
-            pStm.setInt(1, p.getId());
-            pStm.setString(2, p.getName());
-            pStm.setString(3, p.getSurname());
-            pStm.setString(4, p.getPassword());
-            pStm.setString(5, p.getMail());
-            pStm.setInt(6, p.getSalary());
-            pStm.setString(7, p.getTel());
-            pStm.setString(8, p.getGender());
-            pStm.setDate(9, p.getStartingOfWork());
-            pStm.setString(10, p.getTc());
-            pStm.setInt(11, p.getExperiencYear());
-            pStm.setString(12, p.getEducationStatus());
-            pStm.setString(13, p.getAbout());
+            pStm.setString(1, p.getName());
+            pStm.setString(2, p.getSurname());
+            pStm.setString(3, p.getPassword());
+            pStm.setString(4, p.getMail());
+            pStm.setInt(5, p.getSalary());
+            pStm.setString(6, p.getTel());
+            pStm.setString(7, p.getGender());
+            pStm.setString(8, p.getStartingOfWork());
+            pStm.setString(9, p.getTc());
+            pStm.setInt(10, p.getExperiencYear());
+            pStm.setString(11, p.getEducationStatus());
+            pStm.setString(12, p.getAbout());
             pStm.executeUpdate();
             JOptionPane.showMessageDialog(null, "Kayıt Başarılı bir şekilde güncellendi");
             pStm.close();
@@ -156,3 +188,65 @@ public class DbHelper {
     }
 
 }
+
+
+/* 
+public static void fillTable2() {
+        ListModels.tbl_table_model.setRowCount(0);
+        String query = "SELECT * FROM info";
+
+        try {
+            con = DbHelper.getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
+
+            while (rs.next()) {
+                Personel p = new Personel();
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setSurname(rs.getString("surname"));
+                p.setPassword(rs.getString("password"));
+                p.setMail(rs.getString("mail"));
+                p.setSalary(rs.getInt("salary"));
+                p.setTel(rs.getString("tel"));
+                p.setGender(rs.getString("gender"));
+                p.setStartingOfWork(rs.getString("starting_of_work"));// !hatalı
+                p.setTc(rs.getString("tc"));
+                p.setExperiencYear(rs.getInt("experience_year"));
+                p.setEducaitonStatus(rs.getString("education_status"));
+                p.setAbout(rs.getString("about"));
+                ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
+                        p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
+                        p.getTc(), p.getExperiencYear(), p.getEducationStatus(), p.getAbout() });
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+    }
+
+    public static void fillTable2() {
+        ListModels.tbl_table_model.setRowCount(0);
+        Personel p;
+        int count;
+        try {
+            con = DbHelper.getConnection();
+            state = con.createStatement();
+            String query = "SELECT count(*) as countRow FROM info";
+            rs = state.executeQuery(query);
+            count=rs.getInt("countRow");
+            System.out.println(count);
+            for (int i = 0; i < count; i++) {
+                p = fillObject(i);
+                ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
+                        p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
+                        p.getTc(), p.getExperiencYear(), p.getEducationStatus(), p.getAbout() });
+            }
+        } catch (SQLException e) {
+            showError(e);
+        }
+        
+    }
+
+*/

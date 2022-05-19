@@ -11,7 +11,7 @@ public class Personel {
     private int salary;
     private String tel;
     private String gender;
-    private Date startingOfWork;
+    private String startingOfWork;
     private String tc;
     private int experiencYear;
     private String educaitonStatus;
@@ -23,7 +23,7 @@ public class Personel {
     
     
     public Personel(int id, String name, String surname, String password, 
-    String mail, int salary, String tel, String gender, Date startingOfWork, 
+    String mail, int salary, String tel, String gender, String startingOfWork, 
     String tc, int experiencYear, String educaitonStatus, String about) {
         this.id = id;
         this.name = name;
@@ -41,7 +41,7 @@ public class Personel {
     }
 
     public Personel(String name, String surname, String password, 
-    String mail, int salary, String tel, String gender, Date startingOfWork, 
+    String mail, int salary, String tel, String gender, String startingOfWork, 
     String tc, int experiencYear, String educaitonStatus, String about) {
         this.name = name;
         this.surname = surname;
@@ -172,16 +172,16 @@ public class Personel {
     }
 
     /**
-     * @return Date return the startingOfWork
+     * @return String return the startingOfWork
      */
-    public Date getStartingOfWork() {
+    public String getStartingOfWork() {
         return startingOfWork;
     }
 
     /**
      * @param startingOfWork the startingOfWork to set
      */
-    public void setStartingOfWork(Date startingOfWork) {
+    public void setStartingOfWork(String startingOfWork) {
         this.startingOfWork = startingOfWork;
     }
 
