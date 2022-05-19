@@ -34,11 +34,14 @@ public class DataBank extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
 
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         StrtEnd = new javax.swing.ButtonGroup();
+        search = new javax.swing.ButtonGroup();
         lb_name = new javax.swing.JLabel();
         txf_surname = new view.TextField.TextFeild();
         lb_surname = new javax.swing.JLabel();
@@ -84,6 +87,16 @@ public class DataBank extends javax.swing.JFrame {
         clan_startToWork = new com.toedter.calendar.JDateChooser();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_dataa = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        btr_tcS = new javax.swing.JCheckBox();
+        btr_nameS = new javax.swing.JCheckBox();
+        btr_surnameS = new javax.swing.JCheckBox();
+        btr_strartWorkS = new javax.swing.JCheckBox();
+        btr_mailS = new javax.swing.JCheckBox();
+        btr_password = new javax.swing.JCheckBox();
+        btr_include = new javax.swing.JRadioButton();
+        btr_startS = new javax.swing.JRadioButton();
+        btr_endS = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
@@ -159,6 +172,7 @@ public class DataBank extends javax.swing.JFrame {
         getContentPane().add(txf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 123, 35));
 
         txf_id.setText("textFeild1");
+        txf_id.setEnabled(false);
         getContentPane().add(txf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 123, 35));
 
         lb_id.setText("İd");
@@ -192,7 +206,7 @@ public class DataBank extends javax.swing.JFrame {
                 bt_updateActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 330, 100, 40));
+        getContentPane().add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 100, 40));
 
         bt_sil.setText("Sil");
         bt_sil.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +214,7 @@ public class DataBank extends javax.swing.JFrame {
                 bt_silActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 330, 100, 40));
+        getContentPane().add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 100, 40));
 
         bt_add.setText("Ekle");
         bt_add.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +222,7 @@ public class DataBank extends javax.swing.JFrame {
                 bt_addActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 330, 100, 40));
+        getContentPane().add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 100, 40));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtreler"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -278,6 +292,42 @@ public class DataBank extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1300, 300));
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("arama filtreleri"));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btr_tcS.setText("Kimlik Numarası");
+        jPanel3.add(btr_tcS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
+
+        btr_nameS.setText("İsim");
+        jPanel3.add(btr_nameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        btr_surnameS.setText("Soyisim");
+        jPanel3.add(btr_surnameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+
+        btr_strartWorkS.setText("Başlama tarihi");
+        jPanel3.add(btr_strartWorkS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+
+        btr_mailS.setText("Mail");
+        jPanel3.add(btr_mailS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        btr_password.setText("Parola");
+        jPanel3.add(btr_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+
+        search.add(btr_include);
+        btr_include.setSelected(true);
+        btr_include.setText("içeren");
+        jPanel3.add(btr_include, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        search.add(btr_startS);
+        btr_startS.setText("baştan");
+        jPanel3.add(btr_startS, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        search.add(btr_endS);
+        btr_endS.setText("sondan");
+        jPanel3.add(btr_endS, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 340, 120));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -329,13 +379,27 @@ public class DataBank extends javax.swing.JFrame {
     private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_svg_searchMousePressed
         String search = txf_search.getText();
         String model = "";
-        ArrayList<String> sortList = new ArrayList<>();
         String sortItem = "";
+        String catagory = "";
+        String start="";
+        String end="";
         int percent = (int) ((sld_percent.getValue() / 100.0) * db.getSqlRowCount());
-        System.out.println(percent);
+
+        ArrayList<String> sortList = new ArrayList<>();
+        ArrayList<String> catagoryList = new ArrayList<>();
+
+        if(btr_startS.isSelected()){
+            start="%";
+        }else if(btr_endS.isSelected()){
+            end="%";
+        }else{
+            start="%";
+            end="%";
+        }
+
 
         if (chk_id.isSelected()) {
-            sortList.add(" id");
+            sortList.add("id");
         }
         if (chk_name.isSelected()) {
             sortList.add("name");
@@ -353,30 +417,76 @@ public class DataBank extends javax.swing.JFrame {
                 sortItem += " , ";
             }
         }
+        if (sortItem.isBlank()) {
+            System.out.println("boş");
+            sortItem = "id";
+        }
+
         System.out.println(sortItem);
 
-        if (btr_startSort.isSelected()) {
-            model = "SELECT  * from info ORDER BY " + sortItem + " LIMIT " + percent;
-            System.out.println("sql");
-
-        } else {
-            model = "SELECT  * from info ORDER BY " + sortItem + " desc LIMIT " + percent;
+        if (btr_nameS.isSelected()) {
+            catagoryList.add("name");
         }
-        db.searchData(model);
+        if (btr_tcS.isSelected()) {
+            catagoryList.add("tc");
+        }
+        if (btr_surnameS.isSelected()) {
+            catagoryList.add("surname");
+        }
+        if (btr_strartWorkS.isSelected()) {
+            catagoryList.add("startingOfWork");
+        }
+        if (btr_mailS.isSelected()) {
+            catagoryList.add("mail");
+        }
+        if (btr_password.isSelected()) {
+            catagoryList.add("password");
+        }
+
+        for (int i = 0; i < catagoryList.size(); i++) {
+            catagory += catagoryList.get(i) + " like '"+end+"" + search + ""+start+"'";
+
+            if (i != catagoryList.size() - 1) {
+                catagory += " or ";
+
+            }
+        }
+System.out.println("sort item"+sortItem);
+
+        if(!catagory.isBlank()){
+            if (btr_startSort.isSelected()) {
+                System.out.println("katogoriler" + catagory);
+    
+                model = "SELECT  * from info where " + catagory + " ORDER BY " + sortItem + " LIMIT "
+                        + percent;
+                System.out.println(model);
+    
+                System.out.println("sql");
+    
+            } else {
+                model = "SELECT  * from info where " + catagory + " ORDER BY " + sortItem + " desc LIMIT "
+                        + percent;
+            }
+            db.searchData(model);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Lütfen alanları arama filtresini seçiniz", "hata",
+                        JOptionPane.ERROR_MESSAGE);
+        }
     }// GEN-LAST:event_svg_searchMousePressed
      // !ekle
 
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
-        // RegexC.textPatern(txf_name.getText());
-        // RegexC.passwordPatern(txf_password.getText());
-        try {
+        if (fieldController()) {
+            try {
                 db.addData(objectPro());
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları tam doludurunuz", "hata", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları tam doludurunuz", "hata",
+                        JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
             }
-        db.fillTable();
-        clearFields();
+            db.fillTable();
+            clearFields();
+        }
     }// GEN-LAST:event_bt_addActionPerformed
 
     // !yüzde değiştir
@@ -405,19 +515,23 @@ public class DataBank extends javax.swing.JFrame {
     // !güncelleme
     private void bt_updateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_updateActionPerformed
         int id;
-        if (tbl_dataa.getSelectedRow() > -1) {
+        if (tbl_dataa.getSelectedRow() > -1 && fieldController()) {
             id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
             try {
+                System.out.println("ekleme alanı");
+                
                 db.updateData(id, objectPro());
+                db.fillTable();
+                clearFields();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları tam doludurunuz", "hata", JOptionPane.ERROR_MESSAGE);
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
-        db.fillTable();
+
     }// GEN-LAST:event_bt_updateActionPerformed
 
-    private Personel objectPro()throws Exception{
+    private Personel objectPro() throws Exception {
         String gender = "";
         if (btr_male.isSelected()) {
             gender = "Erkek";
@@ -456,30 +570,36 @@ public class DataBank extends javax.swing.JFrame {
     }
 
     private boolean fieldController() {
-        if (!RegexC.textPatern(txf_name.getText(),"Lütfen adı doğru giriniz\n Ör: Ahmet")) {
+        if (!RegexC.textPatern(txf_name.getText(), "Lütfen adı doğru giriniz\n Ör: Ahmet")) {
             return false;
         }
-        if (!RegexC.textPatern(txf_surname.getText(),"Lütfen soyadı doğru giriniz\n Ör: Demir")) {
+        if (!RegexC.textPatern(txf_surname.getText(), "Lütfen soyadı doğru giriniz\n Ör: Demir")) {
             return false;
         }
-        if (!RegexC.passwordPatern(txf_password.getText(),"Lütfen prolayı doğru giriniz\nen az 1 küçük harf\nen az 1 büyük harf\n en az 1 rakam \n en az 1 özel karakter \nolmak üzer en az 8 karakter \n Ör: dl12A*eai")) {
+        if (!RegexC.passwordPatern(txf_password.getText(),
+                "Lütfen prolayı doğru giriniz\nen az 1 küçük harf\nen az 1 büyük harf\n en az 1 rakam \n en az 1 özel karakter \nolmak üzer en az 8 karakter \n Ör: dl12A*eai")) {
             return false;
         }
-        if (!RegexC.mailPatern(txf_mail.getText(),"Lütfen maili uygun giriniz\n Ör: ahmet@mail.com")) {
+        if (!RegexC.mailPatern(txf_mail.getText(), "Lütfen maili uygun giriniz\n Ör: ahmet@mail.com")) {
             return false;
         }
-        if (!RegexC.numberPatern(txf_salary.getText(),4,"Lütfen maaşı uygun giriniz\n Ör: 9999")) {
+        if (!RegexC.numberPatern(txf_salary.getText(), 4, "Lütfen maaşı uygun giriniz\n Ör: 9999")) {
             return false;
         }
-        if (!RegexC.numberPatern(txf_tc.getText(),11,"Lütfen Kimlik numarasını uygun giriniz\n Ör: 12345678910")) {
+        if (!RegexC.numberPatern(txf_tc.getText(), 11, "Lütfen Kimlik numarasını uygun giriniz\n Ör: 12345678910")) {
             return false;
         }
-        if (!RegexC.phonePatern(txf_mail.getText(),"Lütfen teleofnu uygun giriniz\n Ör: 555 666 77 88 veya 5559994477 veya 555-666-77-88")) {
+        if (!RegexC.phonePatern(txf_phone.getText(),
+                "Lütfen teleofnu uygun giriniz\n Ör: 555 666 77 88 veya 5559994477 veya 555-666-77-88")) {
             return false;
         }
-        if(btr_fmale.isSelected() || btr_male.isSelected()){
-        return false;
+        if (!btr_fmale.isSelected() && !btr_male.isSelected()) {
+System.out.println("hatalı");
+
+            return false;
         }
+        System.out.println("başarılı");
+        
         return true;
     }
 
@@ -500,10 +620,19 @@ public class DataBank extends javax.swing.JFrame {
     private view.buttons.ButtonN bt_add;
     private view.buttons.ButtonN bt_sil;
     private view.buttons.ButtonN bt_update;
+    private javax.swing.JRadioButton btr_endS;
     private javax.swing.JRadioButton btr_endSort;
     private javax.swing.JRadioButton btr_fmale;
+    private javax.swing.JRadioButton btr_include;
+    private javax.swing.JCheckBox btr_mailS;
     private javax.swing.JRadioButton btr_male;
+    private javax.swing.JCheckBox btr_nameS;
+    private javax.swing.JCheckBox btr_password;
+    private javax.swing.JRadioButton btr_startS;
     private javax.swing.JRadioButton btr_startSort;
+    private javax.swing.JCheckBox btr_strartWorkS;
+    private javax.swing.JCheckBox btr_surnameS;
+    private javax.swing.JCheckBox btr_tcS;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox chk_id;
     private javax.swing.JCheckBox chk_name;
@@ -513,6 +642,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmb_educaiton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lb_about;
@@ -529,6 +659,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JLabel lb_startToWork;
     private javax.swing.JLabel lb_surname;
     private javax.swing.JLabel lb_tc;
+    private javax.swing.ButtonGroup search;
     private javax.swing.JSlider sld_percent;
     private javax.swing.JSpinner spn_experience;
     private view.image.SvgImage svg_search;
