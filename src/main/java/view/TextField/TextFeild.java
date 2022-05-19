@@ -22,7 +22,7 @@ public class TextFeild extends JTextField {
         setBackground(new Color(0, 0, 0, 0));
         setForeground(Constantas.txColor());
         textT=getText();
-        System.out.println(textT+"ie");
+        //System.out.println(textT+"ie");
         
 
 cursoOn();

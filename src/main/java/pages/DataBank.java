@@ -321,68 +321,39 @@ public class DataBank extends javax.swing.JFrame {
         spn_experience.setValue(p.getExperiencYear());
 
         for (int i = 0; i < model.length; i++) {
-            System.out.println(ListModels.cmbEduList[i]);
+            //System.out.println(ListModels.cmbEduList[i]);
             if (edu.equals(ListModels.cmbEduList[i])) {
                 cmb_educaiton.setSelectedIndex(i);
             }
         }
     }//GEN-LAST:event_tbl_dataaMousePressed
 
-    // !tabloya basma
-    private void tbl_dataMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tbl_dataMouseClicked
-        /* System.out.println("bastı");
-        int sR = tbl_data.getSelectedRow();
-        int id = Integer.parseInt(tbl_data.getValueAt(sR, 0).toString());
-
-        Personel p = db.fillObject(id);
-
-        String[] model = ListModels.cmbEduList;
-        String edu = p.getEducationStatus();
-
-        try {
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(p.getStartingOfWork());
-            clan_startToWork.setDate(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        txf_id.setText(p.getId() + "");
-        txf_name.setText(p.getName());
-        txf_surname.setText(p.getSurname());
-        txf_tc.setText(p.getTc());
-        txf_salary.setText(p.getSalary() + "");
-        txf_salary.setText(p.getSalary() + "");
-        txf_phone.setText(p.getTel());
-        txf_mail.setText(p.getMail());
-        txf_password.setText(p.getPassword());
-        if (p.getGender() == "Erkek") {
-            btr_male.setSelected(true);
-            btr_male.setSelected(false);
-        } else {
-            btr_male.setSelected(true);
-        }
-        spn_experience.setValue(p.getExperiencYear());
-
-        for (int i = 0; i < model.length; i++) {
-            System.out.println(ListModels.cmbEduList[i]);
-            if (edu.equals(ListModels.cmbEduList[i])) {
-                cmb_educaiton.setSelectedIndex(i);
-            } 
-        }*/
-
-
-        /*
-         * txf_name.getText(),
-         * txf_surname.getText(), txf_password.getText(), txf_mail.getText(),
-         * Integer.parseInt(txf_salary.getText()), txf_phone.getText(),
-         * gender, date, txf_tc.getText(),
-         * Integer.parseInt(spn_experience.getValue().toString()) ,
-         * cmb_educaiton.getSelectedItem().toString(), txa_about.getText());
-         */
-    }// GEN-LAST:event_tbl_dataMouseClicked
     // !ara
 
     private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_svg_searchMousePressed
-
+        String search = txf_search.getText();
+        String model="";
+        String sortItem="";
+        if(chk_id.isSelected()){
+            sortItem+=" id,";
+        } 
+        if(chk_name.isSelected()){
+            sortItem+=" name,";
+        } 
+        if(chk_salary.isSelected()){
+            sortItem+=" salary,";
+        }
+        if(chkb_tc.isSelected()){
+            sortItem+="tc,";
+        }
+        
+        
+        
+        if(btr_startSort.isSelected()){
+            model="SELECT top "+sld_percent.getValue()+" PERCENT * from info";
+        }else{
+            model="SELECT top "+sld_percent.getValue()+" PERCENT * from info";
+        }
     }// GEN-LAST:event_svg_searchMousePressed
     // !ekle
 

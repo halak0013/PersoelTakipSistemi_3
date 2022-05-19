@@ -46,7 +46,42 @@ public class DbHelper {
     public static void fillTable() {
         ListModels.tbl_table_model.setRowCount(0);
         String query = "SELECT * FROM info";
-        int a=0;
+        Personel p = new Personel();
+        try {
+            con = DbHelper.getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
+
+            while (rs.next()) {
+                
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setSurname(rs.getString("surname"));
+                p.setPassword(rs.getString("password"));
+                p.setMail(rs.getString("mail"));
+                p.setSalary(rs.getInt("salary"));
+                p.setTel(rs.getString("tel"));
+                p.setGender(rs.getString("gender"));
+                p.setStartingOfWork(rs.getString("starting_of_work"));// !hatalı
+                p.setTc(rs.getString("tc"));
+                p.setExperiencYear(rs.getInt("experience_year"));
+                p.setEducaitonStatus(rs.getString("education_status"));
+                p.setAbout(rs.getString("about"));
+                ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
+                        p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
+                        p.getTc(), p.getExperiencYear(), p.getEducationStatus(), p.getAbout() });
+            //System.out.println(ListModels.tbl_table_model.getDataVector());
+            
+                    }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+    }
+    public static void searchData(String search) {
+        ListModels.tbl_table_model.setRowCount(0);
+        String query = search;
         Personel p = new Personel();
         try {
             con = DbHelper.getConnection();
