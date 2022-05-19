@@ -27,7 +27,22 @@ public class DbHelper {
         System.out.println("Error code " + e.getErrorCode());
         System.out.println("Error message " + e.getMessage());
     }
-
+    public static double getSqlRowCount() {
+        double count=0;
+        try {
+            con = DbHelper.getConnection();
+            state = con.createStatement();
+            String query = "SELECT count(*) as countRow FROM info";
+            rs = state.executeQuery(query);
+            count=rs.getInt("countRow");
+            System.out.println(count);
+            con.close();
+        } catch (SQLException e) {
+            showError(e);
+        }
+        return count;
+        
+    }
     public static int getMaxId() {
         String query = "SELECT MAX(id) as mId FROM info";
         int maxId = 0;
@@ -262,27 +277,6 @@ public static void fillTable2() {
         }
     }
 
-    public static void fillTable2() {
-        ListModels.tbl_table_model.setRowCount(0);
-        Personel p;
-        int count;
-        try {
-            con = DbHelper.getConnection();
-            state = con.createStatement();
-            String query = "SELECT count(*) as countRow FROM info";
-            rs = state.executeQuery(query);
-            count=rs.getInt("countRow");
-            System.out.println(count);
-            for (int i = 0; i < count; i++) {
-                p = fillObject(i);
-                ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
-                        p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
-                        p.getTc(), p.getExperiencYear(), p.getEducationStatus(), p.getAbout() });
-            }
-        } catch (SQLException e) {
-            showError(e);
-        }
-        
-    }
+
 
 */

@@ -2,13 +2,12 @@
 package pages;
 
 import java.text.ParseException;
-//import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import constants.models.ListModels;
 import functions.PageP;
-import regex.RegexC;
 import sql.DbHelper;
 import sql.Personel;
 
@@ -19,7 +18,6 @@ public class DataBank extends javax.swing.JFrame {
     public DataBank() {
         initComponents();
         ListModels.tblModel(tbl_dataa);
-
         db.fillTable();
         imageP();
     }
@@ -27,14 +25,14 @@ public class DataBank extends javax.swing.JFrame {
     private void imageP() {
         svg_search.scale();
         lb_perValue.setText("Yüzde " + sld_percent.getValue() + "% göster");
+        clearFields();
         // clan_startToWork.setDate();
     }
 
-    public void name() {
 
-    }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
@@ -221,6 +219,7 @@ public class DataBank extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         StrtEnd.add(btr_startSort);
+        btr_startSort.setSelected(true);
         btr_startSort.setText("Baştan");
         jPanel1.add(btr_startSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 17, -1, -1));
 
@@ -287,7 +286,7 @@ public class DataBank extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbl_dataaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_dataaMousePressed
+    private void tbl_dataaMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tbl_dataaMousePressed
         System.out.println("bastı");
         int sR = tbl_dataa.getSelectedRow();
         int id = Integer.parseInt(tbl_dataa.getValueAt(sR, 0).toString());
@@ -312,6 +311,7 @@ public class DataBank extends javax.swing.JFrame {
         txf_phone.setText(p.getTel());
         txf_mail.setText(p.getMail());
         txf_password.setText(p.getPassword());
+        txa_about.setText(p.getAbout());
         if (p.getGender() == "Erkek") {
             btr_male.setSelected(true);
             btr_male.setSelected(false);
@@ -321,50 +321,65 @@ public class DataBank extends javax.swing.JFrame {
         spn_experience.setValue(p.getExperiencYear());
 
         for (int i = 0; i < model.length; i++) {
-            //System.out.println(ListModels.cmbEduList[i]);
+            // System.out.println(ListModels.cmbEduList[i]);
             if (edu.equals(ListModels.cmbEduList[i])) {
                 cmb_educaiton.setSelectedIndex(i);
             }
         }
-    }//GEN-LAST:event_tbl_dataaMousePressed
+    }// GEN-LAST:event_tbl_dataaMousePressed
 
     // !ara
 
     private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_svg_searchMousePressed
         String search = txf_search.getText();
-        String model="";
-        String sortItem="";
-        if(chk_id.isSelected()){
-            sortItem+=" id,";
-        } 
-        if(chk_name.isSelected()){
-            sortItem+=" name,";
-        } 
-        if(chk_salary.isSelected()){
-            sortItem+=" salary,";
+        String model = "";
+        ArrayList<String> sortList = new ArrayList<>();
+        String sortItem = "";
+        int percent = (int) ((sld_percent.getValue() / 100.0) * db.getSqlRowCount());
+        System.out.println(percent);
+
+        if (chk_id.isSelected()) {
+            sortList.add(" id");
         }
-        if(chkb_tc.isSelected()){
-            sortItem+="tc,";
+        if (chk_name.isSelected()) {
+            sortList.add("name");
         }
-        
-        
-        
-        if(btr_startSort.isSelected()){
-            model="SELECT top "+sld_percent.getValue()+" PERCENT * from info";
-        }else{
-            model="SELECT top "+sld_percent.getValue()+" PERCENT * from info";
+        if (chk_salary.isSelected()) {
+            sortList.add("salary");
         }
+        if (chkb_tc.isSelected()) {
+            sortList.add("tc");
+        }
+
+        for (int i = 0; i < sortList.size(); i++) {
+            sortItem += sortList.get(i);
+            if (i != sortList.size() - 1) {
+                sortItem += " , ";
+            }
+        }
+        System.out.println(sortItem);
+        
+
+        if (btr_startSort.isSelected()) {
+            model = "SELECT  * from info ORDER BY " + sortItem + " LIMIT " + percent;
+            System.out.println("sql");
+
+        } else {
+            model = "SELECT  * from info ORDER BY " + sortItem + " desc LIMIT " + percent;
+        }
+        db.searchData(model);
     }// GEN-LAST:event_svg_searchMousePressed
-    // !ekle
+     // !ekle
 
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
         // RegexC.textPatern(txf_name.getText());
         // RegexC.passwordPatern(txf_password.getText());
         db.addData(objectPro());
         db.fillTable();
+        clearFields();
     }// GEN-LAST:event_bt_addActionPerformed
+    
     // !yüzde değiştir
-
     private void sld_percentStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_sld_percentStateChanged
         lb_perValue.setText("Yüzde " + sld_percent.getValue() + "% göster");
     }// GEN-LAST:event_sld_percentStateChanged
@@ -374,12 +389,20 @@ public class DataBank extends javax.swing.JFrame {
         int id;
         if (tbl_dataa.getSelectedRow() > -1) {
             id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
-            DbHelper.deleteData(id);
+            int[] ids=tbl_dataa.getSelectedRows();
+            System.out.println(ids.length);
+            
+            for (int i = 0; i < ids.length; i++) {
+                System.out.println(ids[i] +" silindi");
+                id = (int) tbl_dataa.getValueAt(ids[i], 0);
+                DbHelper.deleteData(id);
+            }
         }
         db.fillTable();
+        clearFields();
     }// GEN-LAST:event_bt_silActionPerformed
-//!güncelleme
-
+    
+    // !güncelleme
     private void bt_updateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_updateActionPerformed
         int id;
         if (tbl_dataa.getSelectedRow() > -1) {
@@ -389,7 +412,7 @@ public class DataBank extends javax.swing.JFrame {
         db.fillTable();
     }// GEN-LAST:event_bt_updateActionPerformed
 
-    public Personel objectPro() {
+    private Personel objectPro() {
         String gender = "";
         if (btr_male.isSelected()) {
             gender = "Erkek";
@@ -404,6 +427,27 @@ public class DataBank extends javax.swing.JFrame {
                 gender, date, txf_tc.getText(),
                 Integer.parseInt(spn_experience.getValue().toString()),
                 cmb_educaiton.getSelectedItem().toString(), txa_about.getText());
+    }
+
+    private void clearFields() {
+    txa_about.setText("");
+    txf_mail.setText("");
+    txf_name.setText("");
+    txf_password.setText("");
+    txf_phone.setText("");
+    txf_salary.setText("");
+    txf_surname.setText("");
+    txf_tc.setText("");
+    txf_id.setText("");
+    try {
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse("2022-01-01");
+        clan_startToWork.setDate(date);
+    } catch (ParseException e) {
+        e.printStackTrace();
+    }
+    spn_experience.setValue(0);
+    cmb_educaiton.setSelectedIndex(0);
+
     }
 
     /**
