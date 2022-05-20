@@ -77,7 +77,7 @@ public class DbHelper {
                 p.setSalary(rs.getInt("salary"));
                 p.setTel(rs.getString("tel"));
                 p.setGender(rs.getString("gender"));
-                p.setStartingOfWork(rs.getString("starting_of_work"));// !hatalı
+                p.setStartingOfWork(rs.getString("starting_of_work"));
                 p.setTc(rs.getString("tc"));
                 p.setExperiencYear(rs.getInt("experience_year"));
                 p.setEducaitonStatus(rs.getString("education_status"));
@@ -113,7 +113,7 @@ public class DbHelper {
                 p.setSalary(rs.getInt("salary"));
                 p.setTel(rs.getString("tel"));
                 p.setGender(rs.getString("gender"));
-                p.setStartingOfWork(rs.getString("starting_of_work"));// !hatalı
+                p.setStartingOfWork(rs.getString("starting_of_work"));
                 p.setTc(rs.getString("tc"));
                 p.setExperiencYear(rs.getInt("experience_year"));
                 p.setEducaitonStatus(rs.getString("education_status"));
@@ -151,7 +151,7 @@ public class DbHelper {
                 p.setSalary(rs.getInt("salary"));
                 p.setTel(rs.getString("tel"));
                 p.setGender(rs.getString("gender"));
-                p.setStartingOfWork(rs.getString("starting_of_work"));// !hatalı olabilir
+                p.setStartingOfWork(rs.getString("starting_of_work"));
                 p.setTc(rs.getString("tc"));
                 p.setExperiencYear(rs.getInt("experience_year"));
                 p.setEducaitonStatus(rs.getString("education_status"));

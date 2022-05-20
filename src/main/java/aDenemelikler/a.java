@@ -6,6 +6,8 @@ package aDenemelikler;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
 
+import langs.LangM;
+import langs.tr_Tr;
 import regex.RegexC;
 
 
@@ -22,6 +24,8 @@ public class a extends javax.swing.JFrame {
         initComponents();
         imageScaling();
         revalidate();
+        tr_Tr.name();
+        tx.setText(LangM.name);
     }
     
     private void imageScaling(){

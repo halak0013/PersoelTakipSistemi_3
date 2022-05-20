@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import constants.models.ListModels;
 import functions.PageP;
+import langs.LangM;
 import regex.RegexC;
 import sql.DbHelper;
 import sql.Personel;
@@ -570,7 +571,7 @@ System.out.println("sort item"+sortItem);
     }
 
     private boolean fieldController() {
-        if (!RegexC.textPatern(txf_name.getText(), "Lütfen adı doğru giriniz\n Ör: Ahmet")) {
+        if (!RegexC.textPatern(txf_name.getText(), LangM.correctName)) {
             return false;
         }
         if (!RegexC.textPatern(txf_surname.getText(), "Lütfen soyadı doğru giriniz\n Ör: Demir")) {
