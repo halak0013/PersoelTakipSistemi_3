@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
+import javax.swing.border.TitledBorder;
 
 import constants.models.ListModels;
 import functions.PageP;
 import langs.LangM;
+import langs.tr_Tr;
 import regex.RegexC;
 import sql.DbHelper;
 import sql.Personel;
@@ -20,24 +22,24 @@ public class DataBank extends javax.swing.JFrame {
     DbHelper db = new DbHelper();
 
     public DataBank() {
+        tr_Tr.name();
         initComponents();
         ListModels.tblModel(tbl_dataa);
         db.fillTable();
         imageP();
+        LanPro();
     }
 
     private void imageP() {
         svg_search.scale();
-        lb_perValue.setText("Yüzde " + sld_percent.getValue() + "% göster");
+        lb_perValue.setText(LangM.percent + sld_percent.getValue() + "% " + LangM.show);
         clearFields();
     }
 
     @SuppressWarnings("unchecked")
 
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -74,12 +76,12 @@ public class DataBank extends javax.swing.JFrame {
         bt_update = new view.buttons.ButtonN();
         bt_sil = new view.buttons.ButtonN();
         bt_add = new view.buttons.ButtonN();
-        jPanel1 = new javax.swing.JPanel();
+        pnl_filters = new javax.swing.JPanel();
         btr_startSort = new javax.swing.JRadioButton();
         btr_endSort = new javax.swing.JRadioButton();
         sld_percent = new javax.swing.JSlider();
         lb_perValue = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        pnl_sort = new javax.swing.JPanel();
         chkb_tc = new javax.swing.JCheckBox();
         chk_id = new javax.swing.JCheckBox();
         chk_name = new javax.swing.JCheckBox();
@@ -88,13 +90,13 @@ public class DataBank extends javax.swing.JFrame {
         clan_startToWork = new com.toedter.calendar.JDateChooser();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_dataa = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        btr_tcS = new javax.swing.JCheckBox();
-        btr_nameS = new javax.swing.JCheckBox();
-        btr_surnameS = new javax.swing.JCheckBox();
-        btr_strartWorkS = new javax.swing.JCheckBox();
-        btr_mailS = new javax.swing.JCheckBox();
-        btr_password = new javax.swing.JCheckBox();
+        pnl_searcFilter = new javax.swing.JPanel();
+        chk_tcS = new javax.swing.JCheckBox();
+        chk_nameS = new javax.swing.JCheckBox();
+        chk_surnameS = new javax.swing.JCheckBox();
+        chk_strartWorkS = new javax.swing.JCheckBox();
+        chk_mailS = new javax.swing.JCheckBox();
+        chk_passwordS = new javax.swing.JCheckBox();
         btr_include = new javax.swing.JRadioButton();
         btr_startS = new javax.swing.JRadioButton();
         btr_endS = new javax.swing.JRadioButton();
@@ -155,7 +157,8 @@ public class DataBank extends javax.swing.JFrame {
         txa_about.setColumns(20);
         txa_about.setLineWrap(true);
         txa_about.setRows(5);
-        txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
+        txa_about.setText(
+                "lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
         jScrollPane2.setViewportView(txa_about);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 530, 210));
@@ -187,7 +190,8 @@ public class DataBank extends javax.swing.JFrame {
         btr_fmale.setText("Kadın");
         getContentPane().add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, -1));
 
-        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
+        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(
+                new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
         getContentPane().add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
 
         svg_search.setImage("search");
@@ -225,17 +229,17 @@ public class DataBank extends javax.swing.JFrame {
         });
         getContentPane().add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 100, 40));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtreler"));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnl_filters.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtreler"));
+        pnl_filters.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         StrtEnd.add(btr_startSort);
         btr_startSort.setSelected(true);
         btr_startSort.setText("Baştan");
-        jPanel1.add(btr_startSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 17, -1, -1));
+        pnl_filters.add(btr_startSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 17, -1, -1));
 
         StrtEnd.add(btr_endSort);
         btr_endSort.setText("Sondan");
-        jPanel1.add(btr_endSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 17, -1, -1));
+        pnl_filters.add(btr_endSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 17, -1, -1));
 
         sld_percent.setValue(100);
         sld_percent.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -243,47 +247,46 @@ public class DataBank extends javax.swing.JFrame {
                 sld_percentStateChanged(evt);
             }
         });
-        jPanel1.add(sld_percent, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 188, -1));
+        pnl_filters.add(sld_percent, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 188, -1));
 
         lb_perValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_perValue.setText("100");
-        jPanel1.add(lb_perValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        pnl_filters.add(lb_perValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Sıralama"));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnl_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Sıralama"));
+        pnl_sort.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         chkb_tc.setText("Kimlik No");
-        jPanel2.add(chkb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
+        pnl_sort.add(chkb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
         chk_id.setSelected(true);
         chk_id.setText("İd");
-        jPanel2.add(chk_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        pnl_sort.add(chk_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         chk_name.setText("İsim");
-        jPanel2.add(chk_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        pnl_sort.add(chk_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
         chk_salary.setText("Maaş");
-        jPanel2.add(chk_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
+        pnl_sort.add(chk_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 60));
+        pnl_filters.add(pnl_sort, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 60));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 340, 120));
+        getContentPane().add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 340, 120));
 
         spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
         getContentPane().add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 110, -1));
         getContentPane().add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, -1));
 
         tbl_dataa.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+                new Object[][] {
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null }
+                },
+                new String[] {
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }));
         tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tbl_dataaMousePressed(evt);
@@ -293,41 +296,41 @@ public class DataBank extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1300, 300));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("arama filtreleri"));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnl_searcFilter.setBorder(javax.swing.BorderFactory.createTitledBorder("arama filtreleri"));
+        pnl_searcFilter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btr_tcS.setText("Kimlik Numarası");
-        jPanel3.add(btr_tcS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
+        chk_tcS.setText("Kimlik Numarası");
+        pnl_searcFilter.add(chk_tcS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
 
-        btr_nameS.setText("İsim");
-        jPanel3.add(btr_nameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        chk_nameS.setText("İsim");
+        pnl_searcFilter.add(chk_nameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        btr_surnameS.setText("Soyisim");
-        jPanel3.add(btr_surnameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        chk_surnameS.setText("Soyisim");
+        pnl_searcFilter.add(chk_surnameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
-        btr_strartWorkS.setText("Başlama tarihi");
-        jPanel3.add(btr_strartWorkS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+        chk_strartWorkS.setText("Başlama tarihi");
+        pnl_searcFilter.add(chk_strartWorkS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
-        btr_mailS.setText("Mail");
-        jPanel3.add(btr_mailS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        chk_mailS.setText("Mail");
+        pnl_searcFilter.add(chk_mailS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        btr_password.setText("Parola");
-        jPanel3.add(btr_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+        chk_passwordS.setText("Parola");
+        pnl_searcFilter.add(chk_passwordS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
 
         search.add(btr_include);
         btr_include.setSelected(true);
         btr_include.setText("içeren");
-        jPanel3.add(btr_include, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        pnl_searcFilter.add(btr_include, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         search.add(btr_startS);
         btr_startS.setText("baştan");
-        jPanel3.add(btr_startS, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+        pnl_searcFilter.add(btr_startS, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         search.add(btr_endS);
         btr_endS.setText("sondan");
-        jPanel3.add(btr_endS, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        pnl_searcFilter.add(btr_endS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 340, 120));
+        getContentPane().add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 340, 120));
 
         pack();
         setLocationRelativeTo(null);
@@ -354,16 +357,19 @@ public class DataBank extends javax.swing.JFrame {
         txf_surname.setText(p.getSurname());
         txf_tc.setText(p.getTc());
         txf_salary.setText(p.getSalary() + "");
-        txf_salary.setText(p.getSalary() + "");
         txf_phone.setText(p.getTel());
         txf_mail.setText(p.getMail());
         txf_password.setText(p.getPassword());
         txa_about.setText(p.getAbout());
-        if (p.getGender() == "Erkek") {
+        System.out.println(p.getGender());
+
+        if (p.getGender().equals("Erkek")) {
+            btr_fmale.setSelected(false);
             btr_male.setSelected(true);
-            btr_male.setSelected(false);
         } else {
-            btr_male.setSelected(true);
+            btr_male.setSelected(false);
+            btr_fmale.setSelected(true);
+
         }
         spn_experience.setValue(p.getExperiencYear());
 
@@ -376,28 +382,19 @@ public class DataBank extends javax.swing.JFrame {
     }// GEN-LAST:event_tbl_dataaMousePressed
 
     // !ara
-
     private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_svg_searchMousePressed
         String search = txf_search.getText();
         String model = "";
         String sortItem = "";
         String catagory = "";
-        String start="";
-        String end="";
-        int percent = (int) ((sld_percent.getValue() / 100.0) * db.getSqlRowCount());
+        String start = (btr_startS.isSelected() || btr_include.isSelected()) ? "%" : "";
+        String end = (btr_endS.isSelected() || btr_include.isSelected()) ? "%" : "";
 
+        int percent = (int) sld_percent.getValue();
+
+        boolean isIncreasing = btr_startSort.isSelected() ? true : false;
         ArrayList<String> sortList = new ArrayList<>();
         ArrayList<String> catagoryList = new ArrayList<>();
-
-        if(btr_startS.isSelected()){
-            start="%";
-        }else if(btr_endS.isSelected()){
-            end="%";
-        }else{
-            start="%";
-            end="%";
-        }
-
 
         if (chk_id.isSelected()) {
             sortList.add("id");
@@ -425,63 +422,51 @@ public class DataBank extends javax.swing.JFrame {
 
         System.out.println(sortItem);
 
-        if (btr_nameS.isSelected()) {
+        if (chk_nameS.isSelected()) {
             catagoryList.add("name");
         }
-        if (btr_tcS.isSelected()) {
+        if (chk_tcS.isSelected()) {
             catagoryList.add("tc");
         }
-        if (btr_surnameS.isSelected()) {
+        if (chk_surnameS.isSelected()) {
             catagoryList.add("surname");
         }
-        if (btr_strartWorkS.isSelected()) {
+        if (chk_strartWorkS.isSelected()) {
             catagoryList.add("startingOfWork");
         }
-        if (btr_mailS.isSelected()) {
+        if (chk_mailS.isSelected()) {
             catagoryList.add("mail");
         }
-        if (btr_password.isSelected()) {
+        if (chk_passwordS.isSelected()) {
             catagoryList.add("password");
         }
 
         for (int i = 0; i < catagoryList.size(); i++) {
-            catagory += catagoryList.get(i) + " like '"+end+"" + search + ""+start+"'";
+            catagory += catagoryList.get(i) + " like '" + end + "" + search + "" + start + "'";
 
             if (i != catagoryList.size() - 1) {
                 catagory += " or ";
 
             }
         }
-System.out.println("sort item"+sortItem);
+        System.out.println("sort item" + sortItem);
 
-        if(!catagory.isBlank()){
-            if (btr_startSort.isSelected()) {
-                System.out.println("katogoriler" + catagory);
-    
-                model = "SELECT  * from info where " + catagory + " ORDER BY " + sortItem + " LIMIT "
-                        + percent;
-                System.out.println(model);
-    
-                System.out.println("sql");
-    
-            } else {
-                model = "SELECT  * from info where " + catagory + " ORDER BY " + sortItem + " desc LIMIT "
-                        + percent;
-            }
-            db.searchData(model);
-        }else{
+        if (!catagory.isBlank()) {
+
+            db.searchData2("info", catagory, sortItem, percent, isIncreasing);
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Lütfen alanları arama filtresini seçiniz", "hata",
-                        JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }// GEN-LAST:event_svg_searchMousePressed
-     // !ekle
 
+    // !ekle
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
         if (fieldController()) {
             try {
-                db.addData(objectPro());
+                db.addData(objectPro(), "info");
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları tam doludurunuz", "hata",
+                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
             }
@@ -506,7 +491,7 @@ System.out.println("sort item"+sortItem);
             for (int i = 0; i < ids.length; i++) {
                 System.out.println(ids[i] + " silindi");
                 id = (int) tbl_dataa.getValueAt(ids[i], 0);
-                DbHelper.deleteData(id);
+                db.deleteData(id);
             }
         }
         db.fillTable();
@@ -520,13 +505,14 @@ System.out.println("sort item"+sortItem);
             id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
             try {
                 System.out.println("ekleme alanı");
-                
                 db.updateData(id, objectPro());
                 db.fillTable();
                 clearFields();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);
+                System.out.println(e.getMessage());
+
             }
         }
 
@@ -574,34 +560,76 @@ System.out.println("sort item"+sortItem);
         if (!RegexC.textPatern(txf_name.getText(), LangM.correctName)) {
             return false;
         }
-        if (!RegexC.textPatern(txf_surname.getText(), "Lütfen soyadı doğru giriniz\n Ör: Demir")) {
+        if (!RegexC.textPatern(txf_surname.getText(), LangM.correctSurname)) {
             return false;
         }
-        if (!RegexC.passwordPatern(txf_password.getText(),
-                "Lütfen prolayı doğru giriniz\nen az 1 küçük harf\nen az 1 büyük harf\n en az 1 rakam \n en az 1 özel karakter \nolmak üzer en az 8 karakter \n Ör: dl12A*eai")) {
+        if (!RegexC.passwordPatern(txf_password.getText(), LangM.correctPassword)) {
             return false;
         }
-        if (!RegexC.mailPatern(txf_mail.getText(), "Lütfen maili uygun giriniz\n Ör: ahmet@mail.com")) {
+        if (!RegexC.mailPatern(txf_mail.getText(), LangM.correctMail)) {
             return false;
         }
-        if (!RegexC.numberPatern(txf_salary.getText(), 4, "Lütfen maaşı uygun giriniz\n Ör: 9999")) {
+        if (!RegexC.numberPatern(txf_salary.getText(), 4, LangM.correctSalary)) {
             return false;
         }
-        if (!RegexC.numberPatern(txf_tc.getText(), 11, "Lütfen Kimlik numarasını uygun giriniz\n Ör: 12345678910")) {
+        if (!RegexC.numberPatern(txf_tc.getText(), 11, LangM.correctTc)) {
             return false;
         }
-        if (!RegexC.phonePatern(txf_phone.getText(),
-                "Lütfen teleofnu uygun giriniz\n Ör: 555 666 77 88 veya 5559994477 veya 555-666-77-88")) {
+        if (!RegexC.phonePatern(txf_phone.getText(), LangM.correctPhone)) {
             return false;
         }
         if (!btr_fmale.isSelected() && !btr_male.isSelected()) {
-System.out.println("hatalı");
+            System.out.println("hatalı");
 
             return false;
         }
         System.out.println("başarılı");
-        
+
         return true;
+    }
+
+    private void LanPro() {
+        lb_name.setText(LangM.name);
+        lb_surname.setText(LangM.surname);
+        lb_id.setText(LangM.id);
+        lb_salary.setText(LangM.salary);
+        lb_education.setText(LangM.eduStatus);
+        lb_mail.setText(LangM.mail);
+        lb_password.setText(LangM.password);
+        lb_phone.setText(LangM.tel);
+        lb_tc.setText(LangM.tc);
+        lb_startToWork.setText(LangM.startDate);
+        lb_gender.setText(LangM.gender);
+        lb_experience.setText(LangM.workExper);
+        lb_about.setText(LangM.about);
+
+        bt_update.setText(LangM.update);
+        bt_sil.setText(LangM.delete);
+        bt_add.setText(LangM.add);
+
+        btr_male.setText(LangM.male);
+        btr_fmale.setText(LangM.fmale);
+        btr_startSort.setText(LangM.increasing);
+        btr_endSort.setText(LangM.decreasing);
+        btr_include.setText(LangM.include);
+        btr_startS.setText(LangM.perWord);
+        btr_endS.setText(LangM.endWord);
+
+        pnl_filters.setBorder(new TitledBorder(LangM.filter));
+        pnl_sort.setBorder(new TitledBorder(LangM.sort));
+        pnl_searcFilter.setBorder(new TitledBorder(LangM.searchFilter));
+
+        chk_id.setText(LangM.id);
+        chk_name.setText(LangM.name);
+        chk_salary.setText(LangM.surname);
+        chkb_tc.setText(LangM.tc);
+        chk_nameS.setText(LangM.name);
+        chk_surnameS.setText(LangM.surname);
+        chk_tcS.setText(LangM.tc);
+        chk_mailS.setText(LangM.mail);
+        chk_passwordS.setText(LangM.password);
+        chk_strartWorkS.setText(LangM.startDate);
+
     }
 
     /**
@@ -625,25 +653,22 @@ System.out.println("hatalı");
     private javax.swing.JRadioButton btr_endSort;
     private javax.swing.JRadioButton btr_fmale;
     private javax.swing.JRadioButton btr_include;
-    private javax.swing.JCheckBox btr_mailS;
     private javax.swing.JRadioButton btr_male;
-    private javax.swing.JCheckBox btr_nameS;
-    private javax.swing.JCheckBox btr_password;
     private javax.swing.JRadioButton btr_startS;
     private javax.swing.JRadioButton btr_startSort;
-    private javax.swing.JCheckBox btr_strartWorkS;
-    private javax.swing.JCheckBox btr_surnameS;
-    private javax.swing.JCheckBox btr_tcS;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox chk_id;
+    private javax.swing.JCheckBox chk_mailS;
     private javax.swing.JCheckBox chk_name;
+    private javax.swing.JCheckBox chk_nameS;
+    private javax.swing.JCheckBox chk_passwordS;
     private javax.swing.JCheckBox chk_salary;
+    private javax.swing.JCheckBox chk_strartWorkS;
+    private javax.swing.JCheckBox chk_surnameS;
+    private javax.swing.JCheckBox chk_tcS;
     private javax.swing.JCheckBox chkb_tc;
     private com.toedter.calendar.JDateChooser clan_startToWork;
     private javax.swing.JComboBox<String> cmb_educaiton;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lb_about;
@@ -660,6 +685,9 @@ System.out.println("hatalı");
     private javax.swing.JLabel lb_startToWork;
     private javax.swing.JLabel lb_surname;
     private javax.swing.JLabel lb_tc;
+    private javax.swing.JPanel pnl_filters;
+    private javax.swing.JPanel pnl_searcFilter;
+    private javax.swing.JPanel pnl_sort;
     private javax.swing.ButtonGroup search;
     private javax.swing.JSlider sld_percent;
     private javax.swing.JSpinner spn_experience;
@@ -677,3 +705,21 @@ System.out.println("hatalı");
     private view.TextField.TextFeild txf_tc;
     // End of variables declaration//GEN-END:variables
 }
+/*
+ * if (btr_startSort.isSelected()) {
+ * System.out.println("katogoriler" + catagory);
+ * 
+ * model = "SELECT  * from info where " + catagory + " ORDER BY " + sortItem +
+ * " LIMIT "
+ * + percent;
+ * System.out.println(model);
+ * 
+ * System.out.println("sql");
+ * 
+ * } else {
+ * model = "SELECT  * from info where " + catagory + " ORDER BY " + sortItem +
+ * " desc LIMIT "
+ * + percent;
+ * }
+ */
+// db.searchData(model);

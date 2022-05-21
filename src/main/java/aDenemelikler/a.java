@@ -5,10 +5,13 @@
 package aDenemelikler;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import javax.swing.border.TitledBorder;
 
 import langs.LangM;
 import langs.tr_Tr;
+import pages.DataBank;
 import regex.RegexC;
+import sql.DbHelper;
 
 
 /**
@@ -26,6 +29,7 @@ public class a extends javax.swing.JFrame {
         revalidate();
         tr_Tr.name();
         tx.setText(LangM.name);
+        jPanel1.setBorder(new TitledBorder("elma"));
     }
     
     private void imageScaling(){
@@ -42,6 +46,7 @@ public class a extends javax.swing.JFrame {
 
         deneme = new javax.swing.JButton();
         tx = new view.TextField.TextFeild();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,25 +57,44 @@ public class a extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("deneme"));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(253, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(deneme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tx, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(198, 198, 198))
+                    .addComponent(tx, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(271, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(115, 115, 115)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
                 .addComponent(deneme)
                 .addGap(18, 18, 18)
                 .addComponent(tx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,7 +102,7 @@ public class a extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void denemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_denemeActionPerformed
-        RegexC.dene(tx.getText());
+        new DataBank().setVisible(true);;
     }//GEN-LAST:event_denemeActionPerformed
 String text = "lütfen bi değer giriniz";
     /**
@@ -95,6 +119,7 @@ String text = "lütfen bi değer giriniz";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deneme;
+    private javax.swing.JPanel jPanel1;
     private view.TextField.TextFeild tx;
     // End of variables declaration//GEN-END:variables
 }

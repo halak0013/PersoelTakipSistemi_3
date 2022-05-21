@@ -4,7 +4,7 @@ public class tr_Tr extends LangM {
     public static void name() {
         name = "Ad";
         surname = "Soyad";
-        Id = "İd";
+        id = "İd";
         salary = "Maaş";
         eduStatus = "Eğitim Durumu";
         mail = "Mail";
@@ -20,8 +20,8 @@ public class tr_Tr extends LangM {
         filter = "Filtreler";
         decreasing = "Azalan";
         increasing = "Artan";
-        percent = "Yüzde";
-        show = "göster";
+        percent = "Yüzde ";
+        show = " göster";
         sort = "Sıralama";
         searchFilter = "Arama Filtreleri";
         include = "İçeren";
@@ -47,5 +47,13 @@ public class tr_Tr extends LangM {
 
         // ??????????????????????????????="";başlıklar
         error = "";
+
+        // ??????????????????????????????Listeler
+
+        priScholl = "İlkokul";
+        higScholl = "Lise";
+        unuScholl = "Üniversite";
+        degreeEdu = "Yüksek Lisans";
+        doctorateEdu = "Doktora";
     }
 }

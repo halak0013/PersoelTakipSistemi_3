@@ -1,6 +1,6 @@
 package sql;
 
-import java.sql.Date;
+import java.util.ArrayList;
 
 public class Personel {
     private int id;
@@ -16,16 +16,41 @@ public class Personel {
     private int experiencYear;
     private String educaitonStatus;
     private String about;
+    private String catories;
+
+    public ArrayList perLi = new ArrayList<>();
 
     public Personel() {
+
     }
 
-    
-    
-    public Personel(int id, String name, String surname, String password, 
-    String mail, int salary, String tel, String gender, String startingOfWork, 
-    String tc, int experiencYear, String educaitonStatus, String about) {
-        this.id = id;
+    /*
+     * //? id li ekleme constactırı
+     * public Personel(int id, String name, String surname, String password,
+     * String mail, int salary, String tel, String gender, String startingOfWork,
+     * String tc, int experiencYear, String educaitonStatus, String about) {
+     * this.id = id;
+     * this.name = name;
+     * this.surname = surname;
+     * this.password = password;
+     * this.mail = mail;
+     * this.salary = salary;
+     * this.tel = tel;
+     * this.gender = gender;
+     * this.startingOfWork = startingOfWork;
+     * this.tc = tc;
+     * this.experiencYear = experiencYear;
+     * this.educaitonStatus = educaitonStatus;
+     * this.about = about;
+     * 
+     * 
+     * 
+     * }
+     */
+    // ? id siz güncelleme için
+    public Personel(String name, String surname, String password,
+            String mail, int salary, String tel, String gender, String startingOfWork,
+            String tc, int experiencYear, String educaitonStatus, String about) {
         this.name = name;
         this.surname = surname;
         this.password = password;
@@ -33,30 +58,56 @@ public class Personel {
         this.salary = salary;
         this.tel = tel;
         this.gender = gender;
-        this.startingOfWork = startingOfWork;
         this.tc = tc;
         this.experiencYear = experiencYear;
+        this.startingOfWork = startingOfWork;
         this.educaitonStatus = educaitonStatus;
         this.about = about;
+        this.catories = " (id, name, surname, password, mail, salary, tel, gender, starting_of_work, tc, experience_year, education_status, about) ";
+        perLi.clear();
+        perLi.add(id);
+        perLi.add(name);
+        perLi.add(surname);
+        perLi.add(password);
+        perLi.add(mail);
+        perLi.add(salary);
+        perLi.add(tel);
+        perLi.add(gender);
+        perLi.add(startingOfWork);
+        perLi.add(tc);
+        perLi.add(experiencYear);
+        perLi.add(educaitonStatus);
+        perLi.add(about);
     }
 
-    public Personel(String name, String surname, String password, 
-    String mail, int salary, String tel, String gender, String startingOfWork, 
-    String tc, int experiencYear, String educaitonStatus, String about) {
+    // ? kayıt için
+    public Personel(String name, String surname, String password,
+            String mail, String tel, String gender,
+            String tc, int experiencYear, String educaitonStatus, String about) {
         this.name = name;
         this.surname = surname;
         this.password = password;
         this.mail = mail;
-        this.salary = salary;
         this.tel = tel;
         this.gender = gender;
-        this.startingOfWork = startingOfWork;
         this.tc = tc;
         this.experiencYear = experiencYear;
         this.educaitonStatus = educaitonStatus;
         this.about = about;
+        this.catories = " (id,name,surname,password,mail,tel,gender,tc,education_status,experience_year,about) ";
+        perLi.clear();
+        perLi.add(catories);
+        perLi.add(name);
+        perLi.add(surname);
+        perLi.add(password);
+        perLi.add(mail);
+        perLi.add(tel);
+        perLi.add(gender);
+        perLi.add(tc);
+        perLi.add(educaitonStatus);
+        perLi.add(experiencYear);
+        perLi.add(about);
     }
-
 
     /**
      * @return int return the id
@@ -160,7 +211,7 @@ public class Personel {
      * @return String return the gender
      */
     public String getGender() {
-        
+
         return gender;
     }
 
@@ -239,6 +290,20 @@ public class Personel {
      */
     public void setAbout(String about) {
         this.about = about;
+    }
+
+    /**
+     * @return the catories
+     */
+    public String getCatories() {
+        return catories;
+    }
+
+    /**
+     * @param catories the catories to set
+     */
+    public void setCatories(String catories) {
+        this.catories = catories;
     }
 
 }
