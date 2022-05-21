@@ -11,11 +11,12 @@ import java.awt.event.FocusEvent;
 
 import static javax.swing.BorderFactory.createMatteBorder;
 
+//! kullanırken frame window gainde focus aksiyoun eklemyi unutma
+public class TextFeild1 extends JTextField {
 
-public class TextFeild extends JTextField {
- private String textT = "lütfen bi değer giriniz";
+    private String textT = "lütfen bi değer giriniz";
 
-    public TextFeild() {
+    public TextFeild1() {
         super();
         setBorder(createMatteBorder(0, 0, 2, 0, Constantas.borderColor()));
         setBackground(new Color(0, 0, 0, 0));
