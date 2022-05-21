@@ -1,10 +1,11 @@
 //Bismillahirrahmanirrahim
 package view.image;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import java.awt.Dimension;
 import java.awt.Image;
 
 /**
@@ -14,17 +15,25 @@ import java.awt.Image;
 public class ImageViewerC extends JLabel {
 
     private String image = "def";
-    private ImageIcon ico;
+    public ImageIcon ico;
 
     public ImageViewerC() {
+        super();
         this.setText(" ");
-        setSize(new Dimension(100, 100));
+        scale();
     }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        scale();
+    }
+ 
 
     public void scale() {
         try {
+            setPreferredSize(new Dimension(100,100));
             ico = new ImageIcon(getClass().getResource("/resources/icons/def.png"));
-            // setSize(new Dimension(10,10));
             Image picture = (ico).getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
             ico = new ImageIcon(picture);
             setIcon(ico);
