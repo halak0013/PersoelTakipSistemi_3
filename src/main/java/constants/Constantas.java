@@ -24,4 +24,10 @@ public class Constantas {
 public static Color hintColor() {
         return new Color(202, 202, 202);
     }
+public static Color txNormalColor() {
+        return new Color(244, 244, 244);
+    }
+public static Color txHintColor() {
+        return new Color(244, 244, 244);
+    }
 }
