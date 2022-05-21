@@ -65,7 +65,6 @@ public class Personel {
         this.about = about;
         this.catories = " (id, name, surname, password, mail, salary, tel, gender, starting_of_work, tc, experience_year, education_status, about) ";
         perLi.clear();
-        perLi.add(id);
         perLi.add(name);
         perLi.add(surname);
         perLi.add(password);
@@ -96,7 +95,6 @@ public class Personel {
         this.about = about;
         this.catories = " (id,name,surname,password,mail,tel,gender,tc,education_status,experience_year,about) ";
         perLi.clear();
-        perLi.add(catories);
         perLi.add(name);
         perLi.add(surname);
         perLi.add(password);

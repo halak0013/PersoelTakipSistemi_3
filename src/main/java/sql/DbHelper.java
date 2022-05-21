@@ -105,8 +105,8 @@ public class DbHelper {
         }
     }
 
-    public void fillTable() {
-        searchData2("info", "", "", 100, true);
+    public void fillTable(String tableName) {
+        searchData2(tableName, "", "", 100, true);
     }
 
     public Personel fillObject(int id) {
@@ -155,18 +155,22 @@ public class DbHelper {
     }
 
     public void addData(Personel p, String tableName) {
-        String query = "INSERT INTO " + tableName + p.getCatories() + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String questionMarks="?";
+        for (int i = 0; i < p.perLi.size(); i++) {
+            questionMarks += ",?";        }
+        String query = "INSERT INTO " + tableName + p.getCatories() + " VALUES (" + questionMarks + ")";
         try {
             con = DbHelper.getConnection();
             pStm = con.prepareStatement(query);
             pStm.setInt(1, getMaxId(tableName));
-            for (int i = 1; i < p.perLi.size(); i++) {
+            for (int i = 0; i < p.perLi.size(); i++) {
+                System.out.println(p.perLi.get(i));
                 if (p.perLi.get(i) instanceof Integer) {
                     System.out.println(i);
-                    pStm.setInt(i + 1, Integer.parseInt(p.perLi.get(i).toString()));
+                    pStm.setInt(i + 2, Integer.parseInt(p.perLi.get(i).toString()));
                 } else if (p.perLi.get(i) instanceof String) {
                     System.out.println(i);
-                    pStm.setString(i + 1, p.perLi.get(i).toString());
+                    pStm.setString(i + 2, p.perLi.get(i).toString());
                 }
             }
             pStm.executeUpdate();

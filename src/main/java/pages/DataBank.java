@@ -25,7 +25,7 @@ public class DataBank extends javax.swing.JFrame {
         tr_Tr.name();
         initComponents();
         ListModels.tblModel(tbl_dataa);
-        db.fillTable();
+        db.fillTable("info");
         imageP();
         LanPro();
     }
@@ -470,7 +470,7 @@ public class DataBank extends javax.swing.JFrame {
                         JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
             }
-            db.fillTable();
+            db.fillTable("info");
             clearFields();
         }
     }// GEN-LAST:event_bt_addActionPerformed
@@ -494,7 +494,7 @@ public class DataBank extends javax.swing.JFrame {
                 db.deleteData(id);
             }
         }
-        db.fillTable();
+        db.fillTable("info");
         clearFields();
     }// GEN-LAST:event_bt_silActionPerformed
 
@@ -506,7 +506,7 @@ public class DataBank extends javax.swing.JFrame {
             try {
                 System.out.println("ekleme alanı");
                 db.updateData(id, objectPro());
-                db.fillTable();
+                db.fillTable("info");
                 clearFields();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",

@@ -153,7 +153,7 @@ public class SingUpP extends javax.swing.JFrame {
     private void buttonN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonN1ActionPerformed
         if (fieldController()) {
             try {
-                db.addData(objectPro(),"info");
+                db.addData(objectPro(),"singUpForms");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları tam doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);

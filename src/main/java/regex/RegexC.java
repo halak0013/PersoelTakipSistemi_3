@@ -43,7 +43,7 @@ public class RegexC {
         //? baştaki (?=.*) bir kural veriyor
         //? eğer koşulu sağlıyorsa çalışıyor
         //?sondaki aralık ise grup oluşturmak için kullanıyoz
-        pattern = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\\W])[a-zA-Z0-9\\W"+trCh+"]{4,}";
+        pattern = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\\W])[a-zA-Z0-9\\W"+trCh+"]{8,}";
         return add(text,message);
     }
 
