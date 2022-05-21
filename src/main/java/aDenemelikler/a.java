@@ -13,7 +13,6 @@ import pages.DataBank;
 import regex.RegexC;
 import sql.DbHelper;
 
-
 /**
  *
  * @author bismih
@@ -30,9 +29,10 @@ public class a extends javax.swing.JFrame {
         tr_Tr.name();
         tx.setText(LangM.name);
         jPanel1.setBorder(new TitledBorder("elma"));
+        //svgImage1.scale();
     }
-    
-    private void imageScaling(){
+
+    private void imageScaling() {
     }
 
     /**
@@ -47,8 +47,19 @@ public class a extends javax.swing.JFrame {
         deneme = new javax.swing.JButton();
         tx = new view.TextField.TextFeild();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        imageViewerC4 = new view.image.ImageViewerC();
+        svgImage1 = new view.image.SvgImage();
+        textFeild11 = new view.TextField.TextFeild1();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(708, 418));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         deneme.setText("dene");
         deneme.addActionListener(new java.awt.event.ActionListener() {
@@ -56,6 +67,8 @@ public class a extends javax.swing.JFrame {
                 denemeActionPerformed(evt);
             }
         });
+        getContentPane().add(deneme, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 49, -1, -1));
+        getContentPane().add(tx, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 96, 42, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("deneme"));
 
@@ -70,32 +83,16 @@ public class a extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(deneme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tx, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(271, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(deneme)
-                .addGap(18, 18, 18)
-                .addComponent(tx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(210, 210, 72));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 110, 130));
+        getContentPane().add(imageViewerC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 110, 70));
+
+        svgImage1.setText("svgImage1");
+        getContentPane().add(svgImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 140, 60));
+        getContentPane().add(textFeild11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -104,7 +101,13 @@ public class a extends javax.swing.JFrame {
     private void denemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_denemeActionPerformed
         new DataBank().setVisible(true);;
     }//GEN-LAST:event_denemeActionPerformed
-String text = "lütfen bi değer giriniz";
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        this.requestFocusInWindow();
+
+    }//GEN-LAST:event_formMousePressed
+    String text = "lütfen bi değer giriniz";
+
     /**
      * @param args the command line arguments
      */
@@ -119,7 +122,11 @@ String text = "lütfen bi değer giriniz";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deneme;
+    private view.image.ImageViewerC imageViewerC4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private view.image.SvgImage svgImage1;
+    private view.TextField.TextFeild1 textFeild11;
     private view.TextField.TextFeild tx;
     // End of variables declaration//GEN-END:variables
 }

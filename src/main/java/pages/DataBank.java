@@ -39,12 +39,13 @@ public class DataBank extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
 
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         StrtEnd = new javax.swing.ButtonGroup();
         search = new javax.swing.ButtonGroup();
+        pnl_adding = new javax.swing.JPanel();
         lb_name = new javax.swing.JLabel();
         txf_surname = new view.TextField.TextFeild();
         lb_surname = new javax.swing.JLabel();
@@ -100,99 +101,101 @@ public class DataBank extends javax.swing.JFrame {
         btr_include = new javax.swing.JRadioButton();
         btr_startS = new javax.swing.JRadioButton();
         btr_endS = new javax.swing.JRadioButton();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
         setMinimumSize(new java.awt.Dimension(1350, 800));
         setPreferredSize(new java.awt.Dimension(1350, 800));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnl_adding.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_name.setText("İsim");
-        getContentPane().add(lb_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        pnl_adding.add(lb_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         txf_surname.setText("textFeild1");
-        getContentPane().add(txf_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 123, 35));
+        pnl_adding.add(txf_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 123, 35));
 
         lb_surname.setText("Soyisim");
-        getContentPane().add(lb_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
+        pnl_adding.add(lb_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
         txf_mail.setText("textFeild1");
-        getContentPane().add(txf_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 123, 35));
+        pnl_adding.add(txf_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 123, 35));
 
         lb_mail.setText("Mail");
-        getContentPane().add(lb_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
+        pnl_adding.add(lb_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
 
         lb_salary.setText("Maaş");
-        getContentPane().add(lb_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
+        pnl_adding.add(lb_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
 
         txf_phone.setText("textFeild1");
-        getContentPane().add(txf_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 123, 35));
+        pnl_adding.add(txf_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 123, 35));
 
         lb_phone.setText("Telofon");
-        getContentPane().add(lb_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        pnl_adding.add(lb_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         lb_gender.setText("Cinsiyet");
-        getContentPane().add(lb_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+        pnl_adding.add(lb_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
 
         txf_salary.setText("2131223");
-        getContentPane().add(txf_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 123, 35));
+        pnl_adding.add(txf_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 123, 35));
 
         lb_startToWork.setText("Başlama Tarihi");
-        getContentPane().add(lb_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+        pnl_adding.add(lb_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
         txf_tc.setText("textFeild1");
-        getContentPane().add(txf_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 123, 35));
+        pnl_adding.add(txf_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 123, 35));
 
         lb_tc.setText("Kimlik Numarası");
-        getContentPane().add(lb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
+        pnl_adding.add(lb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
 
         lb_experience.setText("Çalışma Tecrübesi");
-        getContentPane().add(lb_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
+        pnl_adding.add(lb_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
 
         lb_education.setText("Eğitim Durumu");
-        getContentPane().add(lb_education, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        pnl_adding.add(lb_education, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jScrollPane2.setToolTipText("");
 
         txa_about.setColumns(20);
         txa_about.setLineWrap(true);
         txa_about.setRows(5);
-        txa_about.setText(
-                "lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
+        txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
         jScrollPane2.setViewportView(txa_about);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 530, 210));
+        pnl_adding.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 530, 210));
 
         txf_name.setText("textFeild1");
-        getContentPane().add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 123, 35));
+        pnl_adding.add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 123, 35));
 
         lb_about.setText("Hakkında");
-        getContentPane().add(lb_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, -1, -1));
+        pnl_adding.add(lb_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, -1, -1));
 
         lb_password.setText("Parola");
-        getContentPane().add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, -1));
+        pnl_adding.add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, -1));
 
         txf_password.setText("textFeild1");
-        getContentPane().add(txf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 123, 35));
+        pnl_adding.add(txf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 123, 35));
 
         txf_id.setText("textFeild1");
         txf_id.setEnabled(false);
-        getContentPane().add(txf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 123, 35));
+        pnl_adding.add(txf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 123, 35));
 
         lb_id.setText("İd");
-        getContentPane().add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
+        pnl_adding.add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
         buttonGroup1.add(btr_male);
         btr_male.setText("Erkek");
-        getContentPane().add(btr_male, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, -1, -1));
+        pnl_adding.add(btr_male, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, -1, -1));
 
         buttonGroup1.add(btr_fmale);
         btr_fmale.setText("Kadın");
-        getContentPane().add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, -1));
+        pnl_adding.add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, -1));
 
-        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(
-                new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
-        getContentPane().add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
+        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
+        pnl_adding.add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
 
         svg_search.setImage("search");
         svg_search.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -200,10 +203,10 @@ public class DataBank extends javax.swing.JFrame {
                 svg_searchMousePressed(evt);
             }
         });
-        getContentPane().add(svg_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 20, 20));
+        pnl_adding.add(svg_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 20, 20));
 
         txf_search.setToolTipText("");
-        getContentPane().add(txf_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 460, 50));
+        pnl_adding.add(txf_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 460, 50));
 
         bt_update.setText("Güncelle");
         bt_update.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +214,7 @@ public class DataBank extends javax.swing.JFrame {
                 bt_updateActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 100, 40));
+        pnl_adding.add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 100, 40));
 
         bt_sil.setText("Sil");
         bt_sil.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +222,7 @@ public class DataBank extends javax.swing.JFrame {
                 bt_silActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 100, 40));
+        pnl_adding.add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 100, 40));
 
         bt_add.setText("Ekle");
         bt_add.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +230,7 @@ public class DataBank extends javax.swing.JFrame {
                 bt_addActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 100, 40));
+        pnl_adding.add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 100, 40));
 
         pnl_filters.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtreler"));
         pnl_filters.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -271,22 +274,23 @@ public class DataBank extends javax.swing.JFrame {
 
         pnl_filters.add(pnl_sort, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 60));
 
-        getContentPane().add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 340, 120));
+        pnl_adding.add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 340, 120));
 
         spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
-        getContentPane().add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 110, -1));
-        getContentPane().add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, -1));
+        pnl_adding.add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 110, -1));
+        pnl_adding.add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, -1));
 
         tbl_dataa.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null }
-                },
-                new String[] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }));
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
         tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tbl_dataaMousePressed(evt);
@@ -294,7 +298,7 @@ public class DataBank extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tbl_dataa);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1300, 300));
+        pnl_adding.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1300, 300));
 
         pnl_searcFilter.setBorder(javax.swing.BorderFactory.createTitledBorder("arama filtreleri"));
         pnl_searcFilter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -330,7 +334,48 @@ public class DataBank extends javax.swing.JFrame {
         btr_endS.setText("sondan");
         pnl_searcFilter.add(btr_endS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
-        getContentPane().add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 340, 120));
+        pnl_adding.add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 340, 120));
+
+        jPanel1.setBackground(new java.awt.Color(234, 234, 105));
+
+        jPanel2.setBackground(new java.awt.Color(255, 169, 111));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(283, 283, 283)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(273, 273, 273)
+                .addComponent(pnl_adding, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(pnl_adding, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -669,8 +714,11 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkb_tc;
     private com.toedter.calendar.JDateChooser clan_startToWork;
     private javax.swing.JComboBox<String> cmb_educaiton;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lb_about;
     private javax.swing.JLabel lb_education;
     private javax.swing.JLabel lb_experience;
@@ -685,6 +733,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JLabel lb_startToWork;
     private javax.swing.JLabel lb_surname;
     private javax.swing.JLabel lb_tc;
+    private javax.swing.JPanel pnl_adding;
     private javax.swing.JPanel pnl_filters;
     private javax.swing.JPanel pnl_searcFilter;
     private javax.swing.JPanel pnl_sort;
