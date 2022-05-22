@@ -27,9 +27,7 @@ public class a extends javax.swing.JFrame {
         imageScaling();
         revalidate();
         tr_Tr.name();
-        tx.setText(LangM.name);
-        jPanel1.setBorder(new TitledBorder("elma"));
-        //svgImage1.scale();
+        
     }
 
     private void imageScaling() {
@@ -44,13 +42,38 @@ public class a extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        deneme = new javax.swing.JButton();
-        tx = new view.TextField.TextFeild();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        imageViewerC4 = new view.image.ImageViewerC();
-        svgImage1 = new view.image.SvgImage();
-        textFeild11 = new view.TextField.TextFeild1();
+        pnl_adding = new javax.swing.JPanel();
+        lb_name = new javax.swing.JLabel();
+        txf_surname = new view.TextField.TextFeild();
+        lb_surname = new javax.swing.JLabel();
+        txf_mail = new view.TextField.TextFeild();
+        lb_mail = new javax.swing.JLabel();
+        lb_salary = new javax.swing.JLabel();
+        txf_phone = new view.TextField.TextFeild();
+        lb_phone = new javax.swing.JLabel();
+        lb_gender = new javax.swing.JLabel();
+        txf_salary = new view.TextField.TextFeild();
+        lb_startToWork = new javax.swing.JLabel();
+        txf_tc = new view.TextField.TextFeild();
+        lb_tc = new javax.swing.JLabel();
+        lb_experience = new javax.swing.JLabel();
+        lb_education = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txa_about = new javax.swing.JTextArea();
+        txf_name = new view.TextField.TextFeild();
+        lb_about = new javax.swing.JLabel();
+        lb_password = new javax.swing.JLabel();
+        txf_password = new view.TextField.TextFeild();
+        txf_id = new view.TextField.TextFeild();
+        lb_id = new javax.swing.JLabel();
+        btr_male = new javax.swing.JRadioButton();
+        btr_fmale = new javax.swing.JRadioButton();
+        cmb_educaiton = new javax.swing.JComboBox<>();
+        spn_experience = new javax.swing.JSpinner();
+        clan_startToWork = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lst_candidate = new javax.swing.JList<>();
+        lb_candidate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(708, 418));
@@ -61,46 +84,107 @@ public class a extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        deneme.setText("dene");
-        deneme.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                denemeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(deneme, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 49, -1, -1));
-        getContentPane().add(tx, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 96, 42, -1));
+        pnl_adding.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("deneme"));
+        lb_name.setText("İsim");
+        pnl_adding.add(lb_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        txf_surname.setText("textFeild1");
+        pnl_adding.add(txf_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 123, 35));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
+        lb_surname.setText("Soyisim");
+        pnl_adding.add(lb_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(210, 210, 72));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 110, 130));
-        getContentPane().add(imageViewerC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 110, 70));
+        txf_mail.setText("textFeild1");
+        pnl_adding.add(txf_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 123, 35));
 
-        svgImage1.setText("svgImage1");
-        getContentPane().add(svgImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 140, 60));
-        getContentPane().add(textFeild11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
+        lb_mail.setText("Mail");
+        pnl_adding.add(lb_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
+
+        lb_salary.setText("Maaş");
+        pnl_adding.add(lb_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
+
+        txf_phone.setText("textFeild1");
+        pnl_adding.add(txf_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 123, 35));
+
+        lb_phone.setText("Telofon");
+        pnl_adding.add(lb_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+
+        lb_gender.setText("Cinsiyet");
+        pnl_adding.add(lb_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+
+        txf_salary.setText("2131223");
+        pnl_adding.add(txf_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 123, 35));
+
+        lb_startToWork.setText("Başlama Tarihi");
+        pnl_adding.add(lb_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+
+        txf_tc.setText("textFeild1");
+        pnl_adding.add(txf_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 123, 35));
+
+        lb_tc.setText("Kimlik Numarası");
+        pnl_adding.add(lb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
+
+        lb_experience.setText("Çalışma Tecrübesi");
+        pnl_adding.add(lb_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
+
+        lb_education.setText("Eğitim Durumu");
+        pnl_adding.add(lb_education, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        jScrollPane2.setToolTipText("");
+
+        txa_about.setColumns(20);
+        txa_about.setLineWrap(true);
+        txa_about.setRows(5);
+        txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
+        jScrollPane2.setViewportView(txa_about);
+
+        pnl_adding.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 530, 210));
+
+        txf_name.setText("textFeild1");
+        pnl_adding.add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 123, 35));
+
+        lb_about.setText("Hakkında");
+        pnl_adding.add(lb_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+
+        lb_password.setText("Parola");
+        pnl_adding.add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, -1));
+
+        txf_password.setText("textFeild1");
+        pnl_adding.add(txf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 123, 35));
+
+        txf_id.setText("textFeild1");
+        txf_id.setEnabled(false);
+        pnl_adding.add(txf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 123, 35));
+
+        lb_id.setText("İd");
+        pnl_adding.add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
+
+        btr_male.setText("Erkek");
+        pnl_adding.add(btr_male, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, -1, -1));
+
+        btr_fmale.setText("Kadın");
+        pnl_adding.add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, -1));
+
+        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
+        pnl_adding.add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
+
+        spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
+        pnl_adding.add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 110, -1));
+        pnl_adding.add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, -1));
+
+        jScrollPane1.setViewportView(lst_candidate);
+
+        pnl_adding.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 350, 470));
+
+        lb_candidate.setText("Başvuranlar");
+        pnl_adding.add(lb_candidate, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
+
+        getContentPane().add(pnl_adding, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void denemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_denemeActionPerformed
-        new DataBank().setVisible(true);;
-    }//GEN-LAST:event_denemeActionPerformed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         this.requestFocusInWindow();
@@ -121,12 +205,37 @@ public class a extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton deneme;
-    private view.image.ImageViewerC imageViewerC4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private view.image.SvgImage svgImage1;
-    private view.TextField.TextFeild1 textFeild11;
-    private view.TextField.TextFeild tx;
+    private javax.swing.JRadioButton btr_fmale;
+    private javax.swing.JRadioButton btr_male;
+    private com.toedter.calendar.JDateChooser clan_startToWork;
+    private javax.swing.JComboBox<String> cmb_educaiton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lb_about;
+    private javax.swing.JLabel lb_candidate;
+    private javax.swing.JLabel lb_education;
+    private javax.swing.JLabel lb_experience;
+    private javax.swing.JLabel lb_gender;
+    private javax.swing.JLabel lb_id;
+    private javax.swing.JLabel lb_mail;
+    private javax.swing.JLabel lb_name;
+    private javax.swing.JLabel lb_password;
+    private javax.swing.JLabel lb_phone;
+    private javax.swing.JLabel lb_salary;
+    private javax.swing.JLabel lb_startToWork;
+    private javax.swing.JLabel lb_surname;
+    private javax.swing.JLabel lb_tc;
+    private javax.swing.JList<String> lst_candidate;
+    private javax.swing.JPanel pnl_adding;
+    private javax.swing.JSpinner spn_experience;
+    private javax.swing.JTextArea txa_about;
+    private view.TextField.TextFeild txf_id;
+    private view.TextField.TextFeild txf_mail;
+    private view.TextField.TextFeild txf_name;
+    private view.TextField.TextFeild txf_password;
+    private view.TextField.TextFeild txf_phone;
+    private view.TextField.TextFeild txf_salary;
+    private view.TextField.TextFeild txf_surname;
+    private view.TextField.TextFeild txf_tc;
     // End of variables declaration//GEN-END:variables
 }

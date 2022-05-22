@@ -109,8 +109,8 @@ public class DbHelper {
         searchData2(tableName, "", "", 100, true);
     }
 
-    public Personel fillObject(int id) {
-        String query = "SELECT * FROM info WHERE id =" + id;
+    public Personel fillObject(int id, String tableName,boolean isChek) {
+        String query = "SELECT * FROM "+tableName+" WHERE id =" + id;
         Personel p = new Personel();
         try {
             con = DbHelper.getConnection();

@@ -1,6 +1,7 @@
 package constants.models;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,5 +24,14 @@ public class ListModels {
     public static void addRows(Personel p) {
     tbl_table_model.addRow(new Object[]{p.getId(), p.getName(), p.getSurname(), p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(), p.getTc(), p.getExperiencYear(), p.getEducationStatus(), p.getAbout()});
     
+    }
+
+
+    public static DefaultListModel<String> candidateList=new DefaultListModel<String>();
+    public static DefaultListModel<String> cadidateModel() {
+    return  candidateList;
+    }
+    public static void addPersonOnList(Personel p) {
+    candidateList.addElement(p.getName()+" "+p.getSurname());
     }
 }
