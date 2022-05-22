@@ -10,12 +10,14 @@ import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
 
 import constants.models.ListModels;
+import functions.MyList;
 import functions.PageP;
 import langs.LangM;
 import langs.tr_Tr;
 import regex.RegexC;
 import sql.DbHelper;
 import sql.Personel;
+import view.TextField.TextFeild;
 
 public class DataBank extends javax.swing.JFrame {
 
@@ -26,18 +28,14 @@ public class DataBank extends javax.swing.JFrame {
         initComponents();
         ListModels.tblModel(tbl_dataa);
         db.fillTable("info");
-        imageP();
         LanPro();
-    }
-
-    private void imageP() {
-        svg_search.scale();
         lb_perValue.setText(LangM.percent + sld_percent.getValue() + "% " + LangM.show);
-        clearFields();
+        clearFieldsAdd();
     }
 
     @SuppressWarnings("unchecked")
 
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -109,6 +107,11 @@ public class DataBank extends javax.swing.JFrame {
         m_item_setting = new view.panels.MenuItems();
         m_item_chart = new view.panels.MenuItems();
         jPanel6 = new javax.swing.JPanel();
+        bt_accept = new view.buttons.ButtonN();
+        bt_decline = new view.buttons.ButtonN();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lst_candidate = new javax.swing.JList<>();
+        lb_candidate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
@@ -119,6 +122,7 @@ public class DataBank extends javax.swing.JFrame {
                 formMousePressed(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnl_adding.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -345,6 +349,8 @@ public class DataBank extends javax.swing.JFrame {
 
         pnl_adding.add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 340, 120));
 
+        getContentPane().add(pnl_adding, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 12, 1330, 650));
+
         jPanel1.setBackground(new java.awt.Color(234, 234, 105));
         jPanel1.setMaximumSize(new java.awt.Dimension(220, 32767));
         jPanel1.setMinimumSize(new java.awt.Dimension(55, 600));
@@ -385,7 +391,7 @@ public class DataBank extends javax.swing.JFrame {
                 .addComponent(m_item_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(m_item_chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 565, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 426, Short.MAX_VALUE)
                 .addComponent(m_item_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
@@ -402,44 +408,58 @@ public class DataBank extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 661, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel6);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(211, 211, 211)
-                .addComponent(pnl_adding, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(885, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(pnl_adding, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 661));
+
+        bt_accept.setText("Kabul et");
+        bt_accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_acceptActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bt_accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(1620, 540, 80, -1));
+
+        bt_decline.setText("Reddet");
+        bt_decline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_declineActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bt_decline, new org.netbeans.lib.awtextra.AbsoluteConstraints(1720, 540, 80, -1));
+
+        jScrollPane1.setViewportView(lst_candidate);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 20, 350, 470));
+
+        lb_candidate.setText("Başvuranlar");
+        getContentPane().add(lb_candidate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+    private void formMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMousePressed
         requestFocusInWindow();
-    }//GEN-LAST:event_formMousePressed
+    }// GEN-LAST:event_formMousePressed
+
+    private void bt_acceptActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_acceptActionPerformed
+
+    }// GEN-LAST:event_bt_acceptActionPerformed
+
+    private void bt_declineActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_declineActionPerformed
+
+    }// GEN-LAST:event_bt_declineActionPerformed
 
     private void tbl_dataaMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tbl_dataaMousePressed
         System.out.println("bastı");
         int sR = tbl_dataa.getSelectedRow();
         int id = Integer.parseInt(tbl_dataa.getValueAt(sR, 0).toString());
 
-        Personel p = db.fillObject(id,"info",false);
+        Personel p = db.fillObject(id, "info", false);
 
         String[] model = ListModels.cmbEduList;
         String edu = p.getEducationStatus();
@@ -560,7 +580,7 @@ public class DataBank extends javax.swing.JFrame {
 
     // !ekle
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
-        if (fieldController()) {
+        if (fieldControllerAdd()) {
             try {
                 db.addData(objectPro(), "info");
             } catch (Exception e) {
@@ -569,7 +589,7 @@ public class DataBank extends javax.swing.JFrame {
                 e.printStackTrace();
             }
             db.fillTable("info");
-            clearFields();
+            clearFieldsAdd();
         }
     }// GEN-LAST:event_bt_addActionPerformed
 
@@ -593,19 +613,19 @@ public class DataBank extends javax.swing.JFrame {
             }
         }
         db.fillTable("info");
-        clearFields();
+        clearFieldsAdd();
     }// GEN-LAST:event_bt_silActionPerformed
 
     // !güncelleme
     private void bt_updateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_updateActionPerformed
         int id;
-        if (tbl_dataa.getSelectedRow() > -1 && fieldController()) {
+        if (tbl_dataa.getSelectedRow() > -1 && fieldControllerAdd()) {
             id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
             try {
                 System.out.println("ekleme alanı");
                 db.updateData(id, objectPro());
                 db.fillTable("info");
-                clearFields();
+                clearFieldsAdd();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);
@@ -617,6 +637,7 @@ public class DataBank extends javax.swing.JFrame {
     }// GEN-LAST:event_bt_updateActionPerformed
 
     private Personel objectPro() throws Exception {
+        // TODO: cinsiyetleri veri tabanına tek formatta eklemeyi ekle
         String gender = "";
         if (btr_male.isSelected()) {
             gender = "Erkek";
@@ -633,7 +654,7 @@ public class DataBank extends javax.swing.JFrame {
                 cmb_educaiton.getSelectedItem().toString(), txa_about.getText());
     }
 
-    private void clearFields() {
+    private void clearFieldsAdd() {
         txa_about.setText("");
         txf_mail.setText("");
         txf_name.setText("");
@@ -654,36 +675,19 @@ public class DataBank extends javax.swing.JFrame {
 
     }
 
-    private boolean fieldController() {
-        if (!RegexC.textPatern(txf_name.getText(), LangM.correctName)) {
-            return false;
-        }
-        if (!RegexC.textPatern(txf_surname.getText(), LangM.correctSurname)) {
-            return false;
-        }
-        if (!RegexC.passwordPatern(txf_password.getText(), LangM.correctPassword)) {
-            return false;
-        }
-        if (!RegexC.mailPatern(txf_mail.getText(), LangM.correctMail)) {
-            return false;
-        }
-        if (!RegexC.numberPatern(txf_salary.getText(), 4, LangM.correctSalary)) {
-            return false;
-        }
-        if (!RegexC.numberPatern(txf_tc.getText(), 11, LangM.correctTc)) {
-            return false;
-        }
-        if (!RegexC.phonePatern(txf_phone.getText(), LangM.correctPhone)) {
-            return false;
-        }
-        if (!btr_fmale.isSelected() && !btr_male.isSelected()) {
-            System.out.println("hatalı");
 
-            return false;
-        }
-        System.out.println("başarılı");
+    MyList<String, Integer> regexList;
 
-        return true;
+    private boolean fieldControllerAdd() {
+        regexList = new MyList<>();
+        regexList.add(txf_name.getText(), 0, LangM.correctName);
+        regexList.add(txf_surname.getText(), 0, LangM.correctSurname);
+        regexList.add(txf_password.getText(), 3, LangM.correctPassword);
+        regexList.add(txf_mail.getText(), 2, LangM.correctMail);
+        regexList.add(txf_salary.getText(), 1, LangM.correctSalary);
+        regexList.add(txf_phone.getText(), 4, LangM.correctPhone);
+        regexList.add(txf_tc.getText(), 1, LangM.correctTc);
+        return RegexC.fieldController(regexList, btr_male, btr_fmale);
     }
 
     private void LanPro() {
@@ -744,7 +748,9 @@ public class DataBank extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup StrtEnd;
+    private view.buttons.ButtonN bt_accept;
     private view.buttons.ButtonN bt_add;
+    private view.buttons.ButtonN bt_decline;
     private view.buttons.ButtonN bt_sil;
     private view.buttons.ButtonN bt_update;
     private javax.swing.JRadioButton btr_endS;
@@ -769,10 +775,12 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmb_educaiton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lb_about;
+    private javax.swing.JLabel lb_candidate;
     private javax.swing.JLabel lb_education;
     private javax.swing.JLabel lb_experience;
     private javax.swing.JLabel lb_gender;
@@ -786,6 +794,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JLabel lb_startToWork;
     private javax.swing.JLabel lb_surname;
     private javax.swing.JLabel lb_tc;
+    private javax.swing.JList<String> lst_candidate;
     private view.panels.MenuItems m_item_add;
     private view.panels.MenuItems m_item_chart;
     private view.panels.MenuItems m_item_check;
@@ -830,3 +839,35 @@ public class DataBank extends javax.swing.JFrame {
  * }
  */
 // db.searchData(model);
+
+/*
+ * if (!RegexC.textPatern(txf_name.getText(), LangM.correctName)) {
+ * return false;
+ * }
+ * if (!RegexC.textPatern(txf_surname.getText(), LangM.correctSurname)) {
+ * return false;
+ * }
+ * if (!RegexC.passwordPatern(txf_password.getText(), LangM.correctPassword)) {
+ * return false;
+ * }
+ * if (!RegexC.mailPatern(txf_mail.getText(), LangM.correctMail)) {
+ * return false;
+ * }
+ * if (!RegexC.numberPatern(txf_salary.getText(), 4, LangM.correctSalary)) {
+ * return false;
+ * }
+ * if (!RegexC.numberPatern(txf_tc.getText(), 11, LangM.correctTc)) {
+ * return false;
+ * }
+ * if (!RegexC.phonePatern(txf_phone.getText(), LangM.correctPhone)) {
+ * return false;
+ * }
+ * if (!btr_fmale.isSelected() && !btr_male.isSelected()) {
+ * System.out.println("hatalı");
+ * 
+ * return false;
+ * }
+ * System.out.println("başarılı");
+ * 
+ * return true;
+ */

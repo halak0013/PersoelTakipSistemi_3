@@ -5,6 +5,9 @@
 package aDenemelikler;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+
+import java.text.SimpleDateFormat;
+
 import javax.swing.border.TitledBorder;
 
 import langs.LangM;
@@ -12,6 +15,7 @@ import langs.tr_Tr;
 import pages.DataBank;
 import regex.RegexC;
 import sql.DbHelper;
+import sql.Personel;
 
 /**
  *
@@ -24,14 +28,11 @@ public class a extends javax.swing.JFrame {
      */
     public a() {
         initComponents();
-        imageScaling();
         revalidate();
         tr_Tr.name();
-        
+
     }
 
-    private void imageScaling() {
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,38 +43,33 @@ public class a extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnl_adding = new javax.swing.JPanel();
-        lb_name = new javax.swing.JLabel();
-        txf_surname = new view.TextField.TextFeild();
-        lb_surname = new javax.swing.JLabel();
-        txf_mail = new view.TextField.TextFeild();
-        lb_mail = new javax.swing.JLabel();
-        lb_salary = new javax.swing.JLabel();
-        txf_phone = new view.TextField.TextFeild();
-        lb_phone = new javax.swing.JLabel();
-        lb_gender = new javax.swing.JLabel();
-        txf_salary = new view.TextField.TextFeild();
-        lb_startToWork = new javax.swing.JLabel();
-        txf_tc = new view.TextField.TextFeild();
-        lb_tc = new javax.swing.JLabel();
-        lb_experience = new javax.swing.JLabel();
-        lb_education = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txa_about = new javax.swing.JTextArea();
-        txf_name = new view.TextField.TextFeild();
-        lb_about = new javax.swing.JLabel();
-        lb_password = new javax.swing.JLabel();
-        txf_password = new view.TextField.TextFeild();
-        txf_id = new view.TextField.TextFeild();
-        lb_id = new javax.swing.JLabel();
-        btr_male = new javax.swing.JRadioButton();
-        btr_fmale = new javax.swing.JRadioButton();
-        cmb_educaiton = new javax.swing.JComboBox<>();
-        spn_experience = new javax.swing.JSpinner();
-        clan_startToWork = new com.toedter.calendar.JDateChooser();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lst_candidate = new javax.swing.JList<>();
-        lb_candidate = new javax.swing.JLabel();
+        svg_search = new view.image.SvgImage();
+        txf_search = new view.TextField.TextFeild();
+        bt_update = new view.buttons.ButtonN();
+        bt_sil = new view.buttons.ButtonN();
+        bt_add = new view.buttons.ButtonN();
+        pnl_filters = new javax.swing.JPanel();
+        btr_startSort = new javax.swing.JRadioButton();
+        btr_endSort = new javax.swing.JRadioButton();
+        sld_percent = new javax.swing.JSlider();
+        lb_perValue = new javax.swing.JLabel();
+        pnl_sort = new javax.swing.JPanel();
+        chkb_tc = new javax.swing.JCheckBox();
+        chk_id = new javax.swing.JCheckBox();
+        chk_name = new javax.swing.JCheckBox();
+        chk_salary = new javax.swing.JCheckBox();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbl_dataa = new javax.swing.JTable();
+        pnl_searcFilter = new javax.swing.JPanel();
+        chk_tcS = new javax.swing.JCheckBox();
+        chk_nameS = new javax.swing.JCheckBox();
+        chk_surnameS = new javax.swing.JCheckBox();
+        chk_strartWorkS = new javax.swing.JCheckBox();
+        chk_mailS = new javax.swing.JCheckBox();
+        chk_passwordS = new javax.swing.JCheckBox();
+        btr_include = new javax.swing.JRadioButton();
+        btr_startS = new javax.swing.JRadioButton();
+        btr_endS = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(708, 418));
@@ -84,103 +80,134 @@ public class a extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnl_adding.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        svg_search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                svg_searchMousePressed(evt);
+            }
+        });
+        getContentPane().add(svg_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 20, 20));
 
-        lb_name.setText("İsim");
-        pnl_adding.add(lb_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        txf_search.setToolTipText("");
+        getContentPane().add(txf_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 460, 50));
 
-        txf_surname.setText("textFeild1");
-        pnl_adding.add(txf_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 123, 35));
+        bt_update.setText("Güncelle");
+        bt_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_updateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 100, 40));
 
-        lb_surname.setText("Soyisim");
-        pnl_adding.add(lb_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
+        bt_sil.setText("Sil");
+        bt_sil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_silActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 100, 40));
 
-        txf_mail.setText("textFeild1");
-        pnl_adding.add(txf_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 123, 35));
+        bt_add.setText("Ekle");
+        bt_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_addActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 100, 40));
 
-        lb_mail.setText("Mail");
-        pnl_adding.add(lb_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
+        pnl_filters.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtreler"));
+        pnl_filters.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lb_salary.setText("Maaş");
-        pnl_adding.add(lb_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
+        btr_startSort.setSelected(true);
+        btr_startSort.setText("Baştan");
+        pnl_filters.add(btr_startSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 17, -1, -1));
 
-        txf_phone.setText("textFeild1");
-        pnl_adding.add(txf_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 123, 35));
+        btr_endSort.setText("Sondan");
+        pnl_filters.add(btr_endSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 17, -1, -1));
 
-        lb_phone.setText("Telofon");
-        pnl_adding.add(lb_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        sld_percent.setValue(100);
+        sld_percent.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sld_percentStateChanged(evt);
+            }
+        });
+        pnl_filters.add(sld_percent, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 188, -1));
 
-        lb_gender.setText("Cinsiyet");
-        pnl_adding.add(lb_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+        lb_perValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_perValue.setText("100");
+        pnl_filters.add(lb_perValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
-        txf_salary.setText("2131223");
-        pnl_adding.add(txf_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 123, 35));
+        pnl_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Sıralama"));
+        pnl_sort.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lb_startToWork.setText("Başlama Tarihi");
-        pnl_adding.add(lb_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+        chkb_tc.setText("Kimlik No");
+        pnl_sort.add(chkb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
-        txf_tc.setText("textFeild1");
-        pnl_adding.add(txf_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 123, 35));
+        chk_id.setSelected(true);
+        chk_id.setText("İd");
+        pnl_sort.add(chk_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lb_tc.setText("Kimlik Numarası");
-        pnl_adding.add(lb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
+        chk_name.setText("İsim");
+        pnl_sort.add(chk_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        lb_experience.setText("Çalışma Tecrübesi");
-        pnl_adding.add(lb_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
+        chk_salary.setText("Maaş");
+        pnl_sort.add(chk_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        lb_education.setText("Eğitim Durumu");
-        pnl_adding.add(lb_education, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        pnl_filters.add(pnl_sort, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 60));
 
-        jScrollPane2.setToolTipText("");
+        getContentPane().add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 340, 120));
 
-        txa_about.setColumns(20);
-        txa_about.setLineWrap(true);
-        txa_about.setRows(5);
-        txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
-        jScrollPane2.setViewportView(txa_about);
+        tbl_dataa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tbl_dataaMousePressed(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbl_dataa);
 
-        pnl_adding.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 530, 210));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1300, 200));
 
-        txf_name.setText("textFeild1");
-        pnl_adding.add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 123, 35));
+        pnl_searcFilter.setBorder(javax.swing.BorderFactory.createTitledBorder("arama filtreleri"));
+        pnl_searcFilter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lb_about.setText("Hakkında");
-        pnl_adding.add(lb_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+        chk_tcS.setText("Kimlik Numarası");
+        pnl_searcFilter.add(chk_tcS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
 
-        lb_password.setText("Parola");
-        pnl_adding.add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, -1));
+        chk_nameS.setText("İsim");
+        pnl_searcFilter.add(chk_nameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        txf_password.setText("textFeild1");
-        pnl_adding.add(txf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 123, 35));
+        chk_surnameS.setText("Soyisim");
+        pnl_searcFilter.add(chk_surnameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
-        txf_id.setText("textFeild1");
-        txf_id.setEnabled(false);
-        pnl_adding.add(txf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 123, 35));
+        chk_strartWorkS.setText("Başlama tarihi");
+        pnl_searcFilter.add(chk_strartWorkS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
-        lb_id.setText("İd");
-        pnl_adding.add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
+        chk_mailS.setText("Mail");
+        pnl_searcFilter.add(chk_mailS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        btr_male.setText("Erkek");
-        pnl_adding.add(btr_male, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, -1, -1));
+        chk_passwordS.setText("Parola");
+        pnl_searcFilter.add(chk_passwordS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
 
-        btr_fmale.setText("Kadın");
-        pnl_adding.add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, -1));
+        btr_include.setSelected(true);
+        btr_include.setText("içeren");
+        pnl_searcFilter.add(btr_include, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
-        pnl_adding.add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
+        btr_startS.setText("baştan");
+        pnl_searcFilter.add(btr_startS, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
-        spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
-        pnl_adding.add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 110, -1));
-        pnl_adding.add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, -1));
+        btr_endS.setText("sondan");
+        pnl_searcFilter.add(btr_endS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
-        jScrollPane1.setViewportView(lst_candidate);
-
-        pnl_adding.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 350, 470));
-
-        lb_candidate.setText("Başvuranlar");
-        pnl_adding.add(lb_candidate, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
-
-        getContentPane().add(pnl_adding, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
+        getContentPane().add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 340, 120));
 
         pack();
         setLocationRelativeTo(null);
@@ -190,7 +217,30 @@ public class a extends javax.swing.JFrame {
         this.requestFocusInWindow();
 
     }//GEN-LAST:event_formMousePressed
-    String text = "lütfen bi değer giriniz";
+
+    private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svg_searchMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_svg_searchMousePressed
+
+    private void bt_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_updateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_updateActionPerformed
+
+    private void bt_silActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_silActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_silActionPerformed
+
+    private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_addActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_addActionPerformed
+
+    private void sld_percentStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sld_percentStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sld_percentStateChanged
+
+    private void tbl_dataaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_dataaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_dataaMousePressed
 
     /**
      * @param args the command line arguments
@@ -205,37 +255,32 @@ public class a extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton btr_fmale;
-    private javax.swing.JRadioButton btr_male;
-    private com.toedter.calendar.JDateChooser clan_startToWork;
-    private javax.swing.JComboBox<String> cmb_educaiton;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lb_about;
-    private javax.swing.JLabel lb_candidate;
-    private javax.swing.JLabel lb_education;
-    private javax.swing.JLabel lb_experience;
-    private javax.swing.JLabel lb_gender;
-    private javax.swing.JLabel lb_id;
-    private javax.swing.JLabel lb_mail;
-    private javax.swing.JLabel lb_name;
-    private javax.swing.JLabel lb_password;
-    private javax.swing.JLabel lb_phone;
-    private javax.swing.JLabel lb_salary;
-    private javax.swing.JLabel lb_startToWork;
-    private javax.swing.JLabel lb_surname;
-    private javax.swing.JLabel lb_tc;
-    private javax.swing.JList<String> lst_candidate;
-    private javax.swing.JPanel pnl_adding;
-    private javax.swing.JSpinner spn_experience;
-    private javax.swing.JTextArea txa_about;
-    private view.TextField.TextFeild txf_id;
-    private view.TextField.TextFeild txf_mail;
-    private view.TextField.TextFeild txf_name;
-    private view.TextField.TextFeild txf_password;
-    private view.TextField.TextFeild txf_phone;
-    private view.TextField.TextFeild txf_salary;
-    private view.TextField.TextFeild txf_surname;
-    private view.TextField.TextFeild txf_tc;
+    private view.buttons.ButtonN bt_add;
+    private view.buttons.ButtonN bt_sil;
+    private view.buttons.ButtonN bt_update;
+    private javax.swing.JRadioButton btr_endS;
+    private javax.swing.JRadioButton btr_endSort;
+    private javax.swing.JRadioButton btr_include;
+    private javax.swing.JRadioButton btr_startS;
+    private javax.swing.JRadioButton btr_startSort;
+    private javax.swing.JCheckBox chk_id;
+    private javax.swing.JCheckBox chk_mailS;
+    private javax.swing.JCheckBox chk_name;
+    private javax.swing.JCheckBox chk_nameS;
+    private javax.swing.JCheckBox chk_passwordS;
+    private javax.swing.JCheckBox chk_salary;
+    private javax.swing.JCheckBox chk_strartWorkS;
+    private javax.swing.JCheckBox chk_surnameS;
+    private javax.swing.JCheckBox chk_tcS;
+    private javax.swing.JCheckBox chkb_tc;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lb_perValue;
+    private javax.swing.JPanel pnl_filters;
+    private javax.swing.JPanel pnl_searcFilter;
+    private javax.swing.JPanel pnl_sort;
+    private javax.swing.JSlider sld_percent;
+    private view.image.SvgImage svg_search;
+    private javax.swing.JTable tbl_dataa;
+    private view.TextField.TextFeild txf_search;
     // End of variables declaration//GEN-END:variables
 }
