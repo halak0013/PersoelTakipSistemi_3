@@ -30,7 +30,9 @@ public class DataBank extends javax.swing.JFrame {
         db.fillTable("info");
         LanPro();
         lb_perValue.setText(LangM.percent + sld_percent.getValue() + "% " + LangM.show);
-        clearFieldsAdd();
+        //clearFieldsAdd();
+        pnl_searchArea.setEnabled(false);
+        pnl_searchArea.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -43,6 +45,13 @@ public class DataBank extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         StrtEnd = new javax.swing.ButtonGroup();
         search = new javax.swing.ButtonGroup();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        m_item_menu = new view.panels.MenuItems();
+        m_item_check = new view.panels.MenuItems();
+        m_item_add = new view.panels.MenuItems();
+        m_item_setting = new view.panels.MenuItems();
+        m_item_chart = new view.panels.MenuItems();
         pnl_adding = new javax.swing.JPanel();
         lb_name = new javax.swing.JLabel();
         txf_surname = new view.TextField.TextFeild();
@@ -70,25 +79,22 @@ public class DataBank extends javax.swing.JFrame {
         btr_male = new javax.swing.JRadioButton();
         btr_fmale = new javax.swing.JRadioButton();
         cmb_educaiton = new javax.swing.JComboBox<>();
-        svg_search = new view.image.SvgImage();
-        txf_search = new view.TextField.TextFeild();
-        bt_update = new view.buttons.ButtonN();
-        bt_sil = new view.buttons.ButtonN();
-        bt_add = new view.buttons.ButtonN();
-        pnl_filters = new javax.swing.JPanel();
-        btr_startSort = new javax.swing.JRadioButton();
-        btr_endSort = new javax.swing.JRadioButton();
-        sld_percent = new javax.swing.JSlider();
-        lb_perValue = new javax.swing.JLabel();
-        pnl_sort = new javax.swing.JPanel();
-        chkb_tc = new javax.swing.JCheckBox();
-        chk_id = new javax.swing.JCheckBox();
-        chk_name = new javax.swing.JCheckBox();
-        chk_salary = new javax.swing.JCheckBox();
         spn_experience = new javax.swing.JSpinner();
         clan_startToWork = new com.toedter.calendar.JDateChooser();
+        pnl_checkArea = new javax.swing.JPanel();
+        lb_candidate = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lst_candidate = new javax.swing.JList<>();
+        bt_accept = new view.buttons.ButtonN();
+        bt_decline = new view.buttons.ButtonN();
+        pnl_searchArea = new javax.swing.JPanel();
+        bt_update = new view.buttons.ButtonN();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_dataa = new javax.swing.JTable();
+        svg_search = new view.image.SvgImage();
+        txf_search = new view.TextField.TextFeild();
+        bt_add = new view.buttons.ButtonN();
+        bt_sil = new view.buttons.ButtonN();
         pnl_searcFilter = new javax.swing.JPanel();
         chk_tcS = new javax.swing.JCheckBox();
         chk_nameS = new javax.swing.JCheckBox();
@@ -99,19 +105,16 @@ public class DataBank extends javax.swing.JFrame {
         btr_include = new javax.swing.JRadioButton();
         btr_startS = new javax.swing.JRadioButton();
         btr_endS = new javax.swing.JRadioButton();
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
-        m_item_menu = new view.panels.MenuItems();
-        m_item_check = new view.panels.MenuItems();
-        m_item_add = new view.panels.MenuItems();
-        m_item_setting = new view.panels.MenuItems();
-        m_item_chart = new view.panels.MenuItems();
-        jPanel6 = new javax.swing.JPanel();
-        bt_accept = new view.buttons.ButtonN();
-        bt_decline = new view.buttons.ButtonN();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lst_candidate = new javax.swing.JList<>();
-        lb_candidate = new javax.swing.JLabel();
+        pnl_filters = new javax.swing.JPanel();
+        btr_startSort = new javax.swing.JRadioButton();
+        btr_endSort = new javax.swing.JRadioButton();
+        sld_percent = new javax.swing.JSlider();
+        lb_perValue = new javax.swing.JLabel();
+        pnl_sort = new javax.swing.JPanel();
+        chkb_tc = new javax.swing.JCheckBox();
+        chk_id = new javax.swing.JCheckBox();
+        chk_name = new javax.swing.JCheckBox();
+        chk_salary = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
@@ -122,7 +125,78 @@ public class DataBank extends javax.swing.JFrame {
                 formMousePressed(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(234, 234, 105));
+        jPanel1.setMaximumSize(new java.awt.Dimension(220, 32767));
+        jPanel1.setMinimumSize(new java.awt.Dimension(55, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(55, 672));
+
+        m_item_menu.setA_image("menu");
+        m_item_menu.setA_text("Main Menu");
+        m_item_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                m_item_menuMousePressed(evt);
+            }
+        });
+
+        m_item_check.setA_image("check");
+        m_item_check.setA_text("Check");
+        m_item_check.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                m_item_checkMousePressed(evt);
+            }
+        });
+
+        m_item_add.setA_image("add");
+        m_item_add.setA_text("Add");
+        m_item_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                m_item_addMousePressed(evt);
+            }
+        });
+
+        m_item_setting.setA_image("setting");
+        m_item_setting.setA_text("Setting");
+        m_item_setting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                m_item_settingMousePressed(evt);
+            }
+        });
+
+        m_item_chart.setA_image("chart");
+        m_item_chart.setA_text("Charts");
+        m_item_chart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                m_item_chartMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(m_item_chart, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+            .addComponent(m_item_add, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+            .addComponent(m_item_check, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+            .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(m_item_setting, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(m_item_check, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(m_item_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(m_item_chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 485, Short.MAX_VALUE)
+                .addComponent(m_item_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
+        jSplitPane1.setLeftComponent(jPanel1);
 
         pnl_adding.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -211,15 +285,38 @@ public class DataBank extends javax.swing.JFrame {
         cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
         pnl_adding.add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
 
-        svg_search.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                svg_searchMousePressed(evt);
+        spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
+        pnl_adding.add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 110, -1));
+        pnl_adding.add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, -1));
+
+        pnl_checkArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lb_candidate.setText("Başvuranlar");
+        pnl_checkArea.add(lb_candidate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        jScrollPane1.setViewportView(lst_candidate);
+
+        pnl_checkArea.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 970, 360));
+
+        bt_accept.setText("Kabul et");
+        bt_accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_acceptActionPerformed(evt);
             }
         });
-        pnl_adding.add(svg_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 20, 20));
+        pnl_checkArea.add(bt_accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 100, 140, 40));
 
-        txf_search.setToolTipText("");
-        pnl_adding.add(txf_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 460, 50));
+        bt_decline.setText("Reddet");
+        bt_decline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_declineActionPerformed(evt);
+            }
+        });
+        pnl_checkArea.add(bt_decline, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 140, 40));
+
+        pnl_adding.add(pnl_checkArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 1310, 420));
+
+        pnl_searchArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bt_update.setText("Güncelle");
         bt_update.addActionListener(new java.awt.event.ActionListener() {
@@ -227,15 +324,37 @@ public class DataBank extends javax.swing.JFrame {
                 bt_updateActionPerformed(evt);
             }
         });
-        pnl_adding.add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 100, 40));
+        pnl_searchArea.add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 100, 40));
 
-        bt_sil.setText("Sil");
-        bt_sil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_silActionPerformed(evt);
+        tbl_dataa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tbl_dataaMousePressed(evt);
             }
         });
-        pnl_adding.add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 100, 40));
+        jScrollPane3.setViewportView(tbl_dataa);
+
+        pnl_searchArea.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 1300, 250));
+
+        svg_search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                svg_searchMousePressed(evt);
+            }
+        });
+        pnl_searchArea.add(svg_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 20, 20));
+
+        txf_search.setToolTipText("");
+        pnl_searchArea.add(txf_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 460, 50));
 
         bt_add.setText("Ekle");
         bt_add.addActionListener(new java.awt.event.ActionListener() {
@@ -243,7 +362,51 @@ public class DataBank extends javax.swing.JFrame {
                 bt_addActionPerformed(evt);
             }
         });
-        pnl_adding.add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 100, 40));
+        pnl_searchArea.add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 100, 40));
+
+        bt_sil.setText("Sil");
+        bt_sil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_silActionPerformed(evt);
+            }
+        });
+        pnl_searchArea.add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 100, 40));
+
+        pnl_searcFilter.setBorder(javax.swing.BorderFactory.createTitledBorder("arama filtreleri"));
+        pnl_searcFilter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        chk_tcS.setText("Kimlik Numarası");
+        pnl_searcFilter.add(chk_tcS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
+
+        chk_nameS.setText("İsim");
+        pnl_searcFilter.add(chk_nameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        chk_surnameS.setText("Soyisim");
+        pnl_searcFilter.add(chk_surnameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+
+        chk_strartWorkS.setText("Başlama tarihi");
+        pnl_searcFilter.add(chk_strartWorkS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+
+        chk_mailS.setText("Mail");
+        pnl_searcFilter.add(chk_mailS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        chk_passwordS.setText("Parola");
+        pnl_searcFilter.add(chk_passwordS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+
+        search.add(btr_include);
+        btr_include.setSelected(true);
+        btr_include.setText("içeren");
+        pnl_searcFilter.add(btr_include, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        search.add(btr_startS);
+        btr_startS.setText("baştan");
+        pnl_searcFilter.add(btr_startS, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        search.add(btr_endS);
+        btr_endS.setText("sondan");
+        pnl_searcFilter.add(btr_endS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+
+        pnl_searchArea.add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 340, 120));
 
         pnl_filters.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtreler"));
         pnl_filters.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -287,167 +450,65 @@ public class DataBank extends javax.swing.JFrame {
 
         pnl_filters.add(pnl_sort, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 60));
 
-        pnl_adding.add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 340, 120));
+        pnl_searchArea.add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 340, 120));
 
-        spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
-        pnl_adding.add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 110, -1));
-        pnl_adding.add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, -1));
+        pnl_adding.add(pnl_searchArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 1340, 420));
 
-        tbl_dataa.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tbl_dataaMousePressed(evt);
-            }
-        });
-        jScrollPane3.setViewportView(tbl_dataa);
+        jSplitPane1.setRightComponent(pnl_adding);
 
-        pnl_adding.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1300, 300));
-
-        pnl_searcFilter.setBorder(javax.swing.BorderFactory.createTitledBorder("arama filtreleri"));
-        pnl_searcFilter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        chk_tcS.setText("Kimlik Numarası");
-        pnl_searcFilter.add(chk_tcS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
-
-        chk_nameS.setText("İsim");
-        pnl_searcFilter.add(chk_nameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
-
-        chk_surnameS.setText("Soyisim");
-        pnl_searcFilter.add(chk_surnameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
-
-        chk_strartWorkS.setText("Başlama tarihi");
-        pnl_searcFilter.add(chk_strartWorkS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
-
-        chk_mailS.setText("Mail");
-        pnl_searcFilter.add(chk_mailS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-
-        chk_passwordS.setText("Parola");
-        pnl_searcFilter.add(chk_passwordS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
-
-        search.add(btr_include);
-        btr_include.setSelected(true);
-        btr_include.setText("içeren");
-        pnl_searcFilter.add(btr_include, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        search.add(btr_startS);
-        btr_startS.setText("baştan");
-        pnl_searcFilter.add(btr_startS, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
-
-        search.add(btr_endS);
-        btr_endS.setText("sondan");
-        pnl_searcFilter.add(btr_endS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
-
-        pnl_adding.add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 340, 120));
-
-        getContentPane().add(pnl_adding, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 12, 1330, 650));
-
-        jPanel1.setBackground(new java.awt.Color(234, 234, 105));
-        jPanel1.setMaximumSize(new java.awt.Dimension(220, 32767));
-        jPanel1.setMinimumSize(new java.awt.Dimension(55, 600));
-        jPanel1.setPreferredSize(new java.awt.Dimension(55, 672));
-
-        m_item_menu.setA_image("menu");
-        m_item_menu.setA_text("Main Menu");
-
-        m_item_check.setA_image("check");
-        m_item_check.setA_text("Check");
-
-        m_item_add.setA_image("add");
-        m_item_add.setA_text("Add");
-
-        m_item_setting.setA_image("setting");
-        m_item_setting.setA_text("Setting");
-
-        m_item_chart.setA_image("chart");
-        m_item_chart.setA_text("Charts");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(m_item_chart, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-            .addComponent(m_item_add, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-            .addComponent(m_item_check, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-            .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(m_item_setting, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1400, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(m_item_check, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(m_item_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(m_item_chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 426, Short.MAX_VALUE)
-                .addComponent(m_item_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jSplitPane1)
                 .addGap(0, 0, 0))
         );
-
-        jSplitPane1.setLeftComponent(jPanel1);
-
-        jPanel6.setBackground(new java.awt.Color(103, 57, 162));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 88, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 661, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(jPanel6);
-
-        getContentPane().add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 661));
-
-        bt_accept.setText("Kabul et");
-        bt_accept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_acceptActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bt_accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(1620, 540, 80, -1));
-
-        bt_decline.setText("Reddet");
-        bt_decline.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_declineActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bt_decline, new org.netbeans.lib.awtextra.AbsoluteConstraints(1720, 540, 80, -1));
-
-        jScrollPane1.setViewportView(lst_candidate);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 20, 350, 470));
-
-        lb_candidate.setText("Başvuranlar");
-        getContentPane().add(lb_candidate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void m_item_checkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_checkMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_m_item_checkMousePressed
+
+    private void m_item_menuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_menuMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_m_item_menuMousePressed
+
+    private void m_item_addMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_addMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_m_item_addMousePressed
+
+    private void m_item_chartMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_chartMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_m_item_chartMousePressed
+
+    private void m_item_settingMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_settingMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_m_item_settingMousePressed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMousePressed
         requestFocusInWindow();
     }// GEN-LAST:event_formMousePressed
 
     private void bt_acceptActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_acceptActionPerformed
-
+        if (fieldControllerAdd()) {
+            try {
+                db.addData(objectPro(), "info");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
+                        JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+            db.fillTable("info");
+            clearFieldsAdd();
+        }
     }// GEN-LAST:event_bt_acceptActionPerformed
 
     private void bt_declineActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_declineActionPerformed
@@ -774,7 +835,6 @@ public class DataBank extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser clan_startToWork;
     private javax.swing.JComboBox<String> cmb_educaiton;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -801,8 +861,10 @@ public class DataBank extends javax.swing.JFrame {
     private view.panels.MenuItems m_item_menu;
     private view.panels.MenuItems m_item_setting;
     private javax.swing.JPanel pnl_adding;
+    private javax.swing.JPanel pnl_checkArea;
     private javax.swing.JPanel pnl_filters;
     private javax.swing.JPanel pnl_searcFilter;
+    private javax.swing.JPanel pnl_searchArea;
     private javax.swing.JPanel pnl_sort;
     private javax.swing.ButtonGroup search;
     private javax.swing.JSlider sld_percent;
