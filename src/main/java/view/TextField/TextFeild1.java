@@ -20,7 +20,7 @@ public class TextFeild1 extends JTextField {
         super();
         setBorder(createMatteBorder(0, 0, 2, 0, Constantas.borderColor()));
         setBackground(new Color(0, 0, 0, 0));
-        setForeground(Constantas.txColor());
+        setForeground(Constantas.txNormalColor());
         setText(textT);
         //System.out.println(textT+"ie");
 
@@ -59,7 +59,7 @@ public class TextFeild1 extends JTextField {
     private void cursoOn() {
         Font font = getFont().deriveFont(Font.PLAIN);
         setFont(font);
-        setForeground(Constantas.txColor());
+        setForeground(Constantas.txNormalColor());
     }
 
     // setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new

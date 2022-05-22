@@ -16,7 +16,7 @@ public class ButtonN extends JButton {
     private Color colorMain = Constantas.btMainColor();
     private Color colorOver = Constantas.btOverColor();
     private Color colorClick = Constantas.btClickColor();
-    private Color colorText=Constantas.txColor();
+    private Color colorText=Constantas.txNormalColor();
     private Color colorBorder=Constantas.borderColor();
     private boolean over;
     private short radius = 25;

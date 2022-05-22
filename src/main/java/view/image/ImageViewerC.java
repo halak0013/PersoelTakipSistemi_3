@@ -33,7 +33,7 @@ public class ImageViewerC extends JLabel {
     public void scale() {
         try {
             setPreferredSize(new Dimension(100,100));
-            ico = new ImageIcon(getClass().getResource("/resources/icons/def.png"));
+            ico = new ImageIcon(getClass().getResource("/resources/icons/"+image+".png"));
             Image picture = (ico).getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
             ico = new ImageIcon(picture);
             setIcon(ico);
