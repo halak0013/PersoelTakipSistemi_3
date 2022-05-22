@@ -1,3 +1,4 @@
+//Bismillahirrahmanirrahim
 package sql;
 
 import java.sql.Connection;
@@ -109,6 +110,34 @@ public class DbHelper {
         searchData2(tableName, "", "", 100, true);
     }
 
+    public void fillCandidateList() {
+        ListModels.candidateList.removeAllElements();
+        String query = "SELECT  * from singUpForms";
+        Personel p = new Personel();
+        try {
+            con = DbHelper.getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
+
+            while (rs.next()) {
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setSurname(rs.getString("surname"));
+                p.setPassword(rs.getString("password"));
+                p.setMail(rs.getString("mail"));
+                p.setTel(rs.getString("tel"));
+                p.setGender(rs.getString("gender"));
+                p.setTc(rs.getString("tc"));
+                p.setExperiencYear(rs.getInt("experience_year"));
+                p.setEducaitonStatus(rs.getString("education_status"));
+                p.setAbout(rs.getString("about"));
+                ListModels.addPersonOnList(p);
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     public Personel fillObject(int id, String tableName,boolean isChek) {
         String query = "SELECT * FROM "+tableName+" WHERE id =" + id;
         Personel p = new Personel();

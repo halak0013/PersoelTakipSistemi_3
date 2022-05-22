@@ -27,6 +27,7 @@ public class DataBank extends javax.swing.JFrame {
         tr_Tr.name();
         initComponents();
         ListModels.tblModel(tbl_dataa);
+        lst_candidate.setModel(ListModels.candidateList);
         db.fillTable("info");
         LanPro();
         lb_perValue.setText(LangM.percent + sld_percent.getValue() + "% " + LangM.show);
@@ -294,6 +295,11 @@ public class DataBank extends javax.swing.JFrame {
         lb_candidate.setText("Başvuranlar");
         pnl_checkArea.add(lb_candidate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
+        lst_candidate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lst_candidateMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(lst_candidate);
 
         pnl_checkArea.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 970, 360));
@@ -474,24 +480,30 @@ public class DataBank extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void m_item_checkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_checkMousePressed
-        // TODO add your handling code here:
+        db.fillCandidateList();
     }//GEN-LAST:event_m_item_checkMousePressed
 
     private void m_item_menuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_menuMousePressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_m_item_menuMousePressed
 
     private void m_item_addMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_addMousePressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_m_item_addMousePressed
 
     private void m_item_chartMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_chartMousePressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_m_item_chartMousePressed
 
     private void m_item_settingMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_settingMousePressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_m_item_settingMousePressed
+
+    private void lst_candidateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lst_candidateMousePressed
+        String sellectedItem=lst_candidate.getSelectedValue();
+        int id=Integer.parseInt(sellectedItem.substring(sellectedItem.indexOf('.')));
+        System.out.println(id);
+    }//GEN-LAST:event_lst_candidateMousePressed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMousePressed
         requestFocusInWindow();

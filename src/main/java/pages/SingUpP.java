@@ -2,6 +2,8 @@
 package pages;
 
 import javax.swing.JOptionPane;
+
+import functions.MyList;
 import functions.PageP;
 import langs.LangM;
 import langs.tr_Tr;
@@ -151,7 +153,10 @@ public class SingUpP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonN1ActionPerformed
-        if (fieldController()) {
+        if(txf_password.getText().equals(txf_password1.getText())){
+        
+        }
+        if (fieldControllerAdd()) {
             try {
                 db.addData(objectPro(),"singUpForms");
             } catch (Exception e) {
@@ -183,6 +188,7 @@ public class SingUpP extends javax.swing.JFrame {
         txf_mail.setText("");
         txf_name.setText("");
         txf_password.setText("");
+        txf_password1.setText("");
         txf_phone.setText("");
         txf_surname.setText("");
         txf_tc.setText("");
@@ -190,35 +196,23 @@ public class SingUpP extends javax.swing.JFrame {
         cmb_educaiton.setSelectedIndex(0);
 
     }
+    MyList<String, Integer> regexList;
 
-    private boolean fieldController() {
-        if (!RegexC.textPatern(txf_name.getText(), LangM.correctName)) {
-            return false;
+    private boolean fieldControllerAdd() {
+        regexList = new MyList<>();
+        regexList.add(txf_name.getText(), 0, LangM.correctName);
+        regexList.add(txf_surname.getText(), 0, LangM.correctSurname);
+        regexList.add(txf_password.getText(), 3, LangM.correctPassword);
+        if((txf_password.getText().equals(txf_password1.getText()))){
+            JOptionPane.showConfirmDialog(rootPane, "Parolalar Eşleşmiyor", "Şifre", JOptionPane.ERROR_MESSAGE);
+        return false;
         }
-        if (!RegexC.textPatern(txf_surname.getText(), LangM.correctSurname)) {
-            return false;
-        }
-        if (!RegexC.passwordPatern(txf_password.getText(), LangM.correctPassword)) {
-            return false;
-        }
-        if (!RegexC.mailPatern(txf_mail.getText(), LangM.correctMail)) {
-            return false;
-        }
-        if (!RegexC.numberPatern(txf_tc.getText(), 11, LangM.correctTc)) {
-            return false;
-        }
-        if (!RegexC.phonePatern(txf_phone.getText(), LangM.correctPhone)) {
-            return false;
-        }
-        if (!btr_fmale.isSelected() && !btr_male.isSelected()) {
-            System.out.println("hatalı");
-
-            return false;
-        }
-        System.out.println("başarılı");
-
-        return true;
+        regexList.add(txf_mail.getText(), 2, LangM.correctMail);
+        regexList.add(txf_phone.getText(), 4, LangM.correctPhone);
+        regexList.add(txf_tc.getText(), 1, LangM.correctTc);
+        return RegexC.fieldController(regexList, btr_male, btr_fmale);
     }
+
 
     private void LanPro() {
         lb_name.setText(LangM.name);
@@ -226,6 +220,7 @@ public class SingUpP extends javax.swing.JFrame {
         lb_education.setText(LangM.eduStatus);
         lb_mail.setText(LangM.mail);
         lb_password.setText(LangM.password);
+        lb_password1.setText(LangM.password);
         lb_phone.setText(LangM.tel);
         lb_tc.setText(LangM.tc);
         lb_gender.setText(LangM.gender);
@@ -280,3 +275,31 @@ public class SingUpP extends javax.swing.JFrame {
     private view.TextField.TextFeild txf_tc;
     // End of variables declaration//GEN-END:variables
 }
+    /* private boolean fieldController() {
+        if (!RegexC.textPatern(txf_name.getText(), LangM.correctName)) {
+            return false;
+        }
+        if (!RegexC.textPatern(txf_surname.getText(), LangM.correctSurname)) {
+            return false;
+        }
+        if (!RegexC.passwordPatern(txf_password.getText(), LangM.correctPassword)) {
+            return false;
+        }
+        if (!RegexC.mailPatern(txf_mail.getText(), LangM.correctMail)) {
+            return false;
+        }
+        if (!RegexC.numberPatern(txf_tc.getText(), 11, LangM.correctTc)) {
+            return false;
+        }
+        if (!RegexC.phonePatern(txf_phone.getText(), LangM.correctPhone)) {
+            return false;
+        }
+        if (!btr_fmale.isSelected() && !btr_male.isSelected()) {
+            System.out.println("hatalı");
+
+            return false;
+        }
+        System.out.println("başarılı");
+
+        return true;
+    } */

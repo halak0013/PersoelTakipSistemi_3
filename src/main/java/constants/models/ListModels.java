@@ -1,3 +1,4 @@
+//Bisimillahirrahmanirrahim
 package constants.models;
 
 import javax.swing.DefaultComboBoxModel;
@@ -32,6 +33,6 @@ public class ListModels {
     return  candidateList;
     }
     public static void addPersonOnList(Personel p) {
-    candidateList.addElement(p.getName()+" "+p.getSurname());
+    candidateList.addElement(p.getId()+". İsmi "+p.getName()+" Soyismi "+p.getSurname()+" Eğitimi Durumu "+p.getEducationStatus()+" Çalışma tecrübesi "+p.getExperiencYear());
     }
 }
