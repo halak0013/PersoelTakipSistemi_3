@@ -255,7 +255,6 @@ public class DbHelper {
             pStm = con.prepareStatement(query);
             for (int i =0; i < p.perLi.size(); i++) {
                 System.out.println(p.perLi.get(i));
-
                 if (p.perLi.get(i) instanceof Integer) {
                     System.out.println(i);
                     pStm.setInt(i+1, Integer.parseInt(p.perLi.get(i).toString()));

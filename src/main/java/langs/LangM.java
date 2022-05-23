@@ -46,6 +46,8 @@ public class LangM {
     public static String update;
     public static String delete;
     public static String add;
+    public static String save;
+
 
 
 
@@ -66,11 +68,16 @@ public class LangM {
     public static String deletingDone;
     public static String errorMesage;
 
+    public static String saving;
+
+
 
 
 
     //??????????????????????????????başlıklar
     public static String error;
+    public static String colorChoser;
+
 
     //???????????????????????Listler
     public static String priScholl;

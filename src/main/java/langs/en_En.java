@@ -1,7 +1,7 @@
 package langs;
 
-public class tr_Tr extends LangM {
-    public static void trLang() {
+public class en_En extends LangM {
+    public static void enLang() {
         name = "Ad";
         surname = "Soyad";
         id = "İd";
@@ -42,8 +42,6 @@ public class tr_Tr extends LangM {
         update = "Güncelle";
         delete = "Sil";
         add = "Ekle";
-        save = "Kaydet";
-        colorChoser = "Renk Seçici";
 
         //?????????????????????????????uyarı
         correctName = "Lütfen adı doğru giriniz\n Ör: Ahmet";
@@ -57,7 +55,6 @@ public class tr_Tr extends LangM {
         updatingDone = "Kayıt başarılı bir şeklide eklendi";
         deletingDone = "Kayıt başarılı bir şeklide eklendi";
         errorMesage = "Hata oluştu";
-        saving="Değişiklikler terar başladıktan sonra belli olur";
 
         //??????????????????????????????başlıklar
         error = "Hata";

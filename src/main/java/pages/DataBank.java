@@ -51,7 +51,7 @@ public class DataBank extends javax.swing.JFrame {
         pnl_recording = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         pnl_setting = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmb_lang = new javax.swing.JComboBox<>();
         lb_lang = new javax.swing.JLabel();
         btn_choseColor = new javax.swing.JButton();
         textFeild1 = new view.TextField.TextFeild();
@@ -213,14 +213,21 @@ public class DataBank extends javax.swing.JFrame {
         pnl_setting.setBackground(new java.awt.Color(0, 208, 255));
         pnl_setting.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_setting.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 52, 174, 45));
+        cmb_lang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnl_setting.add(cmb_lang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 52, 174, 45));
 
         lb_lang.setText("Dil");
         pnl_setting.add(lb_lang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 27, -1, -1));
 
         btn_choseColor.setText("Kenar rengini seç");
+        btn_choseColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_choseColorActionPerformed(evt);
+            }
+        });
         pnl_setting.add(btn_choseColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
+
+        textFeild1.setEnabled(false);
         pnl_setting.add(textFeild1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 63, -1));
 
         buttonN1.setText("button");
@@ -663,14 +670,20 @@ public class DataBank extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_saveThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_saveThemeActionPerformed
-        
+        String lang=cmb_lang.getSelectedIndex()==0?"tr":"en";
+        String theme=cmb_theme.getSelectedIndex()==0?"darkOrange":"darkBlue";
             try {
-                db.addData(objectPro(),"info");
+                Setting.saveSetting(theme, lang);
+            JOptionPane.showConfirmDialog(rootPane, LangM.saving);
             } catch (Exception e) {
                 e.printStackTrace();
             }
             
     }//GEN-LAST:event_bt_saveThemeActionPerformed
+
+    private void btn_choseColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_choseColorActionPerformed
+        PageP.openPage(new ColorChoser(), LangM.colorChoser);
+    }//GEN-LAST:event_btn_choseColorActionPerformed
 
     public void startPro() {
     langProC();
@@ -681,6 +694,8 @@ public class DataBank extends javax.swing.JFrame {
     clearFieldsAdd();
     pnl_searchArea.setEnabled(false);
     pnl_searchArea.setVisible(false);
+    cmb_lang.setModel(ListModels.cmbLangList());
+    cmb_theme.setModel(ListModels.cmbThemeList());
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMousePressed
@@ -1110,8 +1125,8 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkb_tc;
     private com.toedter.calendar.JDateChooser clan_startToWork;
     private javax.swing.JComboBox<String> cmb_educaiton;
+    private javax.swing.JComboBox<String> cmb_lang;
     private javax.swing.JComboBox<String> cmb_theme;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

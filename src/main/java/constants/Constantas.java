@@ -1,5 +1,6 @@
 package constants;
 
+import functions.Setting;
 import java.awt.Color;
 
 public class Constantas {
@@ -19,7 +20,7 @@ public class Constantas {
 
 
     public static Color borderColor() {
-        return new Color(250, 164, 1);
+        return Setting.color;
     }
 
     public static Color hintColor() {
@@ -40,7 +41,7 @@ public class Constantas {
 
         
     public static Color panelFocusGain() {
-        return new Color(250, 164, 1);
+        return Setting.color;
     }
 
     public static Color panelNormalColor() {

@@ -7,7 +7,7 @@ import functions.Setting;
 
 public class dbSetting extends DbHelper {
 
-    public void getData() {
+    public static void getData() {
     String query = "SELECT * FROM setting";
 
     try {
@@ -24,7 +24,7 @@ public class dbSetting extends DbHelper {
     }
     }
 
-    public void updateData() {
+    public static void updateData() {
     String query="UPDATE setting SET log=?,theme=?,lang=?,red=?,green=?,blue=?";
     try {
         con=getConnection();
@@ -35,9 +35,9 @@ public class dbSetting extends DbHelper {
         pStm.setInt(4, Setting.color.getRed());
         pStm.setInt(5, Setting.color.getGreen());
         pStm.setInt(6, Setting.color.getBlue());
+        pStm.executeUpdate();
         pStm.close();
         con.close();
-        pStm.executeUpdate();
     } catch (SQLException e) {
         showError(e);
     }
