@@ -94,6 +94,7 @@ public class DbHelper {
                 p.setTc(rs.getString("tc"));
                 p.setExperiencYear(rs.getInt("experience_year"));
                 p.setEducaitonStatus(rs.getString("education_status"));
+                p.setStatus(rs.getString("status"));
                 p.setAbout(rs.getString("about"));
                 ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
                         p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
@@ -104,7 +105,6 @@ public class DbHelper {
             con.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-
         }
     }
 
@@ -128,7 +128,11 @@ public class DbHelper {
                 p.setPassword(rs.getString("password"));
                 p.setMail(rs.getString("mail"));
                 p.setTel(rs.getString("tel"));
-                p.setGender(rs.getString("gender"));
+                if(rs.getString("gender").equals("male")){
+                    p.setGender(LangM.male);
+                }else{
+                    p.setGender(LangM.fmale);
+                }
                 p.setTc(rs.getString("tc"));
                 p.setExperiencYear(rs.getInt("experience_year"));
                 p.setEducaitonStatus(rs.getString("education_status"));
@@ -248,7 +252,7 @@ public class DbHelper {
     }
 
     public void updateData(int id, Personel p) {
-        String query = "UPDATE info SET  name   = ?, surname = ?, password = ?, mail = ?, salary = ?, tel = ?, gender= ?, starting_of_work =?,tc=?,experience_year=?, education_status=?,about=? WHERE id ="
+        String query = "UPDATE info SET  name   = ?, surname = ?, password = ?, mail = ?, salary = ?, tel = ?, gender= ?, starting_of_work =?,tc=?,experience_year=?, education_status=?,status=?,about=? WHERE id ="
                 + id;
 
         try {

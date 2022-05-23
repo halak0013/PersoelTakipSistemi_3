@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import com.formdev.flatlaf.json.ParseException;
 
 import constants.models.ListModels;
 import functions.MyList;
@@ -37,7 +37,7 @@ public class DataBank extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -52,6 +52,7 @@ public class DataBank extends javax.swing.JFrame {
         m_item_chart = new view.panels.MenuItems();
         pnl_recording = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        pnl_chart = new javax.swing.JPanel();
         pnl_add_check = new javax.swing.JPanel();
         lb_name = new javax.swing.JLabel();
         txf_surname = new view.TextField.TextFeild();
@@ -130,7 +131,6 @@ public class DataBank extends javax.swing.JFrame {
         cmb_theme = new javax.swing.JComboBox<>();
         lb_theme = new javax.swing.JLabel();
         bt_saveTheme = new view.buttons.ButtonN();
-        pnl_chart = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
@@ -188,35 +188,46 @@ public class DataBank extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(m_item_chart, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                        .addComponent(m_item_add, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                        .addComponent(m_item_check, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                        .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(m_item_setting, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(m_item_chart, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+            .addComponent(m_item_add, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+            .addComponent(m_item_check, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+            .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(m_item_setting, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+        );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(m_item_check, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(m_item_add, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(m_item_chart, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 485,
-                                        Short.MAX_VALUE)
-                                .addComponent(m_item_setting, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(m_item_check, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(m_item_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(m_item_chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 485, Short.MAX_VALUE)
+                .addComponent(m_item_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnl_chart.setBackground(new java.awt.Color(241, 171, 59));
+
+        javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
+        pnl_chart.setLayout(pnl_chartLayout);
+        pnl_chartLayout.setHorizontalGroup(
+            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 890, Short.MAX_VALUE)
+        );
+        pnl_chartLayout.setVerticalGroup(
+            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+        );
+
+        jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 890, 720));
 
         pnl_add_check.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -271,8 +282,7 @@ public class DataBank extends javax.swing.JFrame {
         txa_about.setColumns(20);
         txa_about.setLineWrap(true);
         txa_about.setRows(5);
-        txa_about.setText(
-                "lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
+        txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
         jScrollPane2.setViewportView(txa_about);
 
         pnl_add_check.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 530, 210));
@@ -304,8 +314,7 @@ public class DataBank extends javax.swing.JFrame {
         btr_fmale.setText("Kadın");
         pnl_add_check.add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, -1, -1));
 
-        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(
-                new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
+        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
         pnl_add_check.add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 120, -1));
 
         spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
@@ -355,15 +364,16 @@ public class DataBank extends javax.swing.JFrame {
         pnl_searchArea.add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 100, 40));
 
         tbl_dataa.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null }
-                },
-                new String[] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }));
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
         tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tbl_dataaMousePressed(evt);
@@ -491,8 +501,7 @@ public class DataBank extends javax.swing.JFrame {
         pnl_setting.setBackground(new java.awt.Color(0, 208, 255));
         pnl_setting.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmb_lang.setModel(
-                new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmb_lang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pnl_setting.add(cmb_lang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 52, 174, 45));
 
         lb_lang.setText("Dil");
@@ -524,8 +533,7 @@ public class DataBank extends javax.swing.JFrame {
 
         pnl_setting.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 322, 717, 338));
 
-        cmb_theme.setModel(
-                new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmb_theme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pnl_setting.add(cmb_theme, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 52, 174, 45));
 
         lb_theme.setText("Tema");
@@ -541,41 +549,31 @@ public class DataBank extends javax.swing.JFrame {
 
         jLayeredPane1.add(pnl_setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 870, 700));
 
-        pnl_chart.setBackground(new java.awt.Color(241, 171, 59));
-
-        javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
-        pnl_chart.setLayout(pnl_chartLayout);
-        pnl_chartLayout.setHorizontalGroup(
-                pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 890, Short.MAX_VALUE));
-        pnl_chartLayout.setVerticalGroup(
-                pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 700, Short.MAX_VALUE));
-
-        jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 890, 700));
-
         javax.swing.GroupLayout pnl_recordingLayout = new javax.swing.GroupLayout(pnl_recording);
         pnl_recording.setLayout(pnl_recordingLayout);
         pnl_recordingLayout.setHorizontalGroup(
-                pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnl_recordingLayout.createSequentialGroup()
-                                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1171,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 364, Short.MAX_VALUE)));
+            pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_recordingLayout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 204, Short.MAX_VALUE))
+        );
         pnl_recordingLayout.setVerticalGroup(
-                pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLayeredPane1));
+            pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane1)
+        );
 
         jSplitPane1.setRightComponent(pnl_recording);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jSplitPane1));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane1)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jSplitPane1));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane1)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -609,43 +607,40 @@ public class DataBank extends javax.swing.JFrame {
         cmb_lang.setModel(ListModels.cmbLangList());
         cmb_theme.setModel(ListModels.cmbThemeList());
         cmb_status.setModel(ListModels.cmbStatusList());
+        gainBt(m_item_add, pnl_add_check,pnl_searchArea);
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMousePressed
         requestFocusInWindow();
     }// GEN-LAST:event_formMousePressed
 
+    //!kontrol etme bölümü
     private void m_item_checkMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_checkMousePressed
-        gainBt(m_item_check);
         db.fillCandidateList();
-        pnl_recording.setVisible(true);
-        pnl_checkArea.setVisible(true);
-        pnl_searchArea.setVisible(false);
+        gainBt(m_item_check,pnl_add_check,pnl_checkArea);
         clearFieldsAdd();
     }// GEN-LAST:event_m_item_checkMousePressed
 
+    //!menü bölümü
     private void m_item_menuMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_menuMousePressed
         PageP.openPage(new MainP(), "");
         dispose();
     }// GEN-LAST:event_m_item_menuMousePressed
 
+    //!ekle bölümü
     private void m_item_addMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_addMousePressed
-        gainBt(m_item_add);
-        pnl_recording.setVisible(true);
-        pnl_checkArea.setVisible(false);
-        pnl_searchArea.setVisible(true);
+        gainBt(m_item_add,pnl_add_check,pnl_searchArea);
         clearFieldsAdd();
     }// GEN-LAST:event_m_item_addMousePressed
 
+    //!grafik bölümü
     private void m_item_chartMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_chartMousePressed
-        gainBt(m_item_chart);
-        pnl_recording.setVisible(false);
-        pnl_checkArea.setVisible(false);
-        pnl_searchArea.setVisible(false);// TODO chart panelini ekle
+        gainBt(m_item_chart, pnl_chart);
     }// GEN-LAST:event_m_item_chartMousePressed
 
+    //!ayarlar bölümü
     private void m_item_settingMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_settingMousePressed
-        gainBt(m_item_setting);
+        gainBt(m_item_setting,pnl_setting);
     }// GEN-LAST:event_m_item_settingMousePressed
 
     // ! listeye basıldığında
@@ -878,7 +873,6 @@ public class DataBank extends javax.swing.JFrame {
     }
 
     public Personel objectPro() throws Exception {
-        // TODO: cinsiyetleri veri tabanına tek formatta eklemeyi ekle
         String gender = "";
         String status = "";
         String edu = "";
@@ -1073,12 +1067,21 @@ public class DataBank extends javax.swing.JFrame {
         }
     }
 
-    public void gainBt(MenuItems mi) {
+    public void gainBt(MenuItems mi,JPanel ... pnl) {
         m_item_add.lostFocus();
         m_item_chart.lostFocus();
         m_item_check.lostFocus();
         m_item_setting.lostFocus();
         mi.gainFocus();
+
+        pnl_add_check.setVisible(false);
+        pnl_setting.setVisible(false);
+        pnl_chart.setVisible(false);
+        pnl_checkArea.setVisible(false);
+        pnl_searchArea.setVisible(false);
+        for (int i = 0; i < pnl.length; i++) {
+            pnl[i].setVisible(true);
+        }
     }
 
     /**
