@@ -189,6 +189,7 @@ public class DbHelper {
                 p.setTc(rs.getString("tc"));
                 p.setExperiencYear(rs.getInt("experience_year"));
                 p.setEducaitonStatus(rs.getString("education_status"));
+                p.setStatus(rs.getString("status"));
                 p.setAbout(rs.getString("about"));
                 if(!isChek){
                     p.setSalary(rs.getInt("salary"));//!

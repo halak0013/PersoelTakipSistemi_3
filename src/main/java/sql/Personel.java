@@ -17,6 +17,7 @@ public class Personel {
     private String educaitonStatus;
     private String about;
     private String catories;
+    private String status;
 
     public ArrayList perLi = new ArrayList<>();
 
@@ -50,7 +51,7 @@ public class Personel {
     // ? id siz güncelleme için
     public Personel(String name, String surname, String password,
             String mail, int salary, String tel, String gender, String startingOfWork,
-            String tc, int experiencYear, String educaitonStatus, String about) {
+            String tc, int experiencYear, String educaitonStatus, String about,String status) {
         this.name = name;
         this.surname = surname;
         this.password = password;
@@ -62,8 +63,9 @@ public class Personel {
         this.experiencYear = experiencYear;
         this.startingOfWork = startingOfWork;
         this.educaitonStatus = educaitonStatus;
+        this.status=status;
         this.about = about;
-        this.catories = " (id, name, surname, password, mail, salary, tel, gender, starting_of_work, tc, experience_year, education_status, about) ";
+        this.catories = " (id, name, surname, password, mail, salary, tel, gender, starting_of_work, tc, experience_year, education_status,status, about) ";
         perLi.clear();
         perLi.add(name);
         perLi.add(surname);
@@ -76,6 +78,7 @@ public class Personel {
         perLi.add(tc);
         perLi.add(experiencYear);
         perLi.add(educaitonStatus);
+        perLi.add(status);
         perLi.add(about);
     }
 
@@ -302,6 +305,20 @@ public class Personel {
      */
     public void setCatories(String catories) {
         this.catories = catories;
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }

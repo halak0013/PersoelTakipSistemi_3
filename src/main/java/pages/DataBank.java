@@ -24,6 +24,7 @@ import view.panels.MenuItems;
 public class DataBank extends javax.swing.JFrame {
 
     DbHelper db = new DbHelper();
+
     public DataBank() {
         tr_Tr.trLang();
         initComponents();
@@ -35,7 +36,8 @@ public class DataBank extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -50,20 +52,6 @@ public class DataBank extends javax.swing.JFrame {
         m_item_chart = new view.panels.MenuItems();
         pnl_recording = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        pnl_setting = new javax.swing.JPanel();
-        cmb_lang = new javax.swing.JComboBox<>();
-        lb_lang = new javax.swing.JLabel();
-        btn_choseColor = new javax.swing.JButton();
-        textFeild1 = new view.TextField.TextFeild();
-        buttonN1 = new view.buttons.ButtonN();
-        bt_seeLog = new view.buttons.ButtonN();
-        bt_saveLog = new view.buttons.ButtonN();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txa_log = new javax.swing.JTextArea();
-        cmb_theme = new javax.swing.JComboBox<>();
-        lb_theme = new javax.swing.JLabel();
-        bt_saveTheme = new view.buttons.ButtonN();
-        pnl_chart = new javax.swing.JPanel();
         pnl_add_check = new javax.swing.JPanel();
         lb_name = new javax.swing.JLabel();
         txf_surname = new view.TextField.TextFeild();
@@ -127,6 +115,22 @@ public class DataBank extends javax.swing.JFrame {
         chk_id = new javax.swing.JCheckBox();
         chk_name = new javax.swing.JCheckBox();
         chk_salary = new javax.swing.JCheckBox();
+        cmb_status = new javax.swing.JComboBox<>();
+        lb_status = new javax.swing.JLabel();
+        pnl_setting = new javax.swing.JPanel();
+        cmb_lang = new javax.swing.JComboBox<>();
+        lb_lang = new javax.swing.JLabel();
+        btn_choseColor = new javax.swing.JButton();
+        textFeild1 = new view.TextField.TextFeild();
+        buttonN1 = new view.buttons.ButtonN();
+        bt_seeLog = new view.buttons.ButtonN();
+        bt_saveLog = new view.buttons.ButtonN();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txa_log = new javax.swing.JTextArea();
+        cmb_theme = new javax.swing.JComboBox<>();
+        lb_theme = new javax.swing.JLabel();
+        bt_saveTheme = new view.buttons.ButtonN();
+        pnl_chart = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
@@ -184,159 +188,129 @@ public class DataBank extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(m_item_chart, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-            .addComponent(m_item_add, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-            .addComponent(m_item_check, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-            .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(m_item_setting, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(m_item_chart, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                        .addComponent(m_item_add, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                        .addComponent(m_item_check, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                        .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(m_item_setting, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(m_item_check, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(m_item_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(m_item_chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 465, Short.MAX_VALUE)
-                .addComponent(m_item_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(m_item_menu, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(m_item_check, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(m_item_add, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(m_item_chart, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 485,
+                                        Short.MAX_VALUE)
+                                .addComponent(m_item_setting, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnl_setting.setBackground(new java.awt.Color(0, 208, 255));
-        pnl_setting.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        cmb_lang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_setting.add(cmb_lang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 52, 174, 45));
-
-        lb_lang.setText("Dil");
-        pnl_setting.add(lb_lang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 27, -1, -1));
-
-        btn_choseColor.setText("Kenar rengini seç");
-        btn_choseColor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_choseColorActionPerformed(evt);
-            }
-        });
-        pnl_setting.add(btn_choseColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
-
-        textFeild1.setEnabled(false);
-        pnl_setting.add(textFeild1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 63, -1));
-
-        buttonN1.setText("button");
-        pnl_setting.add(buttonN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 77, -1));
-
-        bt_seeLog.setText("log kyadını çıkar");
-        pnl_setting.add(bt_seeLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 216, 142, 41));
-
-        bt_saveLog.setText("log kaydını bilgsiyara kaydet");
-        pnl_setting.add(bt_saveLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 263, 207, 41));
-
-        txa_log.setColumns(20);
-        txa_log.setRows(5);
-        jScrollPane4.setViewportView(txa_log);
-
-        pnl_setting.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 322, 717, 338));
-
-        cmb_theme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_setting.add(cmb_theme, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 52, 174, 45));
-
-        lb_theme.setText("Tema");
-        pnl_setting.add(lb_theme, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 27, -1, -1));
-
-        bt_saveTheme.setText("Kaydet");
-        bt_saveTheme.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_saveThemeActionPerformed(evt);
-            }
-        });
-        pnl_setting.add(bt_saveTheme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 130, 40));
-
-        jLayeredPane1.add(pnl_setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 870, 700));
-
-        pnl_chart.setBackground(new java.awt.Color(241, 171, 59));
-
-        javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
-        pnl_chart.setLayout(pnl_chartLayout);
-        pnl_chartLayout.setHorizontalGroup(
-            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 890, Short.MAX_VALUE)
-        );
-        pnl_chartLayout.setVerticalGroup(
-            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-
-        jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 890, 700));
+        pnl_add_check.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_name.setText("İsim");
+        pnl_add_check.add(lb_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         txf_surname.setText("textFeild1");
         txf_surname.setA_textT("");
+        pnl_add_check.add(txf_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 123, 35));
 
         lb_surname.setText("Soyisim");
+        pnl_add_check.add(lb_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         txf_mail.setText("textFeild1");
+        pnl_add_check.add(txf_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 123, 35));
 
         lb_mail.setText("Mail");
+        pnl_add_check.add(lb_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
         lb_salary.setText("Maaş");
+        pnl_add_check.add(lb_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, -1, -1));
 
         txf_phone.setText("textFeild1");
+        pnl_add_check.add(txf_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 123, 35));
 
         lb_phone.setText("Telofon");
+        pnl_add_check.add(lb_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         lb_gender.setText("Cinsiyet");
+        pnl_add_check.add(lb_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, -1, -1));
 
         txf_salary.setText("2131223");
+        pnl_add_check.add(txf_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 123, 35));
 
         lb_startToWork.setText("Başlama Tarihi");
+        pnl_add_check.add(lb_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
 
         txf_tc.setText("textFeild1");
+        pnl_add_check.add(txf_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 123, 35));
 
         lb_tc.setText("Kimlik Numarası");
+        pnl_add_check.add(lb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, -1, -1));
 
         lb_experience.setText("Çalışma Tecrübesi");
+        pnl_add_check.add(lb_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
 
         lb_education.setText("Eğitim Durumu");
+        pnl_add_check.add(lb_education, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jScrollPane2.setToolTipText("");
 
         txa_about.setColumns(20);
         txa_about.setLineWrap(true);
         txa_about.setRows(5);
-        txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
+        txa_about.setText(
+                "lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
         jScrollPane2.setViewportView(txa_about);
 
+        pnl_add_check.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 530, 210));
+
         txf_name.setText("textFeild1");
+        pnl_add_check.add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 123, 35));
 
         lb_about.setText("Hakkında");
+        pnl_add_check.add(lb_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
 
         lb_password.setText("Parola");
+        pnl_add_check.add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
         txf_password.setText("textFeild1");
+        pnl_add_check.add(txf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 123, 35));
 
         txf_id.setText("textFeild1");
         txf_id.setEnabled(false);
+        pnl_add_check.add(txf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 123, 35));
 
         lb_id.setText("İd");
+        pnl_add_check.add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
 
         buttonGroup1.add(btr_male);
         btr_male.setText("Erkek");
+        pnl_add_check.add(btr_male, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
 
         buttonGroup1.add(btr_fmale);
         btr_fmale.setText("Kadın");
+        pnl_add_check.add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, -1, -1));
 
-        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
+        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(
+                new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
+        pnl_add_check.add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 120, -1));
 
         spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
+        pnl_add_check.add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 70, -1));
+        pnl_add_check.add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 130, -1));
 
         pnl_checkArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -368,6 +342,8 @@ public class DataBank extends javax.swing.JFrame {
         });
         pnl_checkArea.add(bt_decline, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 140, 40));
 
+        pnl_add_check.add(pnl_checkArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1310, 420));
+
         pnl_searchArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bt_update.setText("Güncelle");
@@ -379,16 +355,15 @@ public class DataBank extends javax.swing.JFrame {
         pnl_searchArea.add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 100, 40));
 
         tbl_dataa.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+                new Object[][] {
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null }
+                },
+                new String[] {
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }));
         tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tbl_dataaMousePressed(evt);
@@ -504,205 +479,141 @@ public class DataBank extends javax.swing.JFrame {
 
         pnl_searchArea.add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 340, 120));
 
-        javax.swing.GroupLayout pnl_add_checkLayout = new javax.swing.GroupLayout(pnl_add_check);
-        pnl_add_check.setLayout(pnl_add_checkLayout);
-        pnl_add_checkLayout.setHorizontalGroup(
-            pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lb_name)
-                                .addComponent(txf_name, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lb_education)
-                                .addComponent(cmb_educaiton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lb_phone)
-                                .addComponent(txf_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(37, 37, 37)
-                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lb_surname)
-                                .addComponent(txf_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lb_mail)
-                                .addComponent(txf_mail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lb_startToWork)
-                                .addComponent(clan_startToWork, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(40, 40, 40)
-                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lb_id)
-                                .addComponent(txf_id, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lb_password)
-                                .addComponent(txf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lb_experience)
-                                .addComponent(spn_experience, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(37, 37, 37)
-                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lb_salary)
-                                .addComponent(txf_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lb_tc)
-                                .addComponent(txf_tc, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(lb_gender))
-                                .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                                    .addComponent(btr_fmale)
-                                    .addGap(19, 19, 19)
-                                    .addComponent(btr_male)))
-                            .addGap(59, 59, 59)
-                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lb_about)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(pnl_searchArea, javax.swing.GroupLayout.PREFERRED_SIZE, 1340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pnl_checkArea, javax.swing.GroupLayout.PREFERRED_SIZE, 1310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        pnl_add_checkLayout.setVerticalGroup(
-            pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(lb_name)
-                            .addGap(1, 1, 1)
-                            .addComponent(txf_name, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25)
-                            .addComponent(lb_education)
-                            .addGap(11, 11, 11)
-                            .addComponent(cmb_educaiton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(24, 24, 24)
-                            .addComponent(lb_phone)
-                            .addGap(11, 11, 11)
-                            .addComponent(txf_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(lb_surname)
-                            .addGap(1, 1, 1)
-                            .addComponent(txf_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25)
-                            .addComponent(lb_mail)
-                            .addGap(11, 11, 11)
-                            .addComponent(txf_mail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25)
-                            .addComponent(lb_startToWork)
-                            .addGap(11, 11, 11)
-                            .addComponent(clan_startToWork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(lb_id)
-                            .addGap(1, 1, 1)
-                            .addComponent(txf_id, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25)
-                            .addComponent(lb_password)
-                            .addGap(11, 11, 11)
-                            .addComponent(txf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25)
-                            .addComponent(lb_experience)
-                            .addGap(11, 11, 11)
-                            .addComponent(spn_experience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                            .addComponent(lb_salary)
-                            .addGap(11, 11, 11)
-                            .addComponent(txf_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25)
-                            .addComponent(lb_tc)
-                            .addGap(11, 11, 11)
-                            .addComponent(txf_tc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25)
-                            .addComponent(lb_gender)
-                            .addGap(21, 21, 21)
-                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btr_fmale)
-                                .addComponent(btr_male)))
-                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(lb_about)
-                            .addGap(1, 1, 1)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(30, 30, 30)
-                    .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnl_searchArea, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pnl_checkArea, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        pnl_add_check.add(pnl_searchArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1340, 420));
+
+        pnl_add_check.add(cmb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 100, -1));
+
+        lb_status.setText("Görevi");
+        pnl_add_check.add(lb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
+
+        jLayeredPane1.add(pnl_add_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, 720));
+
+        pnl_setting.setBackground(new java.awt.Color(0, 208, 255));
+        pnl_setting.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmb_lang.setModel(
+                new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnl_setting.add(cmb_lang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 52, 174, 45));
+
+        lb_lang.setText("Dil");
+        pnl_setting.add(lb_lang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 27, -1, -1));
+
+        btn_choseColor.setText("Kenar rengini seç");
+        btn_choseColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_choseColorActionPerformed(evt);
+            }
+        });
+        pnl_setting.add(btn_choseColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
+
+        textFeild1.setEnabled(false);
+        pnl_setting.add(textFeild1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 63, -1));
+
+        buttonN1.setText("button");
+        pnl_setting.add(buttonN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 77, -1));
+
+        bt_seeLog.setText("log kyadını çıkar");
+        pnl_setting.add(bt_seeLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 216, 142, 41));
+
+        bt_saveLog.setText("log kaydını bilgsiyara kaydet");
+        pnl_setting.add(bt_saveLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 263, 207, 41));
+
+        txa_log.setColumns(20);
+        txa_log.setRows(5);
+        jScrollPane4.setViewportView(txa_log);
+
+        pnl_setting.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 322, 717, 338));
+
+        cmb_theme.setModel(
+                new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnl_setting.add(cmb_theme, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 52, 174, 45));
+
+        lb_theme.setText("Tema");
+        pnl_setting.add(lb_theme, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 27, -1, -1));
+
+        bt_saveTheme.setText("Kaydet");
+        bt_saveTheme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_saveThemeActionPerformed(evt);
+            }
+        });
+        pnl_setting.add(bt_saveTheme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 130, 40));
+
+        jLayeredPane1.add(pnl_setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 870, 700));
+
+        pnl_chart.setBackground(new java.awt.Color(241, 171, 59));
+
+        javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
+        pnl_chart.setLayout(pnl_chartLayout);
+        pnl_chartLayout.setHorizontalGroup(
+                pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 890, Short.MAX_VALUE));
+        pnl_chartLayout.setVerticalGroup(
+                pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 700, Short.MAX_VALUE));
+
+        jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 890, 700));
 
         javax.swing.GroupLayout pnl_recordingLayout = new javax.swing.GroupLayout(pnl_recording);
         pnl_recording.setLayout(pnl_recordingLayout);
         pnl_recordingLayout.setHorizontalGroup(
-            pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_recordingLayout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116)
-                .addComponent(pnl_add_check, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 128, Short.MAX_VALUE))
-        );
+                pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnl_recordingLayout.createSequentialGroup()
+                                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1171,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 364, Short.MAX_VALUE)));
         pnl_recordingLayout.setVerticalGroup(
-            pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1)
-            .addGroup(pnl_recordingLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(pnl_add_check, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLayeredPane1));
 
         jSplitPane1.setRightComponent(pnl_recording);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSplitPane1));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1)
-                .addGap(0, 0, 0))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSplitPane1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bt_saveThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_saveThemeActionPerformed
-        String lang=cmb_lang.getSelectedIndex()==0?"tr":"en";
-        String theme=cmb_theme.getSelectedIndex()==0?"darkOrange":"darkBlue";
-            try {
-                Setting.saveSetting(theme, lang);
+    private void bt_saveThemeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_saveThemeActionPerformed
+        String lang = cmb_lang.getSelectedIndex() == 0 ? "tr" : "en";
+        String theme = cmb_theme.getSelectedIndex() == 0 ? "darkOrange" : "darkBlue";
+        try {
+            Setting.saveSetting(theme, lang);
             JOptionPane.showConfirmDialog(rootPane, LangM.saving);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            
-    }//GEN-LAST:event_bt_saveThemeActionPerformed
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-    private void btn_choseColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_choseColorActionPerformed
+    }// GEN-LAST:event_bt_saveThemeActionPerformed
+
+    private void btn_choseColorActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_choseColorActionPerformed
         PageP.openPage(new ColorChoser(), LangM.colorChoser);
-    }//GEN-LAST:event_btn_choseColorActionPerformed
+    }// GEN-LAST:event_btn_choseColorActionPerformed
 
     public void startPro() {
-    langProC();
-    ListModels.tblModel(tbl_dataa);
-    lst_candidate.setModel(ListModels.candidateList);
-    db.fillTable("info");
-    lb_perValue.setText(LangM.percent + sld_percent.getValue() + "% " + LangM.show);
-    clearFieldsAdd();
-    pnl_searchArea.setEnabled(false);
-    pnl_searchArea.setVisible(false);
-    cmb_lang.setModel(ListModels.cmbLangList());
-    cmb_theme.setModel(ListModels.cmbThemeList());
+        langProC();
+        ListModels.tblModel(tbl_dataa);
+        lst_candidate.setModel(ListModels.candidateList);
+        db.fillTable("info");
+        lb_perValue.setText(LangM.percent + sld_percent.getValue() + "% " + LangM.show);
+        clearFieldsAdd();
+        pnl_searchArea.setEnabled(false);
+        pnl_searchArea.setVisible(false);
+        cmb_lang.setModel(ListModels.cmbLangList());
+        cmb_theme.setModel(ListModels.cmbThemeList());
+        cmb_status.setModel(ListModels.cmbStatusList());
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMousePressed
         requestFocusInWindow();
     }// GEN-LAST:event_formMousePressed
-
-
 
     private void m_item_checkMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_checkMousePressed
         gainBt(m_item_check);
@@ -785,7 +696,7 @@ public class DataBank extends javax.swing.JFrame {
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
         if (fieldControllerAdd()) {
             try {
-                db.addData(objectPro(),"info");
+                db.addData(objectPro(), "info");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);
@@ -839,9 +750,7 @@ public class DataBank extends javax.swing.JFrame {
 
     }// GEN-LAST:event_bt_updateActionPerformed
 
-
-
-    public  void langProC() {
+    public void langProC() {
         lb_name.setText(LangM.name);
         lb_surname.setText(LangM.surname);
         lb_id.setText(LangM.id);
@@ -892,7 +801,7 @@ public class DataBank extends javax.swing.JFrame {
         txf_search.setA_textT("");
     }
 
-    public  void searchProC() {
+    public void searchProC() {
         String search = txf_search.getText();
         String sortItem = "";
         String catagory = "";
@@ -968,13 +877,62 @@ public class DataBank extends javax.swing.JFrame {
         }
     }
 
-    public   Personel objectPro() throws Exception {
+    public Personel objectPro() throws Exception {
         // TODO: cinsiyetleri veri tabanına tek formatta eklemeyi ekle
         String gender = "";
+        String status = "";
+        String edu = "";
         if (btr_male.isSelected()) {
-            gender = "Erkek";
+            gender = "male";
         } else {
-            gender = "Kadın";
+            gender = "fmale";
+        }
+
+        switch (cmb_status.getSelectedIndex()) {
+            case 0:
+                status = "networkManeger";
+                break;
+            case 1:
+                status = "projectManeger";
+                break;
+            case 2:
+                status = "softwareEngineer";
+                break;
+            case 3:
+                status = "admin";
+                break;
+            case 4:
+                status = "designer";
+                break;
+            case 5:
+                status = "financeManeger";
+                break;
+            case 6:
+                status = "socialMediaManeger";
+                break;
+
+            default:
+                break;
+        }
+
+        switch (cmb_educaiton.getSelectedIndex()) {
+            case 0:
+                edu = "priScholl";
+                break;
+            case 1:
+                edu = "higScholl";
+                break;
+            case 2:
+                edu = "unuScholl";
+                break;
+            case 3:
+                edu = "degreeEdu";
+                break;
+            case 4:
+                edu = "doctorateEdu";
+                break;
+            default:
+                break;
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(clan_startToWork.getDate());
@@ -983,10 +941,10 @@ public class DataBank extends javax.swing.JFrame {
                 Integer.parseInt(txf_salary.getText()), txf_phone.getText(),
                 gender, date, txf_tc.getText(),
                 Integer.parseInt(spn_experience.getValue().toString()),
-                cmb_educaiton.getSelectedItem().toString(), txa_about.getText());
+                edu, status, txa_about.getText());
     }
 
-    public  void clearFieldsAdd() {
+    public void clearFieldsAdd() {
         txa_about.setText("");
         txf_mail.setText("");
         txf_name.setText("");
@@ -1006,8 +964,8 @@ public class DataBank extends javax.swing.JFrame {
         }
     }
 
-    public  boolean fieldControllerAdd() {
-        MyList<String, Integer> regexList= new MyList<>();
+    public boolean fieldControllerAdd() {
+        MyList<String, Integer> regexList = new MyList<>();
         regexList.add(txf_name.getText(), 0, LangM.correctName);
         regexList.add(txf_surname.getText(), 0, LangM.correctSurname);
         regexList.add(txf_password.getText(), 3, LangM.correctPassword);
@@ -1018,18 +976,60 @@ public class DataBank extends javax.swing.JFrame {
         return RegexC.fieldController(regexList, btr_male, btr_fmale);
     }
 
-    public  void fillFields(int id, String tableName, boolean isChek) {
+    public void fillFields(int id, String tableName, boolean isChek) {
         Personel p = db.fillObject(id, tableName, isChek);
 
-        String[] model = ListModels.cmbEduList;
-        String edu = p.getEducationStatus();
+        int status = 0;
+        int edu = 0;
+        switch (p.getStatus()) {
+            case "networkManeger":
+                status = 0;
+                break;
+            case "projectManeger":
+                status = 1;
+                break;
+            case "softwareEngineer":
+                status = 2;
+                break;
+            case "admin":
+                status = 3;
+                break;
+            case "designer":
+                status = 4;
+                break;
+            case "financeManeger":
+                status = 5;
+                break;
+            case "socialMediaManeger":
+                status = 6;
+                break;
+            default:
+                break;
+        }
+        switch (p.getEducationStatus()) {
+            case "priScholl":
+                edu = 0;
+                break;
+            case "higScholl":
+                edu = 1;
+                break;
+            case "unuScholl":
+                edu = 2;
+                break;
+            case "degreeEdu":
+                edu = 3;
+                break;
+            case "doctorateEdu":
+                edu = 4;
+                break;
+            default:
+                break;
+        }
 
         if (!isChek) {
             try {
                 Date date = new SimpleDateFormat("yyyy-MM-dd").parse(p.getStartingOfWork());
                 clan_startToWork.setDate(date);
-            } catch (ParseException e) {
-                e.printStackTrace();
             } catch (java.text.ParseException e) {
                 e.printStackTrace();
             }
@@ -1044,25 +1044,26 @@ public class DataBank extends javax.swing.JFrame {
         txf_password.setText(p.getPassword());
         txa_about.setText(p.getAbout());
 
-        if (p.getGender().equals("Erkek")) {
+        if (p.getGender().equals("male")) {
             btr_fmale.setSelected(false);
             btr_male.setSelected(true);
         } else {
             btr_male.setSelected(false);
             btr_fmale.setSelected(true);
-
         }
+        cmb_educaiton.setSelectedIndex(edu);
+        cmb_status.setSelectedIndex(status);
         spn_experience.setValue(p.getExperiencYear());
-
-        for (int i = 0; i < model.length; i++) {
-            // System.out.println(ListModels.cmbEduList[i]);
-            if (edu.equals(ListModels.cmbEduList[i])) {
-                cmb_educaiton.setSelectedIndex(i);
-            }
-        }
+        /*
+         * for (int i = 0; i < model.length; i++) {
+         * if (edu.equals(ListModels.cmbEduList[i])) {
+         * cmb_educaiton.setSelectedIndex(i);
+         * }
+         * }
+         */
     }
 
-    public  void listClear() {
+    public void listClear() {
         if (lst_candidate.getSelectedIndex() > -1) {
             String sellectedItem = lst_candidate.getSelectedValue();
             int id = Integer.parseInt(sellectedItem.substring(0, sellectedItem.indexOf('.')));
@@ -1072,14 +1073,13 @@ public class DataBank extends javax.swing.JFrame {
         }
     }
 
-    public  void gainBt(MenuItems mi) {
+    public void gainBt(MenuItems mi) {
         m_item_add.lostFocus();
         m_item_chart.lostFocus();
         m_item_check.lostFocus();
         m_item_setting.lostFocus();
         mi.gainFocus();
     }
-
 
     /**
      * @param args the command line arguments
@@ -1126,6 +1126,7 @@ public class DataBank extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser clan_startToWork;
     private javax.swing.JComboBox<String> cmb_educaiton;
     private javax.swing.JComboBox<String> cmb_lang;
+    private javax.swing.JComboBox<String> cmb_status;
     private javax.swing.JComboBox<String> cmb_theme;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
@@ -1148,6 +1149,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JLabel lb_phone;
     private javax.swing.JLabel lb_salary;
     private javax.swing.JLabel lb_startToWork;
+    private javax.swing.JLabel lb_status;
     private javax.swing.JLabel lb_surname;
     private javax.swing.JLabel lb_tc;
     private javax.swing.JLabel lb_theme;
