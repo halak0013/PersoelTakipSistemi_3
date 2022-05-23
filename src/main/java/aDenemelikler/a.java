@@ -29,7 +29,7 @@ public class a extends javax.swing.JFrame {
     public a() {
         initComponents();
         revalidate();
-        tr_Tr.name();
+        tr_Tr.trLang();
 
     }
 
@@ -43,33 +43,10 @@ public class a extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        svg_search = new view.image.SvgImage();
-        txf_search = new view.TextField.TextFeild();
-        bt_update = new view.buttons.ButtonN();
-        bt_sil = new view.buttons.ButtonN();
-        bt_add = new view.buttons.ButtonN();
-        pnl_filters = new javax.swing.JPanel();
-        btr_startSort = new javax.swing.JRadioButton();
-        btr_endSort = new javax.swing.JRadioButton();
-        sld_percent = new javax.swing.JSlider();
-        lb_perValue = new javax.swing.JLabel();
-        pnl_sort = new javax.swing.JPanel();
-        chkb_tc = new javax.swing.JCheckBox();
-        chk_id = new javax.swing.JCheckBox();
-        chk_name = new javax.swing.JCheckBox();
-        chk_salary = new javax.swing.JCheckBox();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tbl_dataa = new javax.swing.JTable();
-        pnl_searcFilter = new javax.swing.JPanel();
-        chk_tcS = new javax.swing.JCheckBox();
-        chk_nameS = new javax.swing.JCheckBox();
-        chk_surnameS = new javax.swing.JCheckBox();
-        chk_strartWorkS = new javax.swing.JCheckBox();
-        chk_mailS = new javax.swing.JCheckBox();
-        chk_passwordS = new javax.swing.JCheckBox();
-        btr_include = new javax.swing.JRadioButton();
-        btr_startS = new javax.swing.JRadioButton();
-        btr_endS = new javax.swing.JRadioButton();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(708, 418));
@@ -80,134 +57,32 @@ public class a extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        svg_search.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                svg_searchMousePressed(evt);
-            }
-        });
-        getContentPane().add(svg_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 20, 20));
+        jPanel1.setBackground(new java.awt.Color(215, 215, 44));
+        jPanel1.setMaximumSize(new java.awt.Dimension(200, 200));
+        jPanel1.setMinimumSize(new java.awt.Dimension(100, 100));
 
-        txf_search.setToolTipText("");
-        getContentPane().add(txf_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 460, 50));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
 
-        bt_update.setText("Güncelle");
-        bt_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_updateActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bt_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 100, 40));
+        jSplitPane1.setLeftComponent(jPanel1);
 
-        bt_sil.setText("Sil");
-        bt_sil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_silActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bt_sil, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 100, 40));
+        jPanel2.setBackground(new java.awt.Color(215, 85, 44));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bt_add.setText("Ekle");
-        bt_add.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_addActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bt_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 100, 40));
+        jButton1.setText("jButton1");
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 190, -1, -1));
 
-        pnl_filters.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtreler"));
-        pnl_filters.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jSplitPane1.setRightComponent(jPanel2);
 
-        btr_startSort.setSelected(true);
-        btr_startSort.setText("Baştan");
-        pnl_filters.add(btr_startSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 17, -1, -1));
-
-        btr_endSort.setText("Sondan");
-        pnl_filters.add(btr_endSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 17, -1, -1));
-
-        sld_percent.setValue(100);
-        sld_percent.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                sld_percentStateChanged(evt);
-            }
-        });
-        pnl_filters.add(sld_percent, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 188, -1));
-
-        lb_perValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_perValue.setText("100");
-        pnl_filters.add(lb_perValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
-
-        pnl_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Sıralama"));
-        pnl_sort.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        chkb_tc.setText("Kimlik No");
-        pnl_sort.add(chkb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
-
-        chk_id.setSelected(true);
-        chk_id.setText("İd");
-        pnl_sort.add(chk_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-
-        chk_name.setText("İsim");
-        pnl_sort.add(chk_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
-
-        chk_salary.setText("Maaş");
-        pnl_sort.add(chk_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
-
-        pnl_filters.add(pnl_sort, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 60));
-
-        getContentPane().add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 340, 120));
-
-        tbl_dataa.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tbl_dataaMousePressed(evt);
-            }
-        });
-        jScrollPane3.setViewportView(tbl_dataa);
-
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1300, 200));
-
-        pnl_searcFilter.setBorder(javax.swing.BorderFactory.createTitledBorder("arama filtreleri"));
-        pnl_searcFilter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        chk_tcS.setText("Kimlik Numarası");
-        pnl_searcFilter.add(chk_tcS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
-
-        chk_nameS.setText("İsim");
-        pnl_searcFilter.add(chk_nameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
-
-        chk_surnameS.setText("Soyisim");
-        pnl_searcFilter.add(chk_surnameS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
-
-        chk_strartWorkS.setText("Başlama tarihi");
-        pnl_searcFilter.add(chk_strartWorkS, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
-
-        chk_mailS.setText("Mail");
-        pnl_searcFilter.add(chk_mailS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-
-        chk_passwordS.setText("Parola");
-        pnl_searcFilter.add(chk_passwordS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
-
-        btr_include.setSelected(true);
-        btr_include.setText("içeren");
-        pnl_searcFilter.add(btr_include, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        btr_startS.setText("baştan");
-        pnl_searcFilter.add(btr_startS, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
-
-        btr_endS.setText("sondan");
-        pnl_searcFilter.add(btr_endS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
-
-        getContentPane().add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 340, 120));
+        getContentPane().add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 520, 440));
 
         pack();
         setLocationRelativeTo(null);
@@ -217,30 +92,6 @@ public class a extends javax.swing.JFrame {
         this.requestFocusInWindow();
 
     }//GEN-LAST:event_formMousePressed
-
-    private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svg_searchMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_svg_searchMousePressed
-
-    private void bt_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_updateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_updateActionPerformed
-
-    private void bt_silActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_silActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_silActionPerformed
-
-    private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_addActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_addActionPerformed
-
-    private void sld_percentStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sld_percentStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sld_percentStateChanged
-
-    private void tbl_dataaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_dataaMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbl_dataaMousePressed
 
     /**
      * @param args the command line arguments
@@ -255,32 +106,9 @@ public class a extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.buttons.ButtonN bt_add;
-    private view.buttons.ButtonN bt_sil;
-    private view.buttons.ButtonN bt_update;
-    private javax.swing.JRadioButton btr_endS;
-    private javax.swing.JRadioButton btr_endSort;
-    private javax.swing.JRadioButton btr_include;
-    private javax.swing.JRadioButton btr_startS;
-    private javax.swing.JRadioButton btr_startSort;
-    private javax.swing.JCheckBox chk_id;
-    private javax.swing.JCheckBox chk_mailS;
-    private javax.swing.JCheckBox chk_name;
-    private javax.swing.JCheckBox chk_nameS;
-    private javax.swing.JCheckBox chk_passwordS;
-    private javax.swing.JCheckBox chk_salary;
-    private javax.swing.JCheckBox chk_strartWorkS;
-    private javax.swing.JCheckBox chk_surnameS;
-    private javax.swing.JCheckBox chk_tcS;
-    private javax.swing.JCheckBox chkb_tc;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lb_perValue;
-    private javax.swing.JPanel pnl_filters;
-    private javax.swing.JPanel pnl_searcFilter;
-    private javax.swing.JPanel pnl_sort;
-    private javax.swing.JSlider sld_percent;
-    private view.image.SvgImage svg_search;
-    private javax.swing.JTable tbl_dataa;
-    private view.TextField.TextFeild txf_search;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

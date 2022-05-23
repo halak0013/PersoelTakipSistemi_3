@@ -1,7 +1,7 @@
 package langs;
 
 public class tr_Tr extends LangM {
-    public static void name() {
+    public static void trLang() {
         name = "Ad";
         surname = "Soyad";
         id = "İd";
@@ -28,12 +28,23 @@ public class tr_Tr extends LangM {
         perWord = "Baştan ara";
         endWord = "Sondan ara";
 
-        // ????????????????????????????????="";buttonlar
+
+        commonHint="değeri giriniz";
+        hName="Adını giriniz";
+        hSurname="Soyadını giriniz";
+        hPassword="Şifrenizi giriniz";
+        hPasswordAgain="Şifrenizi tekrarlayın";
+        hMail="Mailizi giriniz";
+        hTel="Telefonunuzu giriniz";
+        hTc="Kimlik no giriniz";
+        hSearch="Aramak istediğiniz kelimeyi giriniz";
+
+        // ????????????????????????????????buttonlar
         update = "Güncelle";
         delete = "Sil";
         add = "Ekle";
 
-        // ?????????????????????????????="";uyarı
+        // ?????????????????????????????uyarı
         correctName = "Lütfen adı doğru giriniz\n Ör: Ahmet";
         correctSurname = "Lütfen soyadı doğru giriniz\n Ör: Demir";
         correctPassword = "Lütfen prolayı doğru giriniz\nen az 1 küçük harf\nen az 1 büyük harf\n en az 1 rakam \n en az 1 özel karakter \nolmak üzer en az 8 karakter \n Ör: dl12A*eai";
@@ -41,12 +52,13 @@ public class tr_Tr extends LangM {
         correctSalary = "Lütfen maaşı uygun giriniz\n Ör: 9999";
         correctTc = "Lütfen Kimlik numarasını uygun giriniz\n Ör: 12345678910";
         correctPhone = "Lütfen teleofnu uygun giriniz\n Ör: 555 666 77 88 veya 5559994477 veya 555-666-77-88";
-        addingDone = "";
-        updatingDone = "";
-        deletingDone = "";
+        addingDone = "Kayıt başarılı bir şeklide eklendi";
+        updatingDone = "Kayıt başarılı bir şeklide eklendi";
+        deletingDone = "Kayıt başarılı bir şeklide eklendi";
+        errorMesage="Hata oluştu";
 
-        // ??????????????????????????????="";başlıklar
-        error = "";
+        // ??????????????????????????????başlıklar
+        error = "Hata";
 
         // ??????????????????????????????Listeler
 

@@ -1,7 +1,6 @@
 
 package pages;
 
-import com.formdev.flatlaf.intellijthemes.*;
 
 import java.awt.Color;
 
@@ -19,14 +18,12 @@ public class MainP extends javax.swing.JFrame {
         // ? sonrasında ek bir panel daha ekliyoruz ki
         // ? eklenen parçalar acayip gözükmesin
         setBackground(new Color(1.0f, 1.0f, 1.0f, 0.0f));
-        scaling();
-        
-        bt_singUp.setVisible(false);
+
+        //bt_singUp.setVisible(false);
+        topPanel1.MovePanel(this);
     }
 
-    private void scaling() {
-    bt_close.scale();
-    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,14 +39,14 @@ public class MainP extends javax.swing.JFrame {
         backPanel1 = new view.panels.BackPanel();
         topPanel1 = new view.panels.TopPanel();
         bt_close = new view.image.SvgImage();
-        textFeild1 = new view.TextField.TextFeild();
-        textFeild2 = new view.TextField.TextFeild();
         lb_userName = new javax.swing.JLabel();
         lb_password = new javax.swing.JLabel();
         btr_admin = new javax.swing.JRadioButton();
         btr_personel = new javax.swing.JRadioButton();
         bt_singIn = new view.buttons.ButtonN();
         bt_singUp = new view.buttons.ButtonN();
+        tx_password = new view.TextField.TextFeild();
+        tx_name = new view.TextField.TextFeild();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(726, 500));
@@ -68,32 +65,21 @@ public class MainP extends javax.swing.JFrame {
             .addGap(0, 51, Short.MAX_VALUE)
         );
 
+        bt_close.setImage("close");
         bt_close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 bt_closeMousePressed(evt);
             }
         });
 
-        textFeild1.setText("textFeild1");
-        textFeild1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                textFeild1PropertyChange(evt);
-            }
-        });
-        textFeild1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textFeild1KeyTyped(evt);
-            }
-        });
-
-        textFeild2.setText("textFeild1");
-
         lb_userName.setText("Kullanıcı adı");
 
         lb_password.setText("Şifre");
 
+        buttonGroup1.add(btr_admin);
         btr_admin.setText("Yönetici");
 
+        buttonGroup1.add(btr_personel);
         btr_personel.setSelected(true);
         btr_personel.setText("Personel");
 
@@ -133,15 +119,14 @@ public class MainP extends javax.swing.JFrame {
                                         .addComponent(btr_personel))
                                     .addComponent(lb_userName)
                                     .addComponent(lb_password)
-                                    .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(textFeild2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(textFeild1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(tx_password, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tx_name, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(backPanel1Layout.createSequentialGroup()
                                 .addGap(300, 300, 300)
                                 .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(bt_singUp, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(bt_singIn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 216, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         backPanel1Layout.setVerticalGroup(
@@ -152,13 +137,13 @@ public class MainP extends javax.swing.JFrame {
                     .addComponent(topPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_userName)
-                .addGap(14, 14, 14)
-                .addComponent(textFeild1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
+                .addComponent(tx_name, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lb_password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textFeild2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addComponent(tx_password, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addGroup(backPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btr_admin)
                     .addComponent(btr_personel))
@@ -186,22 +171,14 @@ public class MainP extends javax.swing.JFrame {
     private void bt_closeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_closeMousePressed
         System.exit(0);
     }//GEN-LAST:event_bt_closeMousePressed
-int ab=0,cd=0;
-    private void textFeild1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_textFeild1PropertyChange
-
-        //System.out.println("yazıyor"+ab++);
-    }//GEN-LAST:event_textFeild1PropertyChange
-
-    private void textFeild1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFeild1KeyTyped
-        System.out.println("sil"+cd++);
-    }//GEN-LAST:event_textFeild1KeyTyped
 
     private void bt_singInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_singInActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_bt_singInActionPerformed
 
     private void bt_singUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_singUpActionPerformed
-        // TODO add your handling code here:
+        PageP.openPage(new SingUpP(), "KAyıt Ol");
+        dispose();
     }//GEN-LAST:event_bt_singUpActionPerformed
 
     /**
@@ -227,8 +204,8 @@ int ab=0,cd=0;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel lb_password;
     private javax.swing.JLabel lb_userName;
-    private view.TextField.TextFeild textFeild1;
-    private view.TextField.TextFeild textFeild2;
     private view.panels.TopPanel topPanel1;
+    private view.TextField.TextFeild tx_name;
+    private view.TextField.TextFeild tx_password;
     // End of variables declaration//GEN-END:variables
 }

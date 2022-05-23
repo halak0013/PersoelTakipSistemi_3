@@ -1,13 +1,14 @@
 //Bisimillahirrahmanirrahim
 package pages;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
+
+import com.formdev.flatlaf.json.ParseException;
 
 import constants.models.ListModels;
 import functions.MyList;
@@ -17,23 +18,16 @@ import langs.tr_Tr;
 import regex.RegexC;
 import sql.DbHelper;
 import sql.Personel;
-import view.TextField.TextFeild;
+import view.panels.MenuItems;
 
 public class DataBank extends javax.swing.JFrame {
 
     DbHelper db = new DbHelper();
-
     public DataBank() {
-        tr_Tr.name();
+        tr_Tr.trLang();
         initComponents();
-        ListModels.tblModel(tbl_dataa);
-        lst_candidate.setModel(ListModels.candidateList);
-        db.fillTable("info");
-        LanPro();
-        lb_perValue.setText(LangM.percent + sld_percent.getValue() + "% " + LangM.show);
-        //clearFieldsAdd();
-        pnl_searchArea.setEnabled(false);
-        pnl_searchArea.setVisible(false);
+        startPro();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -53,7 +47,22 @@ public class DataBank extends javax.swing.JFrame {
         m_item_add = new view.panels.MenuItems();
         m_item_setting = new view.panels.MenuItems();
         m_item_chart = new view.panels.MenuItems();
-        pnl_adding = new javax.swing.JPanel();
+        pnl_recording = new javax.swing.JPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        pnl_setting = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        lb_lang = new javax.swing.JLabel();
+        btn_choseColor = new javax.swing.JButton();
+        textFeild1 = new view.TextField.TextFeild();
+        buttonN1 = new view.buttons.ButtonN();
+        bt_seeLog = new view.buttons.ButtonN();
+        bt_saveLog = new view.buttons.ButtonN();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txa_log = new javax.swing.JTextArea();
+        cmb_theme = new javax.swing.JComboBox<>();
+        lb_theme = new javax.swing.JLabel();
+        pnl_chart = new javax.swing.JPanel();
+        pnl_add_check = new javax.swing.JPanel();
         lb_name = new javax.swing.JLabel();
         txf_surname = new view.TextField.TextFeild();
         lb_surname = new javax.swing.JLabel();
@@ -120,14 +129,12 @@ public class DataBank extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
         setMinimumSize(new java.awt.Dimension(1350, 800));
-        setPreferredSize(new java.awt.Dimension(200, 800));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 formMousePressed(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(234, 234, 105));
         jPanel1.setMaximumSize(new java.awt.Dimension(220, 32767));
         jPanel1.setMinimumSize(new java.awt.Dimension(55, 600));
         jPanel1.setPreferredSize(new java.awt.Dimension(55, 672));
@@ -192,59 +199,148 @@ public class DataBank extends javax.swing.JFrame {
                 .addComponent(m_item_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(m_item_chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 485, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 465, Short.MAX_VALUE)
                 .addComponent(m_item_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        pnl_adding.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnl_setting.setBackground(new java.awt.Color(0, 208, 255));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lb_lang.setText("Dil");
+
+        btn_choseColor.setText("Kenar rengini seç");
+
+        buttonN1.setText("button");
+
+        bt_seeLog.setText("log kyadını çıkar");
+
+        bt_saveLog.setText("log kaydını bilgsiyara kaydet");
+
+        txa_log.setColumns(20);
+        txa_log.setRows(5);
+        jScrollPane4.setViewportView(txa_log);
+
+        cmb_theme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lb_theme.setText("Tema");
+
+        javax.swing.GroupLayout pnl_settingLayout = new javax.swing.GroupLayout(pnl_setting);
+        pnl_setting.setLayout(pnl_settingLayout);
+        pnl_settingLayout.setHorizontalGroup(
+            pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_settingLayout.createSequentialGroup()
+                .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnl_settingLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 717, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl_settingLayout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addComponent(bt_saveLog, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl_settingLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lb_lang))
+                        .addGap(43, 43, 43)
+                        .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl_settingLayout.createSequentialGroup()
+                                .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmb_theme, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_theme))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnl_settingLayout.createSequentialGroup()
+                                        .addComponent(textFeild1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(buttonN1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnl_settingLayout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(btn_choseColor)))
+                                .addGap(23, 23, 23))
+                            .addComponent(bt_seeLog, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+        pnl_settingLayout.setVerticalGroup(
+            pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_settingLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnl_settingLayout.createSequentialGroup()
+                        .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textFeild1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_choseColor))
+                    .addGroup(pnl_settingLayout.createSequentialGroup()
+                        .addComponent(lb_lang)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl_settingLayout.createSequentialGroup()
+                        .addComponent(lb_theme)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmb_theme, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(70, 70, 70)
+                .addComponent(bt_seeLog, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bt_saveLog, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.add(pnl_setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 870, 700));
+
+        pnl_chart.setBackground(new java.awt.Color(241, 171, 59));
+
+        javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
+        pnl_chart.setLayout(pnl_chartLayout);
+        pnl_chartLayout.setHorizontalGroup(
+            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 890, Short.MAX_VALUE)
+        );
+        pnl_chartLayout.setVerticalGroup(
+            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+
+        jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 890, 700));
 
         lb_name.setText("İsim");
-        pnl_adding.add(lb_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         txf_surname.setText("textFeild1");
-        pnl_adding.add(txf_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 123, 35));
+        txf_surname.setA_textT("");
 
         lb_surname.setText("Soyisim");
-        pnl_adding.add(lb_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
         txf_mail.setText("textFeild1");
-        pnl_adding.add(txf_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 123, 35));
 
         lb_mail.setText("Mail");
-        pnl_adding.add(lb_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
 
         lb_salary.setText("Maaş");
-        pnl_adding.add(lb_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
 
         txf_phone.setText("textFeild1");
-        pnl_adding.add(txf_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 123, 35));
 
         lb_phone.setText("Telofon");
-        pnl_adding.add(lb_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         lb_gender.setText("Cinsiyet");
-        pnl_adding.add(lb_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
 
         txf_salary.setText("2131223");
-        pnl_adding.add(txf_salary, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 123, 35));
 
         lb_startToWork.setText("Başlama Tarihi");
-        pnl_adding.add(lb_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
         txf_tc.setText("textFeild1");
-        pnl_adding.add(txf_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 123, 35));
 
         lb_tc.setText("Kimlik Numarası");
-        pnl_adding.add(lb_tc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
 
         lb_experience.setText("Çalışma Tecrübesi");
-        pnl_adding.add(lb_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
 
         lb_education.setText("Eğitim Durumu");
-        pnl_adding.add(lb_education, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jScrollPane2.setToolTipText("");
 
@@ -254,41 +350,28 @@ public class DataBank extends javax.swing.JFrame {
         txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
         jScrollPane2.setViewportView(txa_about);
 
-        pnl_adding.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 530, 210));
-
         txf_name.setText("textFeild1");
-        pnl_adding.add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 123, 35));
 
         lb_about.setText("Hakkında");
-        pnl_adding.add(lb_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, -1, -1));
 
         lb_password.setText("Parola");
-        pnl_adding.add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, -1));
 
         txf_password.setText("textFeild1");
-        pnl_adding.add(txf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 123, 35));
 
         txf_id.setText("textFeild1");
         txf_id.setEnabled(false);
-        pnl_adding.add(txf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 123, 35));
 
         lb_id.setText("İd");
-        pnl_adding.add(lb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
         buttonGroup1.add(btr_male);
         btr_male.setText("Erkek");
-        pnl_adding.add(btr_male, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, -1, -1));
 
         buttonGroup1.add(btr_fmale);
         btr_fmale.setText("Kadın");
-        pnl_adding.add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, -1));
 
         cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
-        pnl_adding.add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
 
         spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
-        pnl_adding.add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 110, -1));
-        pnl_adding.add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, -1));
 
         pnl_checkArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -319,8 +402,6 @@ public class DataBank extends javax.swing.JFrame {
             }
         });
         pnl_checkArea.add(bt_decline, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 140, 40));
-
-        pnl_adding.add(pnl_checkArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 1310, 420));
 
         pnl_searchArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -458,15 +539,159 @@ public class DataBank extends javax.swing.JFrame {
 
         pnl_searchArea.add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 340, 120));
 
-        pnl_adding.add(pnl_searchArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 1340, 420));
+        javax.swing.GroupLayout pnl_add_checkLayout = new javax.swing.GroupLayout(pnl_add_check);
+        pnl_add_check.setLayout(pnl_add_checkLayout);
+        pnl_add_checkLayout.setHorizontalGroup(
+            pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lb_name)
+                                .addComponent(txf_name, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_education)
+                                .addComponent(cmb_educaiton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_phone)
+                                .addComponent(txf_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(37, 37, 37)
+                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lb_surname)
+                                .addComponent(txf_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_mail)
+                                .addComponent(txf_mail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_startToWork)
+                                .addComponent(clan_startToWork, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(40, 40, 40)
+                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lb_id)
+                                .addComponent(txf_id, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_password)
+                                .addComponent(txf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_experience)
+                                .addComponent(spn_experience, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(37, 37, 37)
+                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lb_salary)
+                                .addComponent(txf_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_tc)
+                                .addComponent(txf_tc, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(lb_gender))
+                                .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                                    .addComponent(btr_fmale)
+                                    .addGap(19, 19, 19)
+                                    .addComponent(btr_male)))
+                            .addGap(59, 59, 59)
+                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lb_about)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pnl_searchArea, javax.swing.GroupLayout.PREFERRED_SIZE, 1340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnl_checkArea, javax.swing.GroupLayout.PREFERRED_SIZE, 1310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        pnl_add_checkLayout.setVerticalGroup(
+            pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(lb_name)
+                            .addGap(1, 1, 1)
+                            .addComponent(txf_name, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(25, 25, 25)
+                            .addComponent(lb_education)
+                            .addGap(11, 11, 11)
+                            .addComponent(cmb_educaiton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(24, 24, 24)
+                            .addComponent(lb_phone)
+                            .addGap(11, 11, 11)
+                            .addComponent(txf_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(lb_surname)
+                            .addGap(1, 1, 1)
+                            .addComponent(txf_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(25, 25, 25)
+                            .addComponent(lb_mail)
+                            .addGap(11, 11, 11)
+                            .addComponent(txf_mail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(25, 25, 25)
+                            .addComponent(lb_startToWork)
+                            .addGap(11, 11, 11)
+                            .addComponent(clan_startToWork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(lb_id)
+                            .addGap(1, 1, 1)
+                            .addComponent(txf_id, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(25, 25, 25)
+                            .addComponent(lb_password)
+                            .addGap(11, 11, 11)
+                            .addComponent(txf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(25, 25, 25)
+                            .addComponent(lb_experience)
+                            .addGap(11, 11, 11)
+                            .addComponent(spn_experience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                            .addComponent(lb_salary)
+                            .addGap(11, 11, 11)
+                            .addComponent(txf_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(25, 25, 25)
+                            .addComponent(lb_tc)
+                            .addGap(11, 11, 11)
+                            .addComponent(txf_tc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(25, 25, 25)
+                            .addComponent(lb_gender)
+                            .addGap(21, 21, 21)
+                            .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btr_fmale)
+                                .addComponent(btr_male)))
+                        .addGroup(pnl_add_checkLayout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(lb_about)
+                            .addGap(1, 1, 1)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(30, 30, 30)
+                    .addGroup(pnl_add_checkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pnl_searchArea, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnl_checkArea, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
-        jSplitPane1.setRightComponent(pnl_adding);
+        javax.swing.GroupLayout pnl_recordingLayout = new javax.swing.GroupLayout(pnl_recording);
+        pnl_recording.setLayout(pnl_recordingLayout);
+        pnl_recordingLayout.setHorizontalGroup(
+            pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_recordingLayout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(116, 116, 116)
+                .addComponent(pnl_add_check, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 128, Short.MAX_VALUE))
+        );
+        pnl_recordingLayout.setVerticalGroup(
+            pnl_recordingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane1)
+            .addGroup(pnl_recordingLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(pnl_add_check, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jSplitPane1.setRightComponent(pnl_recording);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1400, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jSplitPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,37 +704,102 @@ public class DataBank extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void m_item_checkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_checkMousePressed
-        db.fillCandidateList();
-    }//GEN-LAST:event_m_item_checkMousePressed
-
-    private void m_item_menuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_menuMousePressed
-        
-    }//GEN-LAST:event_m_item_menuMousePressed
-
-    private void m_item_addMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_addMousePressed
-        
-    }//GEN-LAST:event_m_item_addMousePressed
-
-    private void m_item_chartMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_chartMousePressed
-        
-    }//GEN-LAST:event_m_item_chartMousePressed
-
-    private void m_item_settingMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_item_settingMousePressed
-        
-    }//GEN-LAST:event_m_item_settingMousePressed
-
-    private void lst_candidateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lst_candidateMousePressed
-        String sellectedItem=lst_candidate.getSelectedValue();
-        int id=Integer.parseInt(sellectedItem.substring(sellectedItem.indexOf('.')));
-        System.out.println(id);
-    }//GEN-LAST:event_lst_candidateMousePressed
+    public void startPro() {
+    langProC();
+    ListModels.tblModel(tbl_dataa);
+    lst_candidate.setModel(ListModels.candidateList);
+    db.fillTable("info");
+    lb_perValue.setText(LangM.percent + sld_percent.getValue() + "% " + LangM.show);
+    clearFieldsAdd();
+    pnl_searchArea.setEnabled(false);
+    pnl_searchArea.setVisible(false);
+    }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_formMousePressed
         requestFocusInWindow();
     }// GEN-LAST:event_formMousePressed
 
+
+
+    private void m_item_checkMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_checkMousePressed
+        gainBt(m_item_check);
+        db.fillCandidateList();
+        pnl_recording.setVisible(true);
+        pnl_checkArea.setVisible(true);
+        pnl_searchArea.setVisible(false);
+        clearFieldsAdd();
+    }// GEN-LAST:event_m_item_checkMousePressed
+
+    private void m_item_menuMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_menuMousePressed
+        PageP.openPage(new MainP(), "");
+        dispose();
+    }// GEN-LAST:event_m_item_menuMousePressed
+
+    private void m_item_addMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_addMousePressed
+        gainBt(m_item_add);
+        pnl_recording.setVisible(true);
+        pnl_checkArea.setVisible(false);
+        pnl_searchArea.setVisible(true);
+        clearFieldsAdd();
+    }// GEN-LAST:event_m_item_addMousePressed
+
+    private void m_item_chartMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_chartMousePressed
+        gainBt(m_item_chart);
+        pnl_recording.setVisible(false);
+        pnl_checkArea.setVisible(false);
+        pnl_searchArea.setVisible(false);// TODO chart panelini ekle
+    }// GEN-LAST:event_m_item_chartMousePressed
+
+    private void m_item_settingMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_m_item_settingMousePressed
+        gainBt(m_item_setting);
+    }// GEN-LAST:event_m_item_settingMousePressed
+
+    // ! listeye basıldığında
+    private void lst_candidateMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lst_candidateMousePressed
+        if (lst_candidate.getSelectedIndex() > -1) {
+            String sellectedItem = lst_candidate.getSelectedValue();
+            int id = Integer.parseInt(sellectedItem.substring(0, sellectedItem.indexOf('.')));
+            fillFields(id, "singUpForms", true);
+        }
+    }// GEN-LAST:event_lst_candidateMousePressed
+
+    // !kabul etme
     private void bt_acceptActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_acceptActionPerformed
+        if (fieldControllerAdd()) {
+            try {
+                db.addData(objectPro(), "info");
+                listClear();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
+                        JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+            db.fillTable("info");
+            clearFieldsAdd();
+        }
+    }// GEN-LAST:event_bt_acceptActionPerformed
+
+    // !reddetme
+    private void bt_declineActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_declineActionPerformed
+        listClear();
+    }// GEN-LAST:event_bt_declineActionPerformed
+
+    // !tabloya basıldığında
+    private void tbl_dataaMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tbl_dataaMousePressed
+        System.out.println("bastı");
+        int sR = tbl_dataa.getSelectedRow();
+        int id = Integer.parseInt(tbl_dataa.getValueAt(sR, 0).toString());
+
+        fillFields(id, "info", false);
+    }// GEN-LAST:event_tbl_dataaMousePressed
+
+    // !ara
+    private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_svg_searchMousePressed
+        searchProC();
+    }// GEN-LAST:event_svg_searchMousePressed
+
+    // !ekle
+    private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
         if (fieldControllerAdd()) {
             try {
                 db.addData(objectPro(), "info");
@@ -521,61 +811,106 @@ public class DataBank extends javax.swing.JFrame {
             db.fillTable("info");
             clearFieldsAdd();
         }
-    }// GEN-LAST:event_bt_acceptActionPerformed
+    }// GEN-LAST:event_bt_addActionPerformed
 
-    private void bt_declineActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_declineActionPerformed
+    // !yüzde değiştir
+    private void sld_percentStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_sld_percentStateChanged
+        lb_perValue.setText("Yüzde " + sld_percent.getValue() + "% göster");
+    }// GEN-LAST:event_sld_percentStateChanged
 
-    }// GEN-LAST:event_bt_declineActionPerformed
+    // !sil
+    private void bt_silActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_silActionPerformed
+        int id;
+        if (tbl_dataa.getSelectedRow() > -1) {
+            id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
+            int[] ids = tbl_dataa.getSelectedRows();
+            System.out.println(ids.length);
 
-    private void tbl_dataaMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tbl_dataaMousePressed
-        System.out.println("bastı");
-        int sR = tbl_dataa.getSelectedRow();
-        int id = Integer.parseInt(tbl_dataa.getValueAt(sR, 0).toString());
-
-        Personel p = db.fillObject(id, "info", false);
-
-        String[] model = ListModels.cmbEduList;
-        String edu = p.getEducationStatus();
-
-        try {
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(p.getStartingOfWork());
-            clan_startToWork.setDate(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        txf_id.setText(p.getId() + "");
-        txf_name.setText(p.getName());
-        txf_surname.setText(p.getSurname());
-        txf_tc.setText(p.getTc());
-        txf_salary.setText(p.getSalary() + "");
-        txf_phone.setText(p.getTel());
-        txf_mail.setText(p.getMail());
-        txf_password.setText(p.getPassword());
-        txa_about.setText(p.getAbout());
-        System.out.println(p.getGender());
-
-        if (p.getGender().equals("Erkek")) {
-            btr_fmale.setSelected(false);
-            btr_male.setSelected(true);
-        } else {
-            btr_male.setSelected(false);
-            btr_fmale.setSelected(true);
-
-        }
-        spn_experience.setValue(p.getExperiencYear());
-
-        for (int i = 0; i < model.length; i++) {
-            // System.out.println(ListModels.cmbEduList[i]);
-            if (edu.equals(ListModels.cmbEduList[i])) {
-                cmb_educaiton.setSelectedIndex(i);
+            for (int i = 0; i < ids.length; i++) {
+                System.out.println(ids[i] + " silindi");
+                id = (int) tbl_dataa.getValueAt(ids[i], 0);
+                db.deleteData(id, "info");
             }
         }
-    }// GEN-LAST:event_tbl_dataaMousePressed
+        db.fillTable("info");
+        clearFieldsAdd();
+    }// GEN-LAST:event_bt_silActionPerformed
 
-    // !ara
-    private void svg_searchMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_svg_searchMousePressed
+    // !güncelleme
+    private void bt_updateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_updateActionPerformed
+        int id;
+        if (tbl_dataa.getSelectedRow() > -1 && fieldControllerAdd()) {
+            id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
+            try {
+                System.out.println("güncelleme alanı");
+                db.updateData(id, objectPro());
+                db.fillTable("info");
+                clearFieldsAdd();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
+                        JOptionPane.ERROR_MESSAGE);
+                System.out.println(e.getMessage());
+
+            }
+        }
+
+    }// GEN-LAST:event_bt_updateActionPerformed
+
+
+
+    public  void langProC() {
+        lb_name.setText(LangM.name);
+        lb_surname.setText(LangM.surname);
+        lb_id.setText(LangM.id);
+        lb_salary.setText(LangM.salary);
+        lb_education.setText(LangM.eduStatus);
+        lb_mail.setText(LangM.mail);
+        lb_password.setText(LangM.password);
+        lb_phone.setText(LangM.tel);
+        lb_tc.setText(LangM.tc);
+        lb_startToWork.setText(LangM.startDate);
+        lb_gender.setText(LangM.gender);
+        lb_experience.setText(LangM.workExper);
+        lb_about.setText(LangM.about);
+
+        bt_update.setText(LangM.update);
+        bt_sil.setText(LangM.delete);
+        bt_add.setText(LangM.add);
+
+        btr_male.setText(LangM.male);
+        btr_fmale.setText(LangM.fmale);
+        btr_startSort.setText(LangM.increasing);
+        btr_endSort.setText(LangM.decreasing);
+        btr_include.setText(LangM.include);
+        btr_startS.setText(LangM.perWord);
+        btr_endS.setText(LangM.endWord);
+
+        pnl_filters.setBorder(new TitledBorder(LangM.filter));
+        pnl_sort.setBorder(new TitledBorder(LangM.sort));
+        pnl_searcFilter.setBorder(new TitledBorder(LangM.searchFilter));
+
+        chk_id.setText(LangM.id);
+        chk_name.setText(LangM.name);
+        chk_salary.setText(LangM.surname);
+        chkb_tc.setText(LangM.tc);
+        chk_nameS.setText(LangM.name);
+        chk_surnameS.setText(LangM.surname);
+        chk_tcS.setText(LangM.tc);
+        chk_mailS.setText(LangM.mail);
+        chk_passwordS.setText(LangM.password);
+        chk_strartWorkS.setText(LangM.startDate);
+
+        txf_name.setA_textT(LangM.hName);
+        txf_surname.setA_textT(LangM.hSurname);
+        txf_password.setA_textT(LangM.hPassword);
+        txf_mail.setA_textT(LangM.hMail);
+        txf_phone.setA_textT(LangM.hTel);
+        txf_tc.setA_textT(LangM.hTc);
+        txf_search.setA_textT("");
+    }
+
+    public  void searchProC() {
         String search = txf_search.getText();
-        String model = "";
         String sortItem = "";
         String catagory = "";
         String start = (btr_startS.isSelected() || btr_include.isSelected()) ? "%" : "";
@@ -623,7 +958,7 @@ public class DataBank extends javax.swing.JFrame {
             catagoryList.add("surname");
         }
         if (chk_strartWorkS.isSelected()) {
-            catagoryList.add("startingOfWork");
+            catagoryList.add("starting_of_work");
         }
         if (chk_mailS.isSelected()) {
             catagoryList.add("mail");
@@ -641,75 +976,16 @@ public class DataBank extends javax.swing.JFrame {
             }
         }
         System.out.println("sort item" + sortItem);
-
         if (!catagory.isBlank()) {
 
             db.searchData2("info", catagory, sortItem, percent, isIncreasing);
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Lütfen alanları arama filtresini seçiniz", "hata",
+            JOptionPane.showMessageDialog(null, "Lütfen alanları arama filtresini seçiniz", "hata",
                     JOptionPane.ERROR_MESSAGE);
         }
-    }// GEN-LAST:event_svg_searchMousePressed
+    }
 
-    // !ekle
-    private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
-        if (fieldControllerAdd()) {
-            try {
-                db.addData(objectPro(), "info");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
-                        JOptionPane.ERROR_MESSAGE);
-                e.printStackTrace();
-            }
-            db.fillTable("info");
-            clearFieldsAdd();
-        }
-    }// GEN-LAST:event_bt_addActionPerformed
-
-    // !yüzde değiştir
-    private void sld_percentStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_sld_percentStateChanged
-        lb_perValue.setText("Yüzde " + sld_percent.getValue() + "% göster");
-    }// GEN-LAST:event_sld_percentStateChanged
-
-    // !sil
-    private void bt_silActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_silActionPerformed
-        int id;
-        if (tbl_dataa.getSelectedRow() > -1) {
-            id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
-            int[] ids = tbl_dataa.getSelectedRows();
-            System.out.println(ids.length);
-
-            for (int i = 0; i < ids.length; i++) {
-                System.out.println(ids[i] + " silindi");
-                id = (int) tbl_dataa.getValueAt(ids[i], 0);
-                db.deleteData(id);
-            }
-        }
-        db.fillTable("info");
-        clearFieldsAdd();
-    }// GEN-LAST:event_bt_silActionPerformed
-
-    // !güncelleme
-    private void bt_updateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_updateActionPerformed
-        int id;
-        if (tbl_dataa.getSelectedRow() > -1 && fieldControllerAdd()) {
-            id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
-            try {
-                System.out.println("ekleme alanı");
-                db.updateData(id, objectPro());
-                db.fillTable("info");
-                clearFieldsAdd();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
-                        JOptionPane.ERROR_MESSAGE);
-                System.out.println(e.getMessage());
-
-            }
-        }
-
-    }// GEN-LAST:event_bt_updateActionPerformed
-
-    private Personel objectPro() throws Exception {
+    public   Personel objectPro() throws Exception {
         // TODO: cinsiyetleri veri tabanına tek formatta eklemeyi ekle
         String gender = "";
         if (btr_male.isSelected()) {
@@ -727,32 +1003,28 @@ public class DataBank extends javax.swing.JFrame {
                 cmb_educaiton.getSelectedItem().toString(), txa_about.getText());
     }
 
-    private void clearFieldsAdd() {
+    public  void clearFieldsAdd() {
         txa_about.setText("");
         txf_mail.setText("");
         txf_name.setText("");
         txf_password.setText("");
         txf_phone.setText("");
-        txf_salary.setText("");
         txf_surname.setText("");
         txf_tc.setText("");
         txf_id.setText("");
+        spn_experience.setValue(0);
+        cmb_educaiton.setSelectedIndex(0);
+        txf_salary.setText("");
         try {
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse("2022-01-01");
             clan_startToWork.setDate(date);
-        } catch (ParseException e) {
+        } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
-        spn_experience.setValue(0);
-        cmb_educaiton.setSelectedIndex(0);
-
     }
 
-
-    MyList<String, Integer> regexList;
-
-    private boolean fieldControllerAdd() {
-        regexList = new MyList<>();
+    public  boolean fieldControllerAdd() {
+        MyList<String, Integer> regexList= new MyList<>();
         regexList.add(txf_name.getText(), 0, LangM.correctName);
         regexList.add(txf_surname.getText(), 0, LangM.correctSurname);
         regexList.add(txf_password.getText(), 3, LangM.correctPassword);
@@ -763,49 +1035,68 @@ public class DataBank extends javax.swing.JFrame {
         return RegexC.fieldController(regexList, btr_male, btr_fmale);
     }
 
-    private void LanPro() {
-        lb_name.setText(LangM.name);
-        lb_surname.setText(LangM.surname);
-        lb_id.setText(LangM.id);
-        lb_salary.setText(LangM.salary);
-        lb_education.setText(LangM.eduStatus);
-        lb_mail.setText(LangM.mail);
-        lb_password.setText(LangM.password);
-        lb_phone.setText(LangM.tel);
-        lb_tc.setText(LangM.tc);
-        lb_startToWork.setText(LangM.startDate);
-        lb_gender.setText(LangM.gender);
-        lb_experience.setText(LangM.workExper);
-        lb_about.setText(LangM.about);
+    public  void fillFields(int id, String tableName, boolean isChek) {
+        Personel p = db.fillObject(id, tableName, isChek);
 
-        bt_update.setText(LangM.update);
-        bt_sil.setText(LangM.delete);
-        bt_add.setText(LangM.add);
+        String[] model = ListModels.cmbEduList;
+        String edu = p.getEducationStatus();
 
-        btr_male.setText(LangM.male);
-        btr_fmale.setText(LangM.fmale);
-        btr_startSort.setText(LangM.increasing);
-        btr_endSort.setText(LangM.decreasing);
-        btr_include.setText(LangM.include);
-        btr_startS.setText(LangM.perWord);
-        btr_endS.setText(LangM.endWord);
+        if (!isChek) {
+            try {
+                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(p.getStartingOfWork());
+                clan_startToWork.setDate(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            } catch (java.text.ParseException e) {
+                e.printStackTrace();
+            }
+            txf_salary.setText(p.getSalary() + "");
+        }
+        txf_id.setText(p.getId() + "");
+        txf_name.setText(p.getName());
+        txf_surname.setText(p.getSurname());
+        txf_tc.setText(p.getTc());
+        txf_phone.setText(p.getTel());
+        txf_mail.setText(p.getMail());
+        txf_password.setText(p.getPassword());
+        txa_about.setText(p.getAbout());
 
-        pnl_filters.setBorder(new TitledBorder(LangM.filter));
-        pnl_sort.setBorder(new TitledBorder(LangM.sort));
-        pnl_searcFilter.setBorder(new TitledBorder(LangM.searchFilter));
+        if (p.getGender().equals("Erkek")) {
+            btr_fmale.setSelected(false);
+            btr_male.setSelected(true);
+        } else {
+            btr_male.setSelected(false);
+            btr_fmale.setSelected(true);
 
-        chk_id.setText(LangM.id);
-        chk_name.setText(LangM.name);
-        chk_salary.setText(LangM.surname);
-        chkb_tc.setText(LangM.tc);
-        chk_nameS.setText(LangM.name);
-        chk_surnameS.setText(LangM.surname);
-        chk_tcS.setText(LangM.tc);
-        chk_mailS.setText(LangM.mail);
-        chk_passwordS.setText(LangM.password);
-        chk_strartWorkS.setText(LangM.startDate);
+        }
+        spn_experience.setValue(p.getExperiencYear());
 
+        for (int i = 0; i < model.length; i++) {
+            // System.out.println(ListModels.cmbEduList[i]);
+            if (edu.equals(ListModels.cmbEduList[i])) {
+                cmb_educaiton.setSelectedIndex(i);
+            }
+        }
     }
+
+    public  void listClear() {
+        if (lst_candidate.getSelectedIndex() > -1) {
+            String sellectedItem = lst_candidate.getSelectedValue();
+            int id = Integer.parseInt(sellectedItem.substring(0, sellectedItem.indexOf('.')));
+            db.deleteData(id, "singUpForms");
+            ListModels.candidateList.remove(lst_candidate.getSelectedIndex());
+            clearFieldsAdd();
+        }
+    }
+
+    public  void gainBt(MenuItems mi) {
+        m_item_add.lostFocus();
+        m_item_chart.lostFocus();
+        m_item_check.lostFocus();
+        m_item_setting.lostFocus();
+        mi.gainFocus();
+    }
+
 
     /**
      * @param args the command line arguments
@@ -824,8 +1115,11 @@ public class DataBank extends javax.swing.JFrame {
     private view.buttons.ButtonN bt_accept;
     private view.buttons.ButtonN bt_add;
     private view.buttons.ButtonN bt_decline;
+    private view.buttons.ButtonN bt_saveLog;
+    private view.buttons.ButtonN bt_seeLog;
     private view.buttons.ButtonN bt_sil;
     private view.buttons.ButtonN bt_update;
+    private javax.swing.JButton btn_choseColor;
     private javax.swing.JRadioButton btr_endS;
     private javax.swing.JRadioButton btr_endSort;
     private javax.swing.JRadioButton btr_fmale;
@@ -834,6 +1128,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JRadioButton btr_startS;
     private javax.swing.JRadioButton btr_startSort;
     private javax.swing.ButtonGroup buttonGroup1;
+    private view.buttons.ButtonN buttonN1;
     private javax.swing.JCheckBox chk_id;
     private javax.swing.JCheckBox chk_mailS;
     private javax.swing.JCheckBox chk_name;
@@ -846,10 +1141,14 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkb_tc;
     private com.toedter.calendar.JDateChooser clan_startToWork;
     private javax.swing.JComboBox<String> cmb_educaiton;
+    private javax.swing.JComboBox<String> cmb_theme;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lb_about;
     private javax.swing.JLabel lb_candidate;
@@ -857,6 +1156,7 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JLabel lb_experience;
     private javax.swing.JLabel lb_gender;
     private javax.swing.JLabel lb_id;
+    private javax.swing.JLabel lb_lang;
     private javax.swing.JLabel lb_mail;
     private javax.swing.JLabel lb_name;
     private javax.swing.JLabel lb_password;
@@ -866,24 +1166,30 @@ public class DataBank extends javax.swing.JFrame {
     private javax.swing.JLabel lb_startToWork;
     private javax.swing.JLabel lb_surname;
     private javax.swing.JLabel lb_tc;
+    private javax.swing.JLabel lb_theme;
     private javax.swing.JList<String> lst_candidate;
     private view.panels.MenuItems m_item_add;
     private view.panels.MenuItems m_item_chart;
     private view.panels.MenuItems m_item_check;
     private view.panels.MenuItems m_item_menu;
     private view.panels.MenuItems m_item_setting;
-    private javax.swing.JPanel pnl_adding;
+    private javax.swing.JPanel pnl_add_check;
+    private javax.swing.JPanel pnl_chart;
     private javax.swing.JPanel pnl_checkArea;
     private javax.swing.JPanel pnl_filters;
+    private javax.swing.JPanel pnl_recording;
     private javax.swing.JPanel pnl_searcFilter;
     private javax.swing.JPanel pnl_searchArea;
+    private javax.swing.JPanel pnl_setting;
     private javax.swing.JPanel pnl_sort;
     private javax.swing.ButtonGroup search;
     private javax.swing.JSlider sld_percent;
     private javax.swing.JSpinner spn_experience;
     private view.image.SvgImage svg_search;
     private javax.swing.JTable tbl_dataa;
+    private view.TextField.TextFeild textFeild1;
     private javax.swing.JTextArea txa_about;
+    private javax.swing.JTextArea txa_log;
     private view.TextField.TextFeild txf_id;
     private view.TextField.TextFeild txf_mail;
     private view.TextField.TextFeild txf_name;

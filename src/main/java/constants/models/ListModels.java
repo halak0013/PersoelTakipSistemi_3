@@ -16,6 +16,12 @@ public class ListModels {
         return educationStatus;
     }
 
+    public static String[] cmbStatus = { LangM.priScholl, LangM.higScholl, LangM.unuScholl, LangM.degreeEdu, LangM.doctorateEdu };
+    public static DefaultComboBoxModel<String> cmbStatusList() {
+        final DefaultComboBoxModel<String> cmbStatus = new DefaultComboBoxModel<String>(cmbEduList);
+        return cmbStatus;
+    }
+
     public static DefaultTableModel tbl_table_model;
     public static void tblModel(JTable table) {
         tbl_table_model = new DefaultTableModel();

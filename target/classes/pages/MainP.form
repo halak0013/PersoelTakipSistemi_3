@@ -70,10 +70,8 @@
                                       </Group>
                                       <Component id="lb_userName" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lb_password" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="textFeild2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="textFeild1" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="tx_password" min="-2" pref="304" max="-2" attributes="0"/>
+                                      <Component id="tx_name" alignment="0" min="-2" pref="304" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -84,7 +82,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="216" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -100,13 +98,13 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lb_userName" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Component id="textFeild1" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="tx_name" min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="lb_password" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="textFeild2" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="tx_password" min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btr_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btr_personel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -137,23 +135,12 @@
           </Layout>
         </Container>
         <Component class="view.image.SvgImage" name="bt_close">
+          <Properties>
+            <Property name="image" type="java.lang.String" value="close"/>
+          </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_closeMousePressed"/>
           </Events>
-        </Component>
-        <Component class="view.TextField.TextFeild" name="textFeild1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="textFeild1"/>
-          </Properties>
-          <Events>
-            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="textFeild1PropertyChange"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textFeild1KeyTyped"/>
-          </Events>
-        </Component>
-        <Component class="view.TextField.TextFeild" name="textFeild2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="textFeild1"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lb_userName">
           <Properties>
@@ -167,11 +154,17 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="btr_admin">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Y&#xf6;netici"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="btr_personel">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Personel"/>
           </Properties>
@@ -191,6 +184,10 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_singUpActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="view.TextField.TextFeild" name="tx_password">
+        </Component>
+        <Component class="view.TextField.TextFeild" name="tx_name">
         </Component>
       </SubComponents>
     </Container>

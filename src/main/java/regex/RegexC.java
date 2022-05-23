@@ -46,7 +46,7 @@ public class RegexC {
     }
 
     public static boolean mailPatern(String text, String message) {
-        pattern = "[a-zA-Z0-9" + trCh + "]{3,30}@[a-zA-Z]{2,30}.[a-zA-Z]{2,3}";
+        pattern = "[a-zA-Z0-9" + trCh + "]{3,30}@[a-zA-Z"+trCh+"]{2,30}.[a-zA-Z]{2,3}";
         return add(text, message);
     }
 

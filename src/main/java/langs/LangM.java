@@ -29,6 +29,17 @@ public class LangM {
     public static String endWord;
 
 
+    //??????????????????????????????İpucu mesajları
+    public static String commonHint;
+    public static String hName;
+    public static String hSurname;
+    public static String hPassword;
+    public static String hPasswordAgain;
+    public static String hMail;
+    public static String hTel;
+    public static String hTc;
+    public static String hSearch;
+
 
 
     //????????????????????????????????buttonlar
@@ -53,36 +64,34 @@ public class LangM {
     public static String addingDone;
     public static String updatingDone;
     public static String deletingDone;
+    public static String errorMesage;
+
 
 
 
     //??????????????????????????????başlıklar
     public static String error;
 
-//???????????????????????Listler
-public static String priScholl;
-public static String higScholl;
-public static String unuScholl;
-public static String degreeEdu;
-public static String doctorateEdu;
+    //???????????????????????Listler
+    public static String priScholl;
+    public static String higScholl;
+    public static String unuScholl;
+    public static String degreeEdu;
+    public static String doctorateEdu;
+    
+    
+    public static String networkManeger;
+    public static String projectManeger;
+    public static String softwareEngineer;
+    public static String admin;
+    public static String designer;
+    public static String financeManeger;
+    public static String socialMediaManeger;
+
+
 
     /* public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
-    public static String name;
+
     public static String name;
     public static String name;
     public static String name;

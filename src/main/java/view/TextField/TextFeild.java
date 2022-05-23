@@ -6,29 +6,28 @@ import javax.swing.JTextField;
 
 import constants.Constantas;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 import static javax.swing.BorderFactory.createMatteBorder;
-
+import langs.LangM;
 
 public class TextFeild extends JTextField {
- private String textT = "lütfen bi değer giriniz";
+    private String a_textT = LangM.commonHint;
+    private boolean work=true;
 
     public TextFeild() {
         super();
         setBorder(createMatteBorder(0, 0, 2, 0, Constantas.borderColor()));
         setBackground(new Color(0, 0, 0, 0));
         setForeground(Constantas.txNormalColor());
-        setText(textT);
-        //System.out.println(textT+"ie");
 
-        cursoOn();
-        cursoOff();
+
         addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent arg0) {
-                if (getText().equals(textT)) {
+                if (getText().equals(a_textT)) {
                     setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
                     setForeground(Constantas.txNormalColor());
                     setText("");
@@ -41,13 +40,22 @@ public class TextFeild extends JTextField {
                 if (getText().length() == 0) {
                     setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 13));
                     setForeground(Constantas.txHintColor());
-                    setText(textT);
+                    setText(a_textT);
                     cursoOn();
                 }
             }
         });
-
     }
+
+@Override
+protected void paintComponent(Graphics arg0) {
+    super.paintComponent(arg0);
+if(work){
+    setText(a_textT);
+    work=false;
+}
+}
+
 
     private void cursoOff() {
         Font font = getFont().deriveFont(Font.ITALIC);
@@ -64,17 +72,17 @@ public class TextFeild extends JTextField {
     // setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new
     // java.awt.Color(0, 0, 0)));
     /**
-     * @return the textT
+     * @return the a_textT
      */
-    public String getTextT() {
-        return textT;
+    public String getA_textT() {
+        return a_textT;
     }
 
     /**
-     * @param textT the textT to set
+     * @param a_textT the a_textT to set
      */
-    public void setTextT(String textT) {
-        this.textT = textT;
+    public void setA_textT(String a_textT) {
+        this.a_textT = a_textT;
     }
 
 }

@@ -16,7 +16,7 @@ public class SingUpP extends javax.swing.JFrame {
     DbHelper db = new DbHelper();
 
     public SingUpP() {
-        tr_Tr.name();
+        tr_Tr.trLang();
         initComponents();
         LanPro();
         clearFields();
@@ -59,7 +59,8 @@ public class SingUpP extends javax.swing.JFrame {
         buttonN1 = new view.buttons.ButtonN();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1350, 800));
+        setMinimumSize(new java.awt.Dimension(650, 635));
+        setPreferredSize(new java.awt.Dimension(650, 660));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_name.setText("İsim");
@@ -108,7 +109,8 @@ public class SingUpP extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 530, 250));
 
-        txf_name.setText("textFeild1");
+        txf_name.setText("textFeild");
+        txf_name.setA_textT("ismi girin");
         getContentPane().add(txf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 123, 35));
 
         lb_about.setText("Hakkında");
@@ -146,7 +148,7 @@ public class SingUpP extends javax.swing.JFrame {
                 buttonN1ActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 580, -1, -1));
+        getContentPane().add(buttonN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 170, 40));
 
         pack();
         setLocationRelativeTo(null);
@@ -203,8 +205,8 @@ public class SingUpP extends javax.swing.JFrame {
         regexList.add(txf_name.getText(), 0, LangM.correctName);
         regexList.add(txf_surname.getText(), 0, LangM.correctSurname);
         regexList.add(txf_password.getText(), 3, LangM.correctPassword);
-        if((txf_password.getText().equals(txf_password1.getText()))){
-            JOptionPane.showConfirmDialog(rootPane, "Parolalar Eşleşmiyor", "Şifre", JOptionPane.ERROR_MESSAGE);
+        if(!(txf_password.getText().equals(txf_password1.getText()))){
+            JOptionPane.showMessageDialog(rootPane, "Parolalar Eşleşmiyor", "Şifre", JOptionPane.ERROR_MESSAGE);
         return false;
         }
         regexList.add(txf_mail.getText(), 2, LangM.correctMail);
@@ -229,6 +231,17 @@ public class SingUpP extends javax.swing.JFrame {
 
         btr_male.setText(LangM.male);
         btr_fmale.setText(LangM.fmale);
+
+        txf_name.setA_textT(LangM.hName);
+        txf_surname.setA_textT(LangM.hSurname);
+        txf_password.setA_textT(LangM.hPassword);
+        txf_password1.setA_textT(LangM.hPasswordAgain);
+        txf_mail.setA_textT(LangM.hMail);
+        txf_phone.setA_textT(LangM.hTel);
+        txf_tc.setA_textT(LangM.hTc);
+        
+        
+        
 
     }
 

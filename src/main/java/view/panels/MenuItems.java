@@ -10,7 +10,6 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 /**
  *
@@ -28,31 +27,17 @@ public class MenuItems extends javax.swing.JPanel {
         super();
         initComponents();
         setBackground(Constantas.panelNormalColor());
-        addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent fe) {
-                System.out.println("odaklandı");
-                setBackground(Constantas.panelFocusGain());
-                lb_text.setForeground(Constantas.txDarkColor());
-            }
 
-            @Override
-            public void focusLost(FocusEvent fe) {
-                System.out.println("odak kayboldu");
-                setBackground(constants.Constantas.panelNormalColor());
-                lb_text.setForeground(Constantas.txNormalColor());
 
-            }
-        });
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-                requestFocus();
-            }
+    }
+    public void gainFocus() {
+        setBackground(Constantas.panelFocusGain());
+        lb_text.setForeground(Constantas.txDarkColor());
+    }
 
-        });
-
+    public void lostFocus() {
+        setBackground(constants.Constantas.panelNormalColor());
+        lb_text.setForeground(Constantas.txNormalColor());
     }
 
     @Override

@@ -10,6 +10,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import constants.models.ListModels;
+import langs.LangM;
 
 public class DbHelper {
     private static String dbUrl = "jdbc:sqlite:personel_data.db";
@@ -27,12 +28,13 @@ public class DbHelper {
         System.out.println("Error message " + e.getMessage());
     }
 
-    public static double getSqlRowCount() {
+    public static double getSqlRowCount(String catagory) {
         double count = 0;
+        catagory=catagory.equals("")?"id":catagory;
         try {
             con = DbHelper.getConnection();
             state = con.createStatement();
-            String query = "SELECT count(*) as countRow FROM info";
+            String query = "SELECT count(*) as countRow FROM info where "+catagory;
             rs = state.executeQuery(query);
             count = rs.getInt("countRow");
             System.out.println(count);
@@ -66,7 +68,7 @@ public class DbHelper {
         sortItem = sortItem.isEmpty() ? "id" : sortItem;
         catagory = catagory.isEmpty() ? "id" : catagory;
 
-        int count = (int) ((percent / 100.0) * getSqlRowCount());
+        int count = (int) ((percent / 100.0) * getSqlRowCount(catagory));
         String sortDirection = isIncreasing == true ? "ASC" : "DESC";
 
         String query = "SELECT  * from " + tableName + " where " + catagory + " ORDER BY " + sortItem
@@ -138,7 +140,7 @@ public class DbHelper {
             System.out.println(e.getMessage());
         }
     }
-    public Personel fillObject(int id, String tableName,boolean isChek) {
+    public Personel fillCandidate(int id, String tableName,boolean isChek) {
         String query = "SELECT * FROM "+tableName+" WHERE id =" + id;
         Personel p = new Personel();
         try {
@@ -167,9 +169,41 @@ public class DbHelper {
         }
         return p;
     }
+    
+    public Personel fillObject(int id, String tableName,boolean isChek) {
+        String query = "SELECT * FROM "+tableName+" WHERE id =" + id;
+        Personel p = new Personel();
+        try {
+            con = DbHelper.getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
 
-    public void deleteData(int id) {
-        String query = "DELETE FROM info where id =" + id;
+            while (rs.next()) {
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setSurname(rs.getString("surname"));
+                p.setPassword(rs.getString("password"));
+                p.setMail(rs.getString("mail"));
+                p.setTel(rs.getString("tel"));
+                p.setGender(rs.getString("gender"));
+                p.setTc(rs.getString("tc"));
+                p.setExperiencYear(rs.getInt("experience_year"));
+                p.setEducaitonStatus(rs.getString("education_status"));
+                p.setAbout(rs.getString("about"));
+                if(!isChek){
+                    p.setSalary(rs.getInt("salary"));//!
+                    p.setStartingOfWork(rs.getString("starting_of_work"));//!
+                }
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return p;
+    }
+
+    public void deleteData(int id, String tableName) {
+        String query = "DELETE FROM "+tableName+" where id =" + id;
 
         try {
             con = DbHelper.getConnection();
@@ -178,7 +212,7 @@ public class DbHelper {
             con.close();
         } catch (SQLException e) {
             showError(e);
-            JOptionPane.showMessageDialog(null, "Hata oluştu");
+            JOptionPane.showMessageDialog(null, LangM.errorMesage);
         }
 
     }
@@ -203,12 +237,12 @@ public class DbHelper {
                 }
             }
             pStm.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Kayıt Başarılı bir şekilde eklendi");
+            JOptionPane.showMessageDialog(null, LangM.addingDone);
             pStm.close();
             con.close();
         } catch (SQLException e) {
             showError(e);
-            JOptionPane.showMessageDialog(null, "Hata oluştu");
+            JOptionPane.showMessageDialog(null, LangM.errorMesage);
         }
     }
 
@@ -219,24 +253,24 @@ public class DbHelper {
         try {
             con = DbHelper.getConnection();
             pStm = con.prepareStatement(query);
-            for (int i = 1; i < p.perLi.size(); i++) {
+            for (int i =0; i < p.perLi.size(); i++) {
                 System.out.println(p.perLi.get(i));
 
                 if (p.perLi.get(i) instanceof Integer) {
                     System.out.println(i);
-                    pStm.setInt(i, Integer.parseInt(p.perLi.get(i).toString()));
+                    pStm.setInt(i+1, Integer.parseInt(p.perLi.get(i).toString()));
                 } else if (p.perLi.get(i) instanceof String) {
                     System.out.println(i);
-                    pStm.setString(i, p.perLi.get(i).toString());
+                    pStm.setString(i+1, p.perLi.get(i).toString());
                 }
             }
             pStm.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Kayıt Başarılı bir şekilde güncellendi");
+            JOptionPane.showMessageDialog(null, LangM.updatingDone);
             pStm.close();
             con.close();
         } catch (SQLException e) {
             showError(e);
-            JOptionPane.showMessageDialog(null, "Hata oluştu");
+            JOptionPane.showMessageDialog(null, LangM.errorMesage);
         }
     }
 
