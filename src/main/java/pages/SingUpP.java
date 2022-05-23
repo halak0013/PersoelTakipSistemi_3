@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 
 import functions.MyList;
 import functions.PageP;
+import functions.Setting;
 import langs.LangM;
 import langs.tr_Tr;
 import regex.RegexC;
@@ -249,7 +250,7 @@ public class SingUpP extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        PageP.theme();
+        Setting.theme();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SingUpP().setVisible(true);

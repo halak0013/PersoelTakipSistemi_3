@@ -13,6 +13,7 @@ import com.formdev.flatlaf.json.ParseException;
 import constants.models.ListModels;
 import functions.MyList;
 import functions.PageP;
+import functions.Setting;
 import langs.LangM;
 import langs.tr_Tr;
 import regex.RegexC;
@@ -61,6 +62,7 @@ public class DataBank extends javax.swing.JFrame {
         txa_log = new javax.swing.JTextArea();
         cmb_theme = new javax.swing.JComboBox<>();
         lb_theme = new javax.swing.JLabel();
+        bt_saveTheme = new view.buttons.ButtonN();
         pnl_chart = new javax.swing.JPanel();
         pnl_add_check = new javax.swing.JPanel();
         lb_name = new javax.swing.JLabel();
@@ -209,90 +211,46 @@ public class DataBank extends javax.swing.JFrame {
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnl_setting.setBackground(new java.awt.Color(0, 208, 255));
+        pnl_setting.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnl_setting.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 52, 174, 45));
 
         lb_lang.setText("Dil");
+        pnl_setting.add(lb_lang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 27, -1, -1));
 
         btn_choseColor.setText("Kenar rengini seç");
+        pnl_setting.add(btn_choseColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
+        pnl_setting.add(textFeild1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 63, -1));
 
         buttonN1.setText("button");
+        pnl_setting.add(buttonN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 77, -1));
 
         bt_seeLog.setText("log kyadını çıkar");
+        pnl_setting.add(bt_seeLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 216, 142, 41));
 
         bt_saveLog.setText("log kaydını bilgsiyara kaydet");
+        pnl_setting.add(bt_saveLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 263, 207, 41));
 
         txa_log.setColumns(20);
         txa_log.setRows(5);
         jScrollPane4.setViewportView(txa_log);
 
+        pnl_setting.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 322, 717, 338));
+
         cmb_theme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnl_setting.add(cmb_theme, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 52, 174, 45));
 
         lb_theme.setText("Tema");
+        pnl_setting.add(lb_theme, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 27, -1, -1));
 
-        javax.swing.GroupLayout pnl_settingLayout = new javax.swing.GroupLayout(pnl_setting);
-        pnl_setting.setLayout(pnl_settingLayout);
-        pnl_settingLayout.setHorizontalGroup(
-            pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_settingLayout.createSequentialGroup()
-                .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnl_settingLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 717, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnl_settingLayout.createSequentialGroup()
-                        .addGap(289, 289, 289)
-                        .addComponent(bt_saveLog, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnl_settingLayout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lb_lang))
-                        .addGap(43, 43, 43)
-                        .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnl_settingLayout.createSequentialGroup()
-                                .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmb_theme, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lb_theme))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnl_settingLayout.createSequentialGroup()
-                                        .addComponent(textFeild1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(buttonN1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(pnl_settingLayout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addComponent(btn_choseColor)))
-                                .addGap(23, 23, 23))
-                            .addComponent(bt_seeLog, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
-        pnl_settingLayout.setVerticalGroup(
-            pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_settingLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnl_settingLayout.createSequentialGroup()
-                        .addGroup(pnl_settingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textFeild1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_choseColor))
-                    .addGroup(pnl_settingLayout.createSequentialGroup()
-                        .addComponent(lb_lang)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnl_settingLayout.createSequentialGroup()
-                        .addComponent(lb_theme)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmb_theme, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(70, 70, 70)
-                .addComponent(bt_seeLog, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bt_saveLog, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+        bt_saveTheme.setText("Kaydet");
+        bt_saveTheme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_saveThemeActionPerformed(evt);
+            }
+        });
+        pnl_setting.add(bt_saveTheme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 130, 40));
 
         jLayeredPane1.add(pnl_setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 870, 700));
 
@@ -704,6 +662,16 @@ public class DataBank extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bt_saveThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_saveThemeActionPerformed
+        
+            try {
+                db.addData(objectPro(),"info");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+    }//GEN-LAST:event_bt_saveThemeActionPerformed
+
     public void startPro() {
     langProC();
     ListModels.tblModel(tbl_dataa);
@@ -802,7 +770,7 @@ public class DataBank extends javax.swing.JFrame {
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
         if (fieldControllerAdd()) {
             try {
-                db.addData(objectPro(), "info");
+                db.addData(objectPro(),"info");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);
@@ -1102,7 +1070,7 @@ public class DataBank extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        PageP.theme();
+        Setting.theme();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DataBank().setVisible(true);
@@ -1116,6 +1084,7 @@ public class DataBank extends javax.swing.JFrame {
     private view.buttons.ButtonN bt_add;
     private view.buttons.ButtonN bt_decline;
     private view.buttons.ButtonN bt_saveLog;
+    private view.buttons.ButtonN bt_saveTheme;
     private view.buttons.ButtonN bt_seeLog;
     private view.buttons.ButtonN bt_sil;
     private view.buttons.ButtonN bt_update;

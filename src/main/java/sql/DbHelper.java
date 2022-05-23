@@ -13,11 +13,11 @@ import constants.models.ListModels;
 import langs.LangM;
 
 public class DbHelper {
-    private static String dbUrl = "jdbc:sqlite:personel_data.db";
-    static Connection con;
-    static Statement state;
-    static ResultSet rs;
-    static PreparedStatement pStm;
+    protected static String dbUrl = "jdbc:sqlite:personel_data.db";
+    protected static Connection con;
+    protected static Statement state;
+    protected static ResultSet rs;
+    protected static PreparedStatement pStm;
 
     public static Connection getConnection() throws SQLException {
         return (Connection) DriverManager.getConnection(dbUrl);

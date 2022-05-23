@@ -5,6 +5,7 @@
 package pages;
 
 import functions.PageP;
+import functions.Setting;
 
 /**
  *
@@ -164,7 +165,7 @@ public class SingUp extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        PageP.theme();
+        Setting.theme();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SingUp().setVisible(true);

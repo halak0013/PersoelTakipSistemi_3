@@ -87,7 +87,7 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="buton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jButton1"/>
               </Properties>

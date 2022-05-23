@@ -78,8 +78,8 @@ public class LangM {
     public static String unuScholl;
     public static String degreeEdu;
     public static String doctorateEdu;
-    
-    
+
+
     public static String networkManeger;
     public static String projectManeger;
     public static String softwareEngineer;
@@ -87,6 +87,14 @@ public class LangM {
     public static String designer;
     public static String financeManeger;
     public static String socialMediaManeger;
+
+
+    public static String turkish;
+    public static String english;
+
+
+    public static String darkOrange;
+    public static String darkBlue;
 
 
 

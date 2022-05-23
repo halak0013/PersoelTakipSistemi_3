@@ -5,6 +5,7 @@
 package aDenemelikler;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import java.awt.Color;
 
 import java.text.SimpleDateFormat;
 
@@ -30,6 +31,21 @@ public class a extends javax.swing.JFrame {
         initComponents();
         revalidate();
         tr_Tr.trLang();
+        System.out.println(Color.red.getBlue());
+        
+        
+/*         String tex="java.awt.Color[r=255,g=0,b=0]";
+        String r="",g="",b="";
+        for (int i = 0; i < tex.length(); i++) {
+            if(tex.charAt(i)=='r'){
+                if(tex.charAt(i+1)!=','){
+                    r+=tex.charAt(i+1);
+                }
+                
+            
+            
+            } 
+        }*/
 
     }
 
@@ -46,7 +62,7 @@ public class a extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        buton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(708, 418));
@@ -77,8 +93,8 @@ public class a extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(215, 85, 44));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("jButton1");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 190, -1, -1));
+        buton.setText("jButton1");
+        jPanel2.add(buton, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 190, -1, -1));
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -100,13 +116,15 @@ public class a extends javax.swing.JFrame {
         FlatArcDarkOrangeIJTheme.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                System.out.println(Color.red);
+                
                 new a().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
