@@ -24,19 +24,13 @@ public class Chart extends javax.swing.JPanel {
         "financeManeger", "socialMediaManeger"};
     String[] chartListName = {LangM.chartsocialMediaManeger, LangM.chartfinanceManeger, LangM.chartdesigner, LangM.chartadmin,
         LangM.chartsoftwareEngineer, LangM.chartprojectManeger, LangM.chartnetworkManeger};
-    int max = 0;
+    double max = 0.1;
     int[] y = new int[chartList.length];
 
     /**
      * Creates new form Chart
      */
     public Chart() {
-        for (int i = 0; i < chartList.length; i++) {
-            y[i] = (int) DbHelper.getSqlRowCount("status='" + chartList[i] + "'");
-            if (y[i] > max) {
-                max = y[i];
-            }
-        }
         initComponents();
     }
 
@@ -69,15 +63,20 @@ public class Chart extends javax.swing.JPanel {
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         //yazıyı yumuşatmak için
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
-
-        int heightRatio=(getHeight()-2)/max;
+        for (int i = 0; i < chartList.length; i++) {
+            y[i] = (int) DbHelper.getSqlRowCount("status='" + chartList[i] + "'");
+            if (y[i] > max) {
+                max = y[i];
+            }
+        }
+        int heightRatio=(int)((getHeight()-2)/max);
 
         //g2.rotate(Math.toRadians(180.0), getWidth() / 2, getHeight() / 2);
         for (int i = 0; i < chartList.length; i++) {
             System.out.println(y[i]*heightRatio);
             g2.setColor(new Color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255)));
             g2.fillRect(50+i*100, 30, 40, y[i]*heightRatio);
-            g2.drawString(chartListName[i],35+ i*100, 10);
+            g2.drawString(chartListName[chartList.length-i-1],35+ i*100, 10);
         }
 
         int val=(getHeight()-40)/4;
