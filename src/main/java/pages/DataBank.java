@@ -26,7 +26,6 @@ public class DataBank extends javax.swing.JFrame {
     DbHelper db = new DbHelper();
 
     public DataBank() {
-        tr_Tr.trLang();
         initComponents();
         startPro();
 
@@ -466,34 +465,37 @@ public class DataBank extends javax.swing.JFrame {
         lb_status.setText("Görevi");
         pnl_add_check.add(lb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
 
+        jLayeredPane1.add(pnl_add_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, 720));
+
         javax.swing.GroupLayout chart1Layout = new javax.swing.GroupLayout(chart1);
         chart1.setLayout(chart1Layout);
         chart1Layout.setHorizontalGroup(
             chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 890, Short.MAX_VALUE)
+            .addGap(0, 829, Short.MAX_VALUE)
         );
         chart1Layout.setVerticalGroup(
             chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGap(0, 508, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
         pnl_chart.setLayout(pnl_chartLayout);
         pnl_chartLayout.setHorizontalGroup(
             pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(chart1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnl_chartLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         pnl_chartLayout.setVerticalGroup(
             pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_chartLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(136, 136, 136)
                 .addComponent(chart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
-        pnl_add_check.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
-
-        jLayeredPane1.add(pnl_add_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, 720));
+        jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
 
         jSplitPane1.setRightComponent(jLayeredPane1);
 

@@ -2,8 +2,11 @@ package sql;
 
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import functions.Setting;
+import langs.LangM;
 
 public class dbSetting extends DbHelper {
 
@@ -19,6 +22,7 @@ public class dbSetting extends DbHelper {
             Setting.lang = rs.getString("lang");
             Setting.color = new Color(rs.getInt("red"), rs.getInt("green"), rs.getInt("blue"));
         }
+        con.close();
     } catch (SQLException e) {
         showError(e);
     }
@@ -35,7 +39,7 @@ public class dbSetting extends DbHelper {
         pStm.setInt(4, Setting.color.getGreen());
         pStm.setInt(5, Setting.color.getBlue());
         pStm.executeUpdate();
-        pStm.close();
+        JOptionPane.showMessageDialog(null, LangM.updatingDone);
         con.close();
     } catch (SQLException e) {
         showError(e);

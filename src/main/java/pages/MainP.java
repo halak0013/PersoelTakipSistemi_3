@@ -21,7 +21,7 @@ public class MainP extends javax.swing.JFrame {
         // ? sonrasında ek bir panel daha ekliyoruz ki
         // ? eklenen parçalar acayip gözükmesin
         setBackground(new Color(1.0f, 1.0f, 1.0f, 0.0f));
-
+        lanProeces();
         //bt_singUp.setVisible(false);Ç
         topPanel1.MovePanel(this);
     }
@@ -200,7 +200,7 @@ lb_password.setText(LangM.password);
 bt_singIn.setText(LangM.singIn);
 bt_singUp.setText(LangM.singUp);
 btr_admin.setText(LangM.admin);
-btr_admin.setText(LangM.personel);
+btr_personel.setText(LangM.personel);
 }
 
     /**

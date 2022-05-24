@@ -93,7 +93,7 @@ public class tr_Tr extends LangM {
         colorChoser = "Renk Seçici";
         setting = "Ayarlar";
         adminP = "Yönetici";
-        personel = "Personel Bilgisi";
+        personel = "Personel";
         singUp = "Kayıt Ol";
 
         // ??????????????????????????????Listeler

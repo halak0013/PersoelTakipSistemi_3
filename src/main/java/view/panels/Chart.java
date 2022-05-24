@@ -24,7 +24,7 @@ public class Chart extends javax.swing.JPanel {
         "financeManeger", "socialMediaManeger"};
     String[] chartListName = {LangM.chartsocialMediaManeger, LangM.chartfinanceManeger, LangM.chartdesigner, LangM.chartadmin,
         LangM.chartsoftwareEngineer, LangM.chartprojectManeger, LangM.chartnetworkManeger};
-    double max = 0.1;
+    int max = 1;
     int[] y = new int[chartList.length];
 
     /**

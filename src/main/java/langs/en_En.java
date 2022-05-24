@@ -93,7 +93,7 @@ public class en_En extends LangM {
         colorChoser = "Color Choser";
         setting = "Setting";
         adminP = "Admin Panel";
-        personel = "Personel Page";
+        personel = "Personel";
         singUp = "Sing Up";
 
         // ??????????????????????????????Listeler

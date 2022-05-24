@@ -120,15 +120,17 @@ public class dbHelped2 extends DbHelper {
 
     public static boolean isAdmin() {
         String query = "SELECT * FROM info WHERE status= 'admin' and name= 'admin*13' and password= 'admin*13'";
+        boolean result=false;
         try {
             con = getConnection();
             state = con.createStatement();
             rs = state.executeQuery(query);
-            return rs.next();
+            result= rs.next();
+            con.close();
         } catch (SQLException e) {
             showError(e);
-            return false;
         }
+        return result;
     }
 
     public static int isPersonel(String mail, String password) {
@@ -141,6 +143,8 @@ public class dbHelped2 extends DbHelper {
             if(rs.next()){
             id=rs.getInt("id");
             }
+            con.close();
+
         } catch (SQLException e) {
             showError(e);
         }
