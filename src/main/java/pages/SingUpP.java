@@ -9,6 +9,7 @@ import langs.LangM;
 import regex.RegexC;
 import sql.DbHelper;
 import sql.Personel;
+import sql.dbHelped2;
 
 public class SingUpP extends javax.swing.JFrame {
 
@@ -156,7 +157,7 @@ public class SingUpP extends javax.swing.JFrame {
         if(txf_password.getText().equals(txf_password1.getText())){
         
         }
-        if (fieldControllerAdd()) {
+        if (fieldControllerAdd()&&dbHelped2.isMailUniq(txf_mail.getText())) {
             try {
                 db.addData(objectPro(),"singUpForms");
             } catch (Exception e) {

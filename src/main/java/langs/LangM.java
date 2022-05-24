@@ -64,6 +64,12 @@ public class LangM {
     public static String singIn;
     public static String singUpbtn;
 
+    public static String close;
+    public static String paste;
+    public static String copy;
+    public static String cut;
+
+
 
 
 

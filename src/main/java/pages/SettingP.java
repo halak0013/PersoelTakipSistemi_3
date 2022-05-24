@@ -54,6 +54,10 @@ public class SettingP extends javax.swing.JFrame {
         cmb_theme = new javax.swing.JComboBox<>();
         lb_theme = new javax.swing.JLabel();
         bt_saveTheme = new view.buttons.ButtonN();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        saveLog = new javax.swing.JMenuItem();
+        close = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +120,28 @@ public class SettingP extends javax.swing.JFrame {
         });
         pnl_setting.add(bt_saveTheme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 130, 40));
 
+        jMenu1.setText("File");
+
+        saveLog.setText("jMenuItem1");
+        saveLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveLogActionPerformed(evt);
+            }
+        });
+        jMenu1.add(saveLog);
+
+        close.setText("jMenuItem2");
+        close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeActionPerformed(evt);
+            }
+        });
+        jMenu1.add(close);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,26 +181,41 @@ public class SettingP extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_seeLogActionPerformed
 
     private void bt_saveLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_saveLogActionPerformed
-        JFileChooser fc=new JFileChooser();
-        fc.showOpenDialog(this);
-        File file=fc.getSelectedFile();
-        try {
-            FileWriter fw = new FileWriter(file);
-            fw.write(txa_log.getText());
-            fw.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        
+        saveLog();
     }//GEN-LAST:event_bt_saveLogActionPerformed
-public void LangProces() {
+
+    private void saveLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveLogActionPerformed
+        saveLog();
+    }//GEN-LAST:event_saveLogActionPerformed
+
+    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_closeActionPerformed
+
+public void saveLog() {
+    JFileChooser fc=new JFileChooser();
+    fc.showOpenDialog(this);
+    File file=fc.getSelectedFile();
+    try {
+        FileWriter fw = new FileWriter(file);
+        fw.write(txa_log.getText());
+        fw.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+        Setting.addLog(e.getMessage());
+    }
+}
+    public void LangProces() {
 lb_lang.setText(LangM.lang);
 lb_theme.setText(LangM.theme);
 btn_choseColor.setText(LangM.colorChoser);
 bt_saveLog.setText(LangM.saveLog);
 bt_seeLog.setText(LangM.seeLog);
 bt_saveTheme.setText(LangM.save);
+saveLog.setText(LangM.saveLog);
+close.setText(LangM.close);
+
+
 }
     /**
      * @param args the command line arguments
@@ -194,12 +235,16 @@ bt_saveTheme.setText(LangM.save);
     private view.buttons.ButtonN bt_seeLog;
     private javax.swing.JButton btn_choseColor;
     private view.buttons.ButtonN buttonN1;
+    private javax.swing.JMenuItem close;
     private javax.swing.JComboBox<String> cmb_lang;
     private javax.swing.JComboBox<String> cmb_theme;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lb_lang;
     private javax.swing.JLabel lb_theme;
     private javax.swing.JPanel pnl_setting;
+    private javax.swing.JMenuItem saveLog;
     private view.TextField.TextFeild textFeild1;
     private javax.swing.JTextArea txa_log;
     // End of variables declaration//GEN-END:variables

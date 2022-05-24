@@ -33,9 +33,7 @@ public class en_En extends LangM {
         seeLog = "See Log";
         saveLog = "Save Log";
         saveTheme = "Save Theme";
-        userName="User Name";
-
-
+        userName = "User Name";
 
         commonHint = "Enter value";
         hName = "Enter name";
@@ -47,32 +45,18 @@ public class en_En extends LangM {
         hTc = "Enter identity number";
         hSearch = "Enter word to search";
 
-
-
-
-
-
-
-
         // ????????????????????????????????buttonlar
         update = "Update";
         delete = "Delete";
         add = "Add";
         save = "Save";
         colorChoser = "Color Choser";
-        singIn="Sing In";
-        singUpbtn="Sing Up";
-
-
-
-
-
-
-
-
-
-
-
+        singIn = "Sing In";
+        singUpbtn = "Sing Up";
+        close = "Close";
+        paste = "Paste";
+        copy = "Copy";
+        cut = "Cut";
 
         // ?????????????????????????????uyarı
         correctName = "Please enter correct name\n Ex: Ahmet";

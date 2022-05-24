@@ -63,7 +63,10 @@ public class tr_Tr extends LangM {
         singIn="Giriş Yap";
         singUpbtn="Kayıt Ol";
 
-
+        close = "Kapa";
+        paste = "Yapıştır";
+        copy = "Kopyala";
+        cut = "Kes";
 
 
 

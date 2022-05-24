@@ -40,6 +40,14 @@ public class DataBank extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         StrtEnd = new javax.swing.ButtonGroup();
         search = new javax.swing.ButtonGroup();
+        pop_about = new javax.swing.JPopupMenu();
+        copy = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        paste = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        cut = new javax.swing.JMenuItem();
+        pop_table = new javax.swing.JPopupMenu();
+        delete = new javax.swing.JMenuItem();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         m_item_menu = new view.panels.MenuItems();
@@ -77,12 +85,6 @@ public class DataBank extends javax.swing.JFrame {
         cmb_educaiton = new javax.swing.JComboBox<>();
         spn_experience = new javax.swing.JSpinner();
         clan_startToWork = new com.toedter.calendar.JDateChooser();
-        pnl_checkArea = new javax.swing.JPanel();
-        lb_candidate = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lst_candidate = new javax.swing.JList<>();
-        bt_accept = new view.buttons.ButtonN();
-        bt_decline = new view.buttons.ButtonN();
         pnl_searchArea = new javax.swing.JPanel();
         bt_update = new view.buttons.ButtonN();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -111,10 +113,38 @@ public class DataBank extends javax.swing.JFrame {
         chk_id = new javax.swing.JCheckBox();
         chk_name = new javax.swing.JCheckBox();
         chk_salary = new javax.swing.JCheckBox();
+        pnl_checkArea = new javax.swing.JPanel();
+        lb_candidate = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lst_candidate = new javax.swing.JList<>();
+        bt_accept = new view.buttons.ButtonN();
+        bt_decline = new view.buttons.ButtonN();
         cmb_status = new javax.swing.JComboBox<>();
         lb_status = new javax.swing.JLabel();
         pnl_chart = new javax.swing.JPanel();
-        chart1 = new view.panels.Chart();
+        chart2 = new view.panels.Chart();
+
+        copy.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        copy.setText("jMenuItem1");
+        pop_about.add(copy);
+        pop_about.add(jSeparator1);
+
+        paste.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        paste.setText("jMenuItem2");
+        pop_about.add(paste);
+        pop_about.add(jSeparator2);
+
+        cut.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        cut.setText("jMenuItem3");
+        pop_about.add(cut);
+
+        delete.setText("jMenuItem1");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
+        pop_table.add(delete);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
@@ -252,6 +282,7 @@ public class DataBank extends javax.swing.JFrame {
         txa_about.setLineWrap(true);
         txa_about.setRows(5);
         txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
+        txa_about.setComponentPopupMenu(pop_about);
         jScrollPane2.setViewportView(txa_about);
 
         pnl_add_check.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 530, 210));
@@ -289,38 +320,6 @@ public class DataBank extends javax.swing.JFrame {
         spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
         pnl_add_check.add(spn_experience, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 70, -1));
         pnl_add_check.add(clan_startToWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 130, -1));
-
-        pnl_checkArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lb_candidate.setText("Başvuranlar");
-        pnl_checkArea.add(lb_candidate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
-
-        lst_candidate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lst_candidateMousePressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(lst_candidate);
-
-        pnl_checkArea.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 970, 360));
-
-        bt_accept.setText("Kabul et");
-        bt_accept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_acceptActionPerformed(evt);
-            }
-        });
-        pnl_checkArea.add(bt_accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 100, 140, 40));
-
-        bt_decline.setText("Reddet");
-        bt_decline.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_declineActionPerformed(evt);
-            }
-        });
-        pnl_checkArea.add(bt_decline, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 140, 40));
-
-        pnl_add_check.add(pnl_checkArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1310, 420));
 
         pnl_searchArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -412,7 +411,7 @@ public class DataBank extends javax.swing.JFrame {
         btr_endS.setText("sondan");
         pnl_searcFilter.add(btr_endS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
-        pnl_searchArea.add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 340, 120));
+        pnl_searchArea.add(pnl_searcFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, 340, 120));
 
         pnl_filters.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtreler"));
         pnl_filters.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -424,7 +423,7 @@ public class DataBank extends javax.swing.JFrame {
 
         StrtEnd.add(btr_endSort);
         btr_endSort.setText("Sondan");
-        pnl_filters.add(btr_endSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 17, -1, -1));
+        pnl_filters.add(btr_endSort, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
         sld_percent.setValue(100);
         sld_percent.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -432,11 +431,11 @@ public class DataBank extends javax.swing.JFrame {
                 sld_percentStateChanged(evt);
             }
         });
-        pnl_filters.add(sld_percent, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 188, -1));
+        pnl_filters.add(sld_percent, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 188, -1));
 
         lb_perValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_perValue.setText("100");
-        pnl_filters.add(lb_perValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        pnl_filters.add(lb_perValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         pnl_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Sıralama"));
         pnl_sort.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -456,9 +455,41 @@ public class DataBank extends javax.swing.JFrame {
 
         pnl_filters.add(pnl_sort, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 60));
 
-        pnl_searchArea.add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 340, 120));
+        pnl_searchArea.add(pnl_filters, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 370, 120));
 
         pnl_add_check.add(pnl_searchArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1340, 420));
+
+        pnl_checkArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lb_candidate.setText("Başvuranlar");
+        pnl_checkArea.add(lb_candidate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        lst_candidate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lst_candidateMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(lst_candidate);
+
+        pnl_checkArea.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 970, 360));
+
+        bt_accept.setText("Kabul et");
+        bt_accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_acceptActionPerformed(evt);
+            }
+        });
+        pnl_checkArea.add(bt_accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 100, 140, 40));
+
+        bt_decline.setText("Reddet");
+        bt_decline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_declineActionPerformed(evt);
+            }
+        });
+        pnl_checkArea.add(bt_decline, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 140, 40));
+
+        pnl_add_check.add(pnl_checkArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1310, 420));
 
         pnl_add_check.add(cmb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 100, -1));
 
@@ -467,15 +498,15 @@ public class DataBank extends javax.swing.JFrame {
 
         jLayeredPane1.add(pnl_add_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, 720));
 
-        javax.swing.GroupLayout chart1Layout = new javax.swing.GroupLayout(chart1);
-        chart1.setLayout(chart1Layout);
-        chart1Layout.setHorizontalGroup(
-            chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 829, Short.MAX_VALUE)
+        javax.swing.GroupLayout chart2Layout = new javax.swing.GroupLayout(chart2);
+        chart2.setLayout(chart2Layout);
+        chart2Layout.setHorizontalGroup(
+            chart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 797, Short.MAX_VALUE)
         );
-        chart1Layout.setVerticalGroup(
-            chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+        chart2Layout.setVerticalGroup(
+            chart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 524, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
@@ -483,16 +514,16 @@ public class DataBank extends javax.swing.JFrame {
         pnl_chartLayout.setHorizontalGroup(
             pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_chartLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(chart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(chart2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         pnl_chartLayout.setVerticalGroup(
             pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_chartLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(chart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(chart2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
@@ -513,6 +544,23 @@ public class DataBank extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        int id;
+        if (tbl_dataa.getSelectedRow() > -1) {
+            id = (int) tbl_dataa.getValueAt(tbl_dataa.getSelectedRow(), 0);
+            int[] ids = tbl_dataa.getSelectedRows();
+            System.out.println(ids.length);
+
+            for (int i = 0; i < ids.length; i++) {
+                System.out.println(ids[i] + " silindi");
+                id = (int) tbl_dataa.getValueAt(ids[i], 0);
+                db.deleteData(id, "info");
+            }
+        }
+        dbHelped2.fillTable2("", "id", 100, true);
+        clearFieldsAdd();
+    }//GEN-LAST:event_deleteActionPerformed
 
 
     public void startPro() {
@@ -606,7 +654,7 @@ public class DataBank extends javax.swing.JFrame {
 
     // !ekle
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
-        if (fieldControllerAdd()) {
+        if (fieldControllerAdd()&&dbHelped2.isMailUniq(txf_mail.getText())) {
             try {
                 System.out.println(objectPro());
                 db.addData(objectPro(), "info");
@@ -715,6 +763,12 @@ public class DataBank extends javax.swing.JFrame {
         txf_phone.setA_textT(LangM.hTel);
         txf_tc.setA_textT(LangM.hTc);
         txf_search.setA_textT("");
+        copy.setText(LangM.copy);
+        paste.setText(LangM.paste);
+        cut.setText(LangM.cut);
+        delete.setText(LangM.delete);
+
+
     }
 
     public void searchProC() {
@@ -1050,7 +1104,7 @@ System.out.println(cmb_status.getSelectedIndex()+"seçilen yer");
     private javax.swing.JRadioButton btr_startS;
     private javax.swing.JRadioButton btr_startSort;
     private javax.swing.ButtonGroup buttonGroup1;
-    private view.panels.Chart chart1;
+    private view.panels.Chart chart2;
     private javax.swing.JCheckBox chk_id;
     private javax.swing.JCheckBox chk_mailS;
     private javax.swing.JCheckBox chk_name;
@@ -1064,11 +1118,16 @@ System.out.println(cmb_status.getSelectedIndex()+"seçilen yer");
     private com.toedter.calendar.JDateChooser clan_startToWork;
     private javax.swing.JComboBox<String> cmb_educaiton;
     private javax.swing.JComboBox<String> cmb_status;
+    private javax.swing.JMenuItem copy;
+    private javax.swing.JMenuItem cut;
+    private javax.swing.JMenuItem delete;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lb_about;
     private javax.swing.JLabel lb_candidate;
@@ -1092,6 +1151,7 @@ System.out.println(cmb_status.getSelectedIndex()+"seçilen yer");
     private view.panels.MenuItems m_item_check;
     private view.panels.MenuItems m_item_menu;
     private view.panels.MenuItems m_item_setting;
+    private javax.swing.JMenuItem paste;
     private javax.swing.JPanel pnl_add_check;
     private javax.swing.JPanel pnl_chart;
     private javax.swing.JPanel pnl_checkArea;
@@ -1099,6 +1159,8 @@ System.out.println(cmb_status.getSelectedIndex()+"seçilen yer");
     private javax.swing.JPanel pnl_searcFilter;
     private javax.swing.JPanel pnl_searchArea;
     private javax.swing.JPanel pnl_sort;
+    private javax.swing.JPopupMenu pop_about;
+    private javax.swing.JPopupMenu pop_table;
     private javax.swing.ButtonGroup search;
     private javax.swing.JSlider sld_percent;
     private javax.swing.JSpinner spn_experience;

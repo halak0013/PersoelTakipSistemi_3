@@ -118,6 +118,22 @@ public class dbHelped2 extends DbHelper {
         }
     }
 
+    public static boolean isMailUniq(String mail) {
+        String query = "SELECT * FROM info WHERE mail = '" + mail + "'";
+        boolean result=false;
+        try {
+            con = getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
+            result= rs.next();
+            con.close();
+        } catch (SQLException e) {
+            showError(e);
+        }
+        return result;
+    }
+
+
     public static boolean isAdmin() {
         String query = "SELECT * FROM info WHERE status= 'admin' and name= 'admin*13' and password= 'admin*13'";
         boolean result=false;
