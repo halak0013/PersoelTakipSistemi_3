@@ -118,6 +118,10 @@ public class dbHelped2 extends DbHelper {
         }
     }
 
+    public static void isAdmin() {
+    String querly="SELECT * FROM info WHERE status= 'admin' and name= 'admin*13' and password= 'admin*13'" ;
+    }
+
 
     public static Personel getFieldData(int index) {
         Personel p = new Personel();

@@ -174,7 +174,11 @@ public class MainP extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_closeMousePressed
 
     private void bt_singInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_singInActionPerformed
-        
+        if(btr_admin.isSelected()){
+            
+        }else{
+            
+        }
     }//GEN-LAST:event_bt_singInActionPerformed
 
     private void bt_singUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_singUpActionPerformed

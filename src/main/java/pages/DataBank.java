@@ -13,7 +13,6 @@ import constants.models.ListModels;
 import functions.MyList;
 import functions.PageP;
 import functions.Setting;
-import java.awt.Graphics;
 import langs.LangM;
 import langs.tr_Tr;
 import regex.RegexC;
@@ -50,7 +49,6 @@ public class DataBank extends javax.swing.JFrame {
         m_item_setting = new view.panels.MenuItems();
         m_item_chart = new view.panels.MenuItems();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        pnl_chart = new javax.swing.JPanel();
         pnl_add_check = new javax.swing.JPanel();
         lb_name = new javax.swing.JLabel();
         txf_surname = new view.TextField.TextFeild();
@@ -116,6 +114,8 @@ public class DataBank extends javax.swing.JFrame {
         chk_salary = new javax.swing.JCheckBox();
         cmb_status = new javax.swing.JComboBox<>();
         lb_status = new javax.swing.JLabel();
+        pnl_chart = new javax.swing.JPanel();
+        chart1 = new view.panels.Chart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
@@ -198,21 +198,6 @@ public class DataBank extends javax.swing.JFrame {
         jSplitPane1.setLeftComponent(jPanel1);
 
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnl_chart.setBackground(new java.awt.Color(241, 171, 59));
-
-        javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
-        pnl_chart.setLayout(pnl_chartLayout);
-        pnl_chartLayout.setHorizontalGroup(
-            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 890, Short.MAX_VALUE)
-        );
-        pnl_chartLayout.setVerticalGroup(
-            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-
-        jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 890, 720));
 
         pnl_add_check.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -480,6 +465,33 @@ public class DataBank extends javax.swing.JFrame {
 
         lb_status.setText("Görevi");
         pnl_add_check.add(lb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
+
+        javax.swing.GroupLayout chart1Layout = new javax.swing.GroupLayout(chart1);
+        chart1.setLayout(chart1Layout);
+        chart1Layout.setHorizontalGroup(
+            chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 890, Short.MAX_VALUE)
+        );
+        chart1Layout.setVerticalGroup(
+            chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
+        pnl_chart.setLayout(pnl_chartLayout);
+        pnl_chartLayout.setHorizontalGroup(
+            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(chart1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnl_chartLayout.setVerticalGroup(
+            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_chartLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(chart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+
+        pnl_add_check.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
 
         jLayeredPane1.add(pnl_add_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, 720));
 
@@ -1030,6 +1042,7 @@ System.out.println(cmb_status.getSelectedIndex()+"seçilen yer");
     private javax.swing.JRadioButton btr_startS;
     private javax.swing.JRadioButton btr_startSort;
     private javax.swing.ButtonGroup buttonGroup1;
+    private view.panels.Chart chart1;
     private javax.swing.JCheckBox chk_id;
     private javax.swing.JCheckBox chk_mailS;
     private javax.swing.JCheckBox chk_name;
