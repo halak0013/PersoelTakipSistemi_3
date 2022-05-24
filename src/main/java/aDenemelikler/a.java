@@ -17,6 +17,7 @@ import pages.DataBank;
 import regex.RegexC;
 import sql.DbHelper;
 import sql.Personel;
+import sql.dbHelped2;
 
 /**
  *
@@ -31,7 +32,9 @@ public class a extends javax.swing.JFrame {
         initComponents();
         revalidate();
         tr_Tr.trLang();
-        System.out.println(Color.red.getBlue());
+        //DbHelper.getSqlRowCount("status='" + chartList[i] + "'");
+        dbHelped2.fillPersonel("info", "", "id", 100, true);
+        
         
         
 /*         String tex="java.awt.Color[r=255,g=0,b=0]";
@@ -59,10 +62,7 @@ public class a extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        buton = new javax.swing.JButton();
+        chart1 = new view.panels.Chart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(708, 418));
@@ -73,32 +73,18 @@ public class a extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(215, 215, 44));
-        jPanel1.setMaximumSize(new java.awt.Dimension(200, 200));
-        jPanel1.setMinimumSize(new java.awt.Dimension(100, 100));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout chart1Layout = new javax.swing.GroupLayout(chart1);
+        chart1.setLayout(chart1Layout);
+        chart1Layout.setHorizontalGroup(
+            chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 510, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+        chart1Layout.setVerticalGroup(
+            chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
         );
 
-        jSplitPane1.setLeftComponent(jPanel1);
-
-        jPanel2.setBackground(new java.awt.Color(215, 85, 44));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        buton.setText("jButton1");
-        jPanel2.add(buton, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 190, -1, -1));
-
-        jSplitPane1.setRightComponent(jPanel2);
-
-        getContentPane().add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 520, 440));
+        getContentPane().add(chart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 510, 320));
 
         pack();
         setLocationRelativeTo(null);
@@ -114,6 +100,7 @@ public class a extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         FlatArcDarkOrangeIJTheme.setup();
+        tr_Tr.trLang();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 System.out.println(Color.red);
@@ -124,9 +111,6 @@ public class a extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buton;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JSplitPane jSplitPane1;
+    private view.panels.Chart chart1;
     // End of variables declaration//GEN-END:variables
 }

@@ -67,6 +67,7 @@ public class ColorChoser extends javax.swing.JFrame {
 
     private void bt_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_saveActionPerformed
         Setting.color=colorCh.getColor();
+        dispose();
     }//GEN-LAST:event_bt_saveActionPerformed
 
     /**

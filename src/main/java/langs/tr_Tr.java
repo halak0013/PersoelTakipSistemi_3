@@ -7,6 +7,7 @@ public class tr_Tr extends LangM {
         id = "İd";
         salary = "Maaş";
         eduStatus = "Eğitim Durumu";
+        status="Pozisyon";
         mail = "Mail";
         password = "Şifre";
         tc = "Kimlik No";
@@ -27,6 +28,11 @@ public class tr_Tr extends LangM {
         include = "İçeren";
         perWord = "Baştan ara";
         endWord = "Sondan ara";
+        lang="Dil";
+        theme="Tema";
+        seeLog="Günlüğü Görüntüle";
+        saveLog="Günlüğü Kaydet";
+        saveTheme="Temayı Kaydet";
 
         commonHint = "değeri giriniz";
         hName = "Adını giriniz";
@@ -61,6 +67,8 @@ public class tr_Tr extends LangM {
 
         //??????????????????????????????başlıklar
         error = "Hata";
+        colorChoser = "Renk Seçici";
+        setting = "Ayarlar";
 
         //??????????????????????????????Listeler
         priScholl = "İlkokul";
@@ -76,6 +84,14 @@ public class tr_Tr extends LangM {
         designer = "Tasarımcı";
         financeManeger = "Finans Müdürü";
         socialMediaManeger = "Sosyal Medya Yöneticisi";
+
+        chartnetworkManeger = "Ağ Yön.";
+        chartprojectManeger = "Preje Yön.";
+        chartsoftwareEngineer = "Yazılım Müh.";
+        chartadmin = "Yönetici";
+        chartdesigner = "Tasarımcı";
+        chartfinanceManeger = "Finans Müdürü";
+        chartsocialMediaManeger = "Sos. Med. Yön.";
 
         turkish = "Türkçe";
         english = "İngilizce";

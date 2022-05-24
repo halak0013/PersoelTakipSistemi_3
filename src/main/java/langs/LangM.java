@@ -7,6 +7,7 @@ public class LangM {
     public static String id;
     public static String salary;
     public static String eduStatus;
+    public static String status;
     public static String mail;
     public static String password;
     public static String tc;
@@ -27,6 +28,17 @@ public class LangM {
     public static String include;
     public static String perWord;
     public static String endWord;
+
+    public static String lang;
+    public static String theme;
+    public static String seeLog;
+    public static String saveLog;
+    public static String saveTheme;
+
+
+
+
+
 
 
     //??????????????????????????????İpucu mesajları
@@ -77,6 +89,8 @@ public class LangM {
     //??????????????????????????????başlıklar
     public static String error;
     public static String colorChoser;
+    public static String setting;
+
 
 
     //???????????????????????Listler
@@ -95,6 +109,13 @@ public class LangM {
     public static String financeManeger;
     public static String socialMediaManeger;
 
+    public static String chartnetworkManeger;
+    public static String chartprojectManeger;
+    public static String chartsoftwareEngineer;
+    public static String chartadmin;
+    public static String chartdesigner;
+    public static String chartfinanceManeger;
+    public static String chartsocialMediaManeger;
 
     public static String turkish;
     public static String english;

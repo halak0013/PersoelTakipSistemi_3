@@ -62,55 +62,6 @@ public class DbHelper {
         return 1 + maxId;
     }
 
-    public void searchData2(String tableName, String catagory, String sortItem, int percent,
-            boolean isIncreasing) {
-        ListModels.tbl_table_model.setRowCount(0);
-        sortItem = sortItem.isEmpty() ? "id" : sortItem;
-        catagory = catagory.isEmpty() ? "id" : catagory;
-
-        int count = (int) ((percent / 100.0) * getSqlRowCount(catagory));
-        String sortDirection = isIncreasing == true ? "ASC" : "DESC";
-
-        String query = "SELECT  * from " + tableName + " where " + catagory + " ORDER BY " + sortItem
-                + " " + sortDirection + " LIMIT " + count;
-        System.out.println(query);
-
-        Personel p = new Personel();
-        try {
-            con = DbHelper.getConnection();
-            state = con.createStatement();
-            rs = state.executeQuery(query);
-
-            while (rs.next()) {
-                p.setId(rs.getInt("id"));
-                p.setName(rs.getString("name"));
-                p.setSurname(rs.getString("surname"));
-                p.setPassword(rs.getString("password"));
-                p.setMail(rs.getString("mail"));
-                p.setSalary(rs.getInt("salary"));
-                p.setTel(rs.getString("tel"));
-                p.setGender(rs.getString("gender"));
-                p.setStartingOfWork(rs.getString("starting_of_work"));
-                p.setTc(rs.getString("tc"));
-                p.setExperiencYear(rs.getInt("experience_year"));
-                p.setEducaitonStatus(rs.getString("education_status"));
-                p.setStatus(rs.getString("status"));
-                p.setAbout(rs.getString("about"));
-                ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
-                        p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
-                        p.getTc(), p.getExperiencYear(), p.getEducationStatus(), p.getAbout() });
-                // System.out.println(ListModels.tbl_table_model.getDataVector());
-
-            }
-            con.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void fillTable(String tableName) {
-        searchData2(tableName, "", "", 100, true);
-    }
 
     public void fillCandidateList() {
         ListModels.candidateList.removeAllElements();
@@ -193,9 +144,9 @@ public class DbHelper {
                 p.setTc(rs.getString("tc"));
                 p.setExperiencYear(rs.getInt("experience_year"));
                 p.setEducaitonStatus(rs.getString("education_status"));
-                p.setStatus(rs.getString("status"));
                 p.setAbout(rs.getString("about"));
                 if(!isChek){
+                    p.setStatus(rs.getString("status"));//!
                     p.setSalary(rs.getInt("salary"));//!
                     p.setStartingOfWork(rs.getString("starting_of_work"));//!
                 }
@@ -419,3 +370,108 @@ public class DbHelper {
  * }
  * }
  */
+
+
+
+
+
+/*     public static void searchData2(String tableName, String catagory, String sortItem, int percent,
+            boolean isIncreasing) {
+        ListModels.tbl_table_model.setRowCount(0);
+        sortItem = sortItem.isEmpty() ? "id" : sortItem;
+        catagory = catagory.isEmpty() ? "id" : catagory;
+
+        int count = (int) ((percent / 100.0) * getSqlRowCount(catagory));
+        String sortDirection = isIncreasing == true ? "ASC" : "DESC";
+
+        String query = "SELECT  * from " + tableName + " where " + catagory + " ORDER BY " + sortItem
+                + " " + sortDirection + " LIMIT " + count;
+        System.out.println(query);
+
+        Personel p = new Personel();
+        try {
+            con = DbHelper.getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
+
+            int status=0;
+            int edu=0;
+            while (rs.next()) {
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setSurname(rs.getString("surname"));
+                p.setPassword(rs.getString("password"));
+                p.setMail(rs.getString("mail"));
+                p.setSalary(rs.getInt("salary"));
+                p.setTel(rs.getString("tel"));
+                if(rs.getString("gender").equals("male")){
+                    p.setGender(LangM.male);
+                }else{
+                    p.setGender(LangM.fmale);
+
+                }
+                p.setStartingOfWork(rs.getString("starting_of_work"));
+                p.setTc(rs.getString("tc"));
+                p.setExperiencYear(rs.getInt("experience_year"));
+                switch (rs.getString("education_status")) {
+                    case "priScholl":
+                        edu = 0;
+                        break;
+                    case "higScholl":
+                        edu = 1;
+                        break;
+                    case "unuScholl":
+                        edu = 2;
+                        break;
+                    case "degreeEdu":
+                        edu = 3;
+                        break;
+                    case "doctorateEdu":
+                        edu = 4;
+                        break;
+                    default:
+                        break;
+                }
+                p.setEducaitonStatus(ListModels.cmbEduList[edu]);
+                switch (rs.getString("status")) {
+                    case "networkManeger":
+                        status = 0;
+                        break;
+                    case "projectManeger":
+                        status = 1;
+                        break;
+                    case "softwareEngineer":
+                        status = 2;
+                        break;
+                    case "admin":
+                        status = 3;
+                        break;
+                    case "designer":
+                        status = 4;
+                        break;
+                    case "financeManeger":
+                        status = 5;
+                        break;
+                    case "socialMediaManeger":
+                        status = 6;
+                        break;
+                    default:
+                        break;
+                }
+                p.setStatus(ListModels.cmbStatus[status]);
+                p.setAbout(rs.getString("about"));
+                ListModels.tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(),
+                        p.getPassword(), p.getMail(), p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(),
+                        p.getTc(), p.getExperiencYear(), p.getEducationStatus(),p.getStatus(), p.getAbout() });
+                // System.out.println(ListModels.tbl_table_model.getDataVector());
+
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void fillTable(String tableName) {
+        searchData2(tableName, "", "", 100, true);
+    } */

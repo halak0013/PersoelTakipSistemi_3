@@ -25,33 +25,31 @@ public class Personel {
 
     }
 
-    /*
-     * //? id li ekleme constactırı
-     * public Personel(int id, String name, String surname, String password,
-     * String mail, int salary, String tel, String gender, String startingOfWork,
-     * String tc, int experiencYear, String educaitonStatus, String about) {
-     * this.id = id;
-     * this.name = name;
-     * this.surname = surname;
-     * this.password = password;
-     * this.mail = mail;
-     * this.salary = salary;
-     * this.tel = tel;
-     * this.gender = gender;
-     * this.startingOfWork = startingOfWork;
-     * this.tc = tc;
-     * this.experiencYear = experiencYear;
-     * this.educaitonStatus = educaitonStatus;
-     * this.about = about;
-     * 
-     * 
-     * 
-     * }
-     */
+    // ? id li ekleme constactırı
+    public Personel(int id, String name, String surname, String password,
+            String mail, int salary, String tel, String gender, String startingOfWork,
+            String tc, int experiencYear, String educaitonStatus,String status, String about) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.mail = mail;
+        this.salary = salary;
+        this.tel = tel;
+        this.gender = gender;
+        this.startingOfWork = startingOfWork;
+        this.tc = tc;
+        this.experiencYear = experiencYear;
+        this.educaitonStatus = educaitonStatus;
+        this.status = status;
+        this.about = about;
+
+    }
+
     // ? id siz güncelleme için
     public Personel(String name, String surname, String password,
             String mail, int salary, String tel, String gender, String startingOfWork,
-            String tc, int experiencYear, String educaitonStatus, String about,String status) {
+            String tc, int experiencYear, String educaitonStatus, String status,String about) {
         this.name = name;
         this.surname = surname;
         this.password = password;
@@ -63,7 +61,7 @@ public class Personel {
         this.experiencYear = experiencYear;
         this.startingOfWork = startingOfWork;
         this.educaitonStatus = educaitonStatus;
-        this.status=status;
+        this.status = status;
         this.about = about;
         this.catories = " (id, name, surname, password, mail, salary, tel, gender, starting_of_work, tc, experience_year, education_status,status, about) ";
         perLi.clear();

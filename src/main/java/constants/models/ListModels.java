@@ -19,9 +19,9 @@ public class ListModels {
     }
 
     // !personel tipi
+    public static final String[] cmbStatus = { LangM.networkManeger, LangM.projectManeger, LangM.softwareEngineer, LangM.admin,
+            LangM.designer, LangM.financeManeger, LangM.socialMediaManeger };
     public static DefaultComboBoxModel<String> cmbStatusList() {
-        final String[] cmbStatus = { LangM.networkManeger, LangM.projectManeger, LangM.softwareEngineer, LangM.admin,
-                LangM.designer, LangM.financeManeger, LangM.socialMediaManeger };
         final DefaultComboBoxModel<String> cmbStatusModel = new DefaultComboBoxModel<String>(cmbStatus);
         return cmbStatusModel;
     }
@@ -46,14 +46,14 @@ public class ListModels {
         tbl_table_model = new DefaultTableModel();
         tbl_table_model.setColumnIdentifiers(
                 new String[] { LangM.id, LangM.name, LangM.surname, LangM.password, LangM.mail, LangM.salary, LangM.tel,
-                        LangM.gender, LangM.startDate, LangM.tc, LangM.workExper, LangM.eduStatus, LangM.about });
+                        LangM.gender, LangM.startDate, LangM.tc, LangM.workExper, LangM.eduStatus,LangM.status, LangM.about });
         table.setModel(tbl_table_model);
     }
 
     public static void addRows(Personel p) {
         tbl_table_model.addRow(new Object[] { p.getId(), p.getName(), p.getSurname(), p.getPassword(), p.getMail(),
                 p.getSalary(), p.getTel(), p.getGender(), p.getStartingOfWork(), p.getTc(), p.getExperiencYear(),
-                p.getEducationStatus(), p.getAbout() });
+                p.getEducationStatus(),p.getStatus(), p.getAbout() });
 
     }
 
@@ -65,7 +65,27 @@ public class ListModels {
     }
 
     public static void addPersonOnList(Personel p) {
-        candidateList.addElement(p.getId() + ". İsmi " + p.getName() + " Soyismi " + p.getSurname() + " Eğitimi Durumu "
-                + p.getEducationStatus() + " Çalışma tecrübesi " + p.getExperiencYear());
+        int edu=0;
+        switch (p.getEducationStatus()) {
+            case "priScholl":
+                edu = 0;
+                break;
+            case "higScholl":
+                edu = 1;
+                break;
+            case "unuScholl":
+                edu = 2;
+                break;
+            case "degreeEdu":
+                edu = 3;
+                break;
+            case "doctorateEdu":
+                edu = 4;
+                break;
+            default:
+                break;
+        }
+        candidateList.addElement(p.getId() + ". İsmi " + p.getName() + ", Soyismi " + p.getSurname() + ", Eğitimi Durumu "+
+        cmbEduList[edu]+ ", Çalışma tecrübesi " + p.getExperiencYear());
     }
 }

@@ -173,17 +173,37 @@ public class SingUpP extends javax.swing.JFrame {
 
     private Personel objectPro(){
         String gender = "";
+        String edu="";
+        switch (cmb_educaiton.getSelectedIndex()) {
+            case 0:
+                edu = "priScholl";
+                break;
+            case 1:
+                edu = "higScholl";
+                break;
+            case 2:
+                edu = "unuScholl";
+                break;
+            case 3:
+                edu = "degreeEdu";
+                break;
+            case 4:
+                edu = "doctorateEdu";
+                break;
+            default:
+                break;
+        }
         if (btr_male.isSelected()) {
-            gender = "Erkek";
+            gender = "male";
         } else {
-            gender = "Kadın";
+            gender = "fmale";
         }
         return new Personel(txf_name.getText(),
                 txf_surname.getText(), txf_password.getText(), txf_mail.getText(),
                 txf_phone.getText(),
                 gender, txf_tc.getText(),
                 Integer.parseInt(spn_experience.getValue().toString()),
-                cmb_educaiton.getSelectedItem().toString(), txa_about.getText());
+                edu, txa_about.getText());
     }
 
     private void clearFields() {
