@@ -7,6 +7,8 @@ import java.awt.Color;
 
 import functions.PageP;
 import functions.Setting;
+import langs.LangM;
+import sql.dbHelped2;
 
 public class MainP extends javax.swing.JFrame {
 
@@ -20,7 +22,7 @@ public class MainP extends javax.swing.JFrame {
         // ? eklenen parçalar acayip gözükmesin
         setBackground(new Color(1.0f, 1.0f, 1.0f, 0.0f));
 
-        //bt_singUp.setVisible(false);
+        //bt_singUp.setVisible(false);Ç
         topPanel1.MovePanel(this);
     }
 
@@ -174,15 +176,21 @@ public class MainP extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_closeMousePressed
 
     private void bt_singInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_singInActionPerformed
-        if(btr_admin.isSelected()){
-            
+        if(btr_admin.isSelected()&&dbHelped2.isAdmin()){
+            PageP.openPage(new DataBank(), LangM.adminP);
+            dispose();
         }else{
-            
+            int id=dbHelped2.isPersonel(tx_name.getText(), tx_password.getText());
+            if(id>-1){
+                System.out.println(id+LangM.personel);
+            PageP.openPage(new PersonelP(id), LangM.personel);
+            dispose();
+            }
         }
     }//GEN-LAST:event_bt_singInActionPerformed
 
     private void bt_singUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_singUpActionPerformed
-        PageP.openPage(new SingUpP(), "KAyıt Ol");
+        PageP.openPage(new SingUpP(), LangM.singUp);
         dispose();
     }//GEN-LAST:event_bt_singUpActionPerformed
 
@@ -190,7 +198,7 @@ public class MainP extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        Setting.theme();
+        Setting.startingSetting();
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {

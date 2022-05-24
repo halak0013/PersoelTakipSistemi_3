@@ -118,23 +118,47 @@ public class dbHelped2 extends DbHelper {
         }
     }
 
-    public static void isAdmin() {
-    String querly="SELECT * FROM info WHERE status= 'admin' and name= 'admin*13' and password= 'admin*13'" ;
+    public static boolean isAdmin() {
+        String query = "SELECT * FROM info WHERE status= 'admin' and name= 'admin*13' and password= 'admin*13'";
+        try {
+            con = getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
+            return rs.next();
+        } catch (SQLException e) {
+            showError(e);
+            return false;
+        }
     }
 
+    public static int isPersonel(String mail, String password) {
+        String query = "SELECT * FROM info WHERE  mail= '"+mail+"' and password= '"+password+"'";
+        int id=-1;
+        try {
+            con = getConnection();
+            state = con.createStatement();
+            rs = state.executeQuery(query);
+            if(rs.next()){
+            id=rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            showError(e);
+        }
+        return id;
+    }
 
     public static Personel getFieldData(int index) {
         Personel p = new Personel();
-        int columnCount=ListModels.tbl_table_model.getColumnCount();
+        int columnCount = ListModels.tbl_table_model.getColumnCount();
         for (int i = 0; i < columnCount; i++) {
             p.perLi.add(ListModels.tbl_table_model.getValueAt(index, i));
         }
-        
-        return new Personel(Integer.parseInt(p.perLi.get(0)+""), p.perLi.get(1)+"", p.perLi.get(2)+"", p.perLi.get(3)+"", p.perLi.get(4)+"",
-        Integer.parseInt(p.perLi.get(5)+""), p.perLi.get(6)+"", p.perLi.get(7)+"", p.perLi.get(8)+"", p.perLi.get(9)+"", Integer.parseInt(p.perLi.get(10)+""),
-                p.perLi.get(11)+"", p.perLi.get(12)+"", p.perLi.get(13)+"");
+
+        return new Personel(Integer.parseInt(p.perLi.get(0) + ""), p.perLi.get(1) + "", p.perLi.get(2) + "",
+                p.perLi.get(3) + "", p.perLi.get(4) + "",
+                Integer.parseInt(p.perLi.get(5) + ""), p.perLi.get(6) + "", p.perLi.get(7) + "", p.perLi.get(8) + "",
+                p.perLi.get(9) + "", Integer.parseInt(p.perLi.get(10) + ""),
+                p.perLi.get(11) + "", p.perLi.get(12) + "", p.perLi.get(13) + "");
     }
-
-
 
 }

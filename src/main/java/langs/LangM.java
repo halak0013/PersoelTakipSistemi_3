@@ -90,6 +90,11 @@ public class LangM {
     public static String error;
     public static String colorChoser;
     public static String setting;
+    public static String adminP;
+    public static String personel;
+    public static String singUp;
+
+
 
 
 

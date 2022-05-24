@@ -17,7 +17,6 @@ public class SingUpP extends javax.swing.JFrame {
     DbHelper db = new DbHelper();
 
     public SingUpP() {
-        tr_Tr.trLang();
         initComponents();
         LanPro();
         clearFields();
@@ -270,7 +269,7 @@ public class SingUpP extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        Setting.theme();
+        Setting.startingSetting();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SingUpP().setVisible(true);
