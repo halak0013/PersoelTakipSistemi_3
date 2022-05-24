@@ -23,9 +23,9 @@ public class SingUpP extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")
 
-
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -103,7 +103,8 @@ public class SingUpP extends javax.swing.JFrame {
         txa_about.setColumns(20);
         txa_about.setLineWrap(true);
         txa_about.setRows(5);
-        txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
+        txa_about.setText(
+                "lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
         jScrollPane2.setViewportView(txa_about);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 530, 250));
@@ -129,7 +130,8 @@ public class SingUpP extends javax.swing.JFrame {
         btr_fmale.setText("Kadın");
         getContentPane().add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
-        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
+        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(
+                new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
         getContentPane().add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 120, -1));
 
         spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
@@ -153,30 +155,34 @@ public class SingUpP extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonN1ActionPerformed
-        if(txf_password.getText().equals(txf_password1.getText())){
-        
-        }
-        if (fieldControllerAdd()&&dbHelped2.isMailUniq(txf_mail.getText())) {
-            try {
-                db.addData(objectPro(),"singUpForms");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, "Lütfen alanları tam doludurunuz", "hata",
-                        JOptionPane.ERROR_MESSAGE);
-                e.printStackTrace();
-                Setting.addLog("\n"+e.getMessage()+getClass().getName());
-
+    private void buttonN1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonN1ActionPerformed
+        if (txf_password.getText().equals(txf_password1.getText())) {
+            if (dbHelped2.isMailUniq(txf_mail.getText())) {
+                if (fieldControllerAdd()) {
+                    try {
+                        db.addData(objectPro(), "singUpForms");
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, LangM.fieldError, LangM.error,
+                                JOptionPane.ERROR_MESSAGE);
+                        e.printStackTrace();
+                        Setting.addLog("\n" + e.getMessage() + getClass().getName());
+                    }
+                    clearFields();
+                }
+            }else{
+                JOptionPane.showMessageDialog(rootPane, LangM.uniqMail, LangM.error,
+                JOptionPane.ERROR_MESSAGE);
             }
-            clearFields();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, LangM.notSamePass, LangM.error,
+                    JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_buttonN1ActionPerformed
 
-    
+    }// GEN-LAST:event_buttonN1ActionPerformed
 
-
-    private Personel objectPro(){
+    private Personel objectPro() {
         String gender = "";
-        String edu="";
+        String edu = "";
         switch (cmb_educaiton.getSelectedIndex()) {
             case 0:
                 edu = "priScholl";
@@ -222,6 +228,7 @@ public class SingUpP extends javax.swing.JFrame {
         cmb_educaiton.setSelectedIndex(0);
 
     }
+
     MyList<String, Integer> regexList;
 
     private boolean fieldControllerAdd() {
@@ -229,16 +236,15 @@ public class SingUpP extends javax.swing.JFrame {
         regexList.add(txf_name.getText(), 0, LangM.correctName);
         regexList.add(txf_surname.getText(), 0, LangM.correctSurname);
         regexList.add(txf_password.getText(), 3, LangM.correctPassword);
-        if(!(txf_password.getText().equals(txf_password1.getText()))){
+        if (!(txf_password.getText().equals(txf_password1.getText()))) {
             JOptionPane.showMessageDialog(rootPane, "Parolalar Eşleşmiyor", "Şifre", JOptionPane.ERROR_MESSAGE);
-        return false;
+            return false;
         }
         regexList.add(txf_mail.getText(), 2, LangM.correctMail);
         regexList.add(txf_phone.getText(), 4, LangM.correctPhone);
         regexList.add(txf_tc.getText(), 1, LangM.correctTc);
         return RegexC.fieldController(regexList, btr_male, btr_fmale);
     }
-
 
     private void LanPro() {
         lb_name.setText(LangM.name);
@@ -263,23 +269,22 @@ public class SingUpP extends javax.swing.JFrame {
         txf_mail.setA_textT(LangM.hMail);
         txf_phone.setA_textT(LangM.hTel);
         txf_tc.setA_textT(LangM.hTc);
-        
-        
-        
 
     }
 
     /**
      * @param args the command line arguments
      */
-/*     public static void main(String args[]) {
-        Setting.startingSetting();
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SingUpP().setVisible(true);
-            }
-        });
-    } */
+    /*
+     * public static void main(String args[]) {
+     * Setting.startingSetting();
+     * java.awt.EventQueue.invokeLater(new Runnable() {
+     * public void run() {
+     * new SingUpP().setVisible(true);
+     * }
+     * });
+     * }
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup StrtEnd;
@@ -312,31 +317,33 @@ public class SingUpP extends javax.swing.JFrame {
     private view.TextField.TextFeild txf_tc;
     // End of variables declaration//GEN-END:variables
 }
-    /* private boolean fieldController() {
-        if (!RegexC.textPatern(txf_name.getText(), LangM.correctName)) {
-            return false;
-        }
-        if (!RegexC.textPatern(txf_surname.getText(), LangM.correctSurname)) {
-            return false;
-        }
-        if (!RegexC.passwordPatern(txf_password.getText(), LangM.correctPassword)) {
-            return false;
-        }
-        if (!RegexC.mailPatern(txf_mail.getText(), LangM.correctMail)) {
-            return false;
-        }
-        if (!RegexC.numberPatern(txf_tc.getText(), 11, LangM.correctTc)) {
-            return false;
-        }
-        if (!RegexC.phonePatern(txf_phone.getText(), LangM.correctPhone)) {
-            return false;
-        }
-        if (!btr_fmale.isSelected() && !btr_male.isSelected()) {
-            System.out.println("hatalı");
-
-            return false;
-        }
-        System.out.println("başarılı");
-
-        return true;
-    } */
+/*
+ * private boolean fieldController() {
+ * if (!RegexC.textPatern(txf_name.getText(), LangM.correctName)) {
+ * return false;
+ * }
+ * if (!RegexC.textPatern(txf_surname.getText(), LangM.correctSurname)) {
+ * return false;
+ * }
+ * if (!RegexC.passwordPatern(txf_password.getText(), LangM.correctPassword)) {
+ * return false;
+ * }
+ * if (!RegexC.mailPatern(txf_mail.getText(), LangM.correctMail)) {
+ * return false;
+ * }
+ * if (!RegexC.numberPatern(txf_tc.getText(), 11, LangM.correctTc)) {
+ * return false;
+ * }
+ * if (!RegexC.phonePatern(txf_phone.getText(), LangM.correctPhone)) {
+ * return false;
+ * }
+ * if (!btr_fmale.isSelected() && !btr_male.isSelected()) {
+ * System.out.println("hatalı");
+ * 
+ * return false;
+ * }
+ * System.out.println("başarılı");
+ * 
+ * return true;
+ * }
+ */

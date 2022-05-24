@@ -71,6 +71,10 @@ public class en_En extends LangM {
         deletingDone = "Deleting done";
         errorMesage = "Error";
         saving = "Changes become apparent after restart";
+        fieldError = "Please enter correct value in fields";
+        notSamePass= "Passwords are not same";
+        uniqMail = "Mail is not unique";
+
 
         // ??????????????????????????????başlıklar
         error = "Error";

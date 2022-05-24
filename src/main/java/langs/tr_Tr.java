@@ -87,9 +87,14 @@ public class tr_Tr extends LangM {
         correctPhone = "Lütfen teleofnu uygun giriniz\n Ör: 555 666 77 88 veya 5559994477 veya 555-666-77-88";
         addingDone = "Kayıt başarılı bir şeklide eklendi";
         updatingDone = "Kayıt başarılı bir şeklide eklendi";
-        deletingDone = "Kayıt başarılı bir şeklide eklendi";
+        deletingDone = "Kayıt başarılı bir şeklide silindi";
         errorMesage = "Hata oluştu";
         saving = "Değişiklikler terar başladıktan sonra belli olur";
+
+        fieldError = "Lütfen alanları uygun giriniz";
+        notSamePass = "Şifreler birbirleri ile aynı değil";
+        uniqMail = "Bu mail zaten kayıtlı";
+
 
         // ??????????????????????????????başlıklar
         error = "Hata";

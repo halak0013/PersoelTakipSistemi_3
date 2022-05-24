@@ -90,6 +90,11 @@ public class LangM {
     public static String updatingDone;
     public static String deletingDone;
     public static String errorMesage;
+    public static String fieldError;
+    public static String notSamePass;
+    public static String uniqMail;
+
+
 
     public static String saving;
 
