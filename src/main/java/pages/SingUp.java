@@ -164,14 +164,14 @@ public class SingUp extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+/*     public static void main(String args[]) {
         Setting.theme();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SingUp().setVisible(true);
             }
         });
-    }
+    } */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.buttons.ButtonN bt_endSaving;

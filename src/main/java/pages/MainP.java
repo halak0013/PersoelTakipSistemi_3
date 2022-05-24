@@ -194,6 +194,15 @@ public class MainP extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_bt_singUpActionPerformed
 
+public void lanProeces() {
+lb_userName.setText(LangM.userName);
+lb_password.setText(LangM.password);
+bt_singIn.setText(LangM.singIn);
+bt_singUp.setText(LangM.singUp);
+btr_admin.setText(LangM.admin);
+btr_admin.setText(LangM.personel);
+}
+
     /**
      * @param args the command line arguments
      */

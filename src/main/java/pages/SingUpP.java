@@ -4,10 +4,8 @@ package pages;
 import javax.swing.JOptionPane;
 
 import functions.MyList;
-import functions.PageP;
 import functions.Setting;
 import langs.LangM;
-import langs.tr_Tr;
 import regex.RegexC;
 import sql.DbHelper;
 import sql.Personel;
@@ -165,10 +163,15 @@ public class SingUpP extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları tam doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
+                Setting.addLog("\n"+e.getMessage()+getClass().getName());
+
             }
             clearFields();
         }
     }//GEN-LAST:event_buttonN1ActionPerformed
+
+    
+
 
     private Personel objectPro(){
         String gender = "";
@@ -268,14 +271,14 @@ public class SingUpP extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+/*     public static void main(String args[]) {
         Setting.startingSetting();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SingUpP().setVisible(true);
             }
         });
-    }
+    } */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup StrtEnd;

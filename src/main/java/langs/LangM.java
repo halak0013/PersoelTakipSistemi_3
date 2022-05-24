@@ -34,6 +34,8 @@ public class LangM {
     public static String seeLog;
     public static String saveLog;
     public static String saveTheme;
+    public static String userName;
+
 
 
 
@@ -59,6 +61,9 @@ public class LangM {
     public static String delete;
     public static String add;
     public static String save;
+    public static String singIn;
+    public static String singUpbtn;
+
 
 
 

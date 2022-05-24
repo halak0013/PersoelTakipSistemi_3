@@ -4,6 +4,11 @@
  */
 package pages;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 import constants.models.ListModels;
@@ -141,15 +146,27 @@ public class SettingP extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, LangM.saving);
         } catch (Exception e) {
             e.printStackTrace();
+            Setting.addLog("\n"+e.getMessage()+getClass().getName());
         }
     }//GEN-LAST:event_bt_saveThemeActionPerformed
 
     private void bt_seeLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_seeLogActionPerformed
-        // TODO add your handling code here:
+        txa_log.setText(Setting.log);
     }//GEN-LAST:event_bt_seeLogActionPerformed
 
     private void bt_saveLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_saveLogActionPerformed
-        // TODO add your handling code here:
+        JFileChooser fc=new JFileChooser();
+        fc.showOpenDialog(this);
+        File file=fc.getSelectedFile();
+        try {
+            FileWriter fw = new FileWriter(file);
+            fw.write(txa_log.getText());
+            fw.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_bt_saveLogActionPerformed
 public void LangProces() {
 lb_lang.setText(LangM.lang);
@@ -162,14 +179,14 @@ bt_saveTheme.setText(LangM.save);
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+/*     public static void main(String args[]) {
         Setting.startingSetting();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SettingP().setVisible(true);
             }
         });
-    }
+    } */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.buttons.ButtonN bt_saveLog;

@@ -10,6 +10,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import constants.models.ListModels;
+import functions.Setting;
 import langs.LangM;
 
 public class DbHelper {
@@ -26,6 +27,7 @@ public class DbHelper {
     public static void showError(SQLException e) {
         System.out.println("Error code " + e.getErrorCode());
         System.out.println("Error message " + e.getMessage());
+        Setting.addLog("Error code " + e.getErrorCode()+"\n"+"Error message " + e.getMessage()+"\n");
     }
 
     public static double getSqlRowCount(String catagory) {

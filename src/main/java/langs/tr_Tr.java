@@ -33,6 +33,9 @@ public class tr_Tr extends LangM {
         seeLog = "Günlüğü Görüntüle";
         saveLog = "Günlüğü Kaydet";
         saveTheme = "Temayı Kaydet";
+        userName="KUlllanıcı Adı";
+
+
 
         commonHint = "değeri giriniz";
         hName = "Adını giriniz";
@@ -44,12 +47,32 @@ public class tr_Tr extends LangM {
         hTc = "Kimlik no giriniz";
         hSearch = "Aramak istediğiniz kelimeyi giriniz";
 
+
+
+
+
+
+
+
         // ????????????????????????????????buttonlar
         update = "Güncelle";
         delete = "Sil";
         add = "Ekle";
         save = "Kaydet";
         colorChoser = "Renk Seçici";
+        singIn="Giriş Yap";
+        singUpbtn="Kayıt Ol";
+
+
+
+
+
+
+
+
+
+
+
 
         // ?????????????????????????????uyarı
         correctName = "Lütfen adı doğru giriniz\n Ör: Ahmet";

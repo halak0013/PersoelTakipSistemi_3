@@ -577,6 +577,7 @@ public class DataBank extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
+                Setting.addLog("\n"+e.getMessage()+getClass().getName());
             }
             dbHelped2.fillTable2("", "id", 100, true);
             clearFieldsAdd();
@@ -611,6 +612,8 @@ public class DataBank extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
+                Setting.addLog("\n"+e.getMessage()+getClass().getName());
+
             }
             dbHelped2.fillTable2("", "id", 100, true);
             clearFieldsAdd();
@@ -654,6 +657,7 @@ public class DataBank extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Lütfen alanları uygun şekilde doludurunuz", "hata",
                         JOptionPane.ERROR_MESSAGE);
                 System.out.println(e.getMessage());
+                Setting.addLog("\n"+e.getMessage()+getClass().getName());
 
             }
         }
@@ -870,6 +874,7 @@ System.out.println(cmb_status.getSelectedIndex()+"seçilen yer");
             clan_startToWork.setDate(date);
         } catch (java.text.ParseException e) {
             e.printStackTrace();
+            Setting.addLog("\n"+e.getMessage()+getClass().getName());
         }
     }
 
@@ -943,6 +948,7 @@ System.out.println(cmb_status.getSelectedIndex()+"seçilen yer");
                 clan_startToWork.setDate(date);
             } catch (java.text.ParseException e) {
                 e.printStackTrace();
+                Setting.addLog("\n"+e.getMessage()+getClass().getName());
             }
             txf_salary.setText(p.getSalary() + "");
         }
@@ -1018,14 +1024,14 @@ System.out.println(cmb_status.getSelectedIndex()+"seçilen yer");
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+/*     public static void main(String args[]) {
         Setting.startingSetting();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DataBank().setVisible(true);
             }
         });
-    }
+    } */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup StrtEnd;
