@@ -85,7 +85,7 @@ public class ListModels {
             default:
                 break;
         }
-        candidateList.addElement(p.getId() + ". İsmi " + p.getName() + ", Soyismi " + p.getSurname() + ", Eğitimi Durumu "+
-        cmbEduList[edu]+ ", Çalışma tecrübesi " + p.getExperiencYear());
+        candidateList.addElement(p.getId() + ". "+LangM.name+ " "+ p.getName() + ",  "+LangM.surname+ " " + p.getSurname() + ", "+LangM.eduStatus+" "+
+        cmbEduList[edu]+ ", "+LangM.workExper+" " + p.getExperiencYear());
     }
 }

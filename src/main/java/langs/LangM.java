@@ -64,11 +64,16 @@ public class LangM {
     public static String singIn;
     public static String singUpbtn;
 
+    public static String accept;
+    public static String decline;
+
+
+
     public static String close;
     public static String paste;
     public static String copy;
     public static String cut;
-
+public static String sendToAdmin;
 
 
 
@@ -93,6 +98,10 @@ public class LangM {
     public static String fieldError;
     public static String notSamePass;
     public static String uniqMail;
+    public static String notUser;
+
+
+
 
 
 
@@ -149,7 +158,7 @@ public class LangM {
 
     /* public static String name;
 
-    public static String name;
+    
     public static String name;
     public static String name;
     public static String name;

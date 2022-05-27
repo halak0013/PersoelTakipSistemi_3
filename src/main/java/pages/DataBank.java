@@ -56,6 +56,8 @@ public class DataBank extends javax.swing.JFrame {
         m_item_setting = new view.panels.MenuItems();
         m_item_chart = new view.panels.MenuItems();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        pnl_chart = new javax.swing.JPanel();
+        chart1 = new view.panels.Chart();
         pnl_add_check = new javax.swing.JPanel();
         lb_name = new javax.swing.JLabel();
         txf_surname = new view.TextField.TextFeild();
@@ -121,8 +123,6 @@ public class DataBank extends javax.swing.JFrame {
         bt_decline = new view.buttons.ButtonN();
         cmb_status = new javax.swing.JComboBox<>();
         lb_status = new javax.swing.JLabel();
-        pnl_chart = new javax.swing.JPanel();
-        chart2 = new view.panels.Chart();
 
         copy.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         copy.setText("jMenuItem1");
@@ -146,7 +146,7 @@ public class DataBank extends javax.swing.JFrame {
         });
         pop_table.add(delete);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(99999, 99999));
         setMinimumSize(new java.awt.Dimension(1350, 800));
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -227,6 +227,36 @@ public class DataBank extends javax.swing.JFrame {
         jSplitPane1.setLeftComponent(jPanel1);
 
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout chart1Layout = new javax.swing.GroupLayout(chart1);
+        chart1.setLayout(chart1Layout);
+        chart1Layout.setHorizontalGroup(
+            chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 812, Short.MAX_VALUE)
+        );
+        chart1Layout.setVerticalGroup(
+            chart1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 511, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
+        pnl_chart.setLayout(pnl_chartLayout);
+        pnl_chartLayout.setHorizontalGroup(
+            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_chartLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(chart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        pnl_chartLayout.setVerticalGroup(
+            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_chartLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(chart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
 
         pnl_add_check.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -342,6 +372,7 @@ public class DataBank extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_dataa.setComponentPopupMenu(pop_table);
         tbl_dataa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tbl_dataaMousePressed(evt);
@@ -498,36 +529,6 @@ public class DataBank extends javax.swing.JFrame {
 
         jLayeredPane1.add(pnl_add_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, 720));
 
-        javax.swing.GroupLayout chart2Layout = new javax.swing.GroupLayout(chart2);
-        chart2.setLayout(chart2Layout);
-        chart2Layout.setHorizontalGroup(
-            chart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        chart2Layout.setVerticalGroup(
-            chart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
-        pnl_chart.setLayout(pnl_chartLayout);
-        pnl_chartLayout.setHorizontalGroup(
-            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_chartLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(chart2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
-        pnl_chartLayout.setVerticalGroup(
-            pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_chartLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(chart2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
-        );
-
-        jLayeredPane1.add(pnl_chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
-
         jSplitPane1.setRightComponent(jLayeredPane1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -571,6 +572,7 @@ public class DataBank extends javax.swing.JFrame {
         lb_perValue.setText(LangM.percent + sld_percent.getValue() + "% " + LangM.show);
         clearFieldsAdd();
         cmb_status.setModel(ListModels.cmbStatusList());
+        cmb_educaiton.setModel(ListModels.educationStatus());
         gainBt(m_item_add, pnl_add_check, pnl_searchArea);
     }
 
@@ -654,7 +656,7 @@ public class DataBank extends javax.swing.JFrame {
 
     // !ekle
     private void bt_addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_addActionPerformed
-        if (fieldControllerAdd()&&dbHelped2.isMailUniq(txf_mail.getText())) {
+        if (fieldControllerAdd()&&!dbHelped2.isMailUniq(txf_mail.getText())) {
             try {
                 System.out.println(objectPro());
                 db.addData(objectPro(), "info");
@@ -667,6 +669,9 @@ public class DataBank extends javax.swing.JFrame {
             }
             dbHelped2.fillTable2("", "id", 100, true);
             clearFieldsAdd();
+        }else{
+            JOptionPane.showMessageDialog(rootPane, LangM.uniqMail,LangM.error,
+                    JOptionPane.ERROR_MESSAGE);
         }
     }// GEN-LAST:event_bt_addActionPerformed
 
@@ -728,10 +733,13 @@ public class DataBank extends javax.swing.JFrame {
         lb_gender.setText(LangM.gender);
         lb_experience.setText(LangM.workExper);
         lb_about.setText(LangM.about);
+        lb_status.setText(LangM.status);
 
         bt_update.setText(LangM.update);
         bt_sil.setText(LangM.delete);
         bt_add.setText(LangM.add);
+        bt_accept.setText(LangM.accept);
+        bt_decline.setText(LangM.decline);
 
         btr_male.setText(LangM.male);
         btr_fmale.setText(LangM.fmale);
@@ -767,6 +775,7 @@ public class DataBank extends javax.swing.JFrame {
         paste.setText(LangM.paste);
         cut.setText(LangM.cut);
         delete.setText(LangM.delete);
+
 
 
     }
@@ -1104,7 +1113,7 @@ System.out.println(cmb_status.getSelectedIndex()+"seçilen yer");
     private javax.swing.JRadioButton btr_startS;
     private javax.swing.JRadioButton btr_startSort;
     private javax.swing.ButtonGroup buttonGroup1;
-    private view.panels.Chart chart2;
+    private view.panels.Chart chart1;
     private javax.swing.JCheckBox chk_id;
     private javax.swing.JCheckBox chk_mailS;
     private javax.swing.JCheckBox chk_name;

@@ -3,6 +3,7 @@ package pages;
 
 import javax.swing.JOptionPane;
 
+import constants.models.ListModels;
 import functions.MyList;
 import functions.Setting;
 import langs.LangM;
@@ -18,6 +19,7 @@ public class SingUpP extends javax.swing.JFrame {
     public SingUpP() {
         initComponents();
         LanPro();
+        cmb_educaiton.setModel(ListModels.educationStatus());
         clearFields();
     }
 
@@ -25,7 +27,7 @@ public class SingUpP extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -55,11 +57,10 @@ public class SingUpP extends javax.swing.JFrame {
         spn_experience = new javax.swing.JSpinner();
         lb_password1 = new javax.swing.JLabel();
         txf_password1 = new view.TextField.TextFeild();
-        buttonN1 = new view.buttons.ButtonN();
+        bt_save = new view.buttons.ButtonN();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(650, 635));
-        setPreferredSize(new java.awt.Dimension(650, 660));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_name.setText("İsim");
@@ -103,8 +104,7 @@ public class SingUpP extends javax.swing.JFrame {
         txa_about.setColumns(20);
         txa_about.setLineWrap(true);
         txa_about.setRows(5);
-        txa_about.setText(
-                "lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
+        txa_about.setText("lmyli limyemiuylem yilmyim ymyemiym eylmiylm iylmeyl emyilme yimluye lmiuyme ylm iymuyelmuyim yliumy lemyimu\n yelmiy elmyuilm yimu ylmuiy emyiumeyuimyelmiym ymi ymiy lmu iyem yuilme yakielmkalieklmieklm iklkil kei\nieiueiklaşmieş a eikalmkeylak leikalmkieylukalmieklamk lkeahun ıeiuakmieuklmaieamltiuemae klk\neiyam yalielmyşueacsvscövlmkülkpakieie\n lamym eiyla mleiylam \ney aeyi eameymaie yemiaylm iyelma uia uqğplagğmayielmay ylm yeiumae");
         jScrollPane2.setViewportView(txa_about);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 530, 250));
@@ -130,8 +130,7 @@ public class SingUpP extends javax.swing.JFrame {
         btr_fmale.setText("Kadın");
         getContentPane().add(btr_fmale, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
-        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(
-                new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
+        cmb_educaiton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İlkokul", "Lise", "Üniversite", "Yüksek Lisans", "Doktora" }));
         getContentPane().add(cmb_educaiton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 120, -1));
 
         spn_experience.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
@@ -143,21 +142,21 @@ public class SingUpP extends javax.swing.JFrame {
         txf_password1.setText("textFeild1");
         getContentPane().add(txf_password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 123, 35));
 
-        buttonN1.setText("Admine Kaydı Gönder");
-        buttonN1.addActionListener(new java.awt.event.ActionListener() {
+        bt_save.setText("Admine Kaydı Gönder");
+        bt_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonN1ActionPerformed(evt);
+                bt_saveActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 170, 40));
+        getContentPane().add(bt_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 170, 40));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonN1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonN1ActionPerformed
+    private void bt_saveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonN1ActionPerformed
         if (txf_password.getText().equals(txf_password1.getText())) {
-            if (dbHelped2.isMailUniq(txf_mail.getText())) {
+            if (!dbHelped2.isMailUniq(txf_mail.getText())) {
                 if (fieldControllerAdd()) {
                     try {
                         db.addData(objectPro(), "singUpForms");
@@ -237,7 +236,7 @@ public class SingUpP extends javax.swing.JFrame {
         regexList.add(txf_surname.getText(), 0, LangM.correctSurname);
         regexList.add(txf_password.getText(), 3, LangM.correctPassword);
         if (!(txf_password.getText().equals(txf_password1.getText()))) {
-            JOptionPane.showMessageDialog(rootPane, "Parolalar Eşleşmiyor", "Şifre", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, LangM.notSamePass, LangM.error, JOptionPane.ERROR_MESSAGE);
             return false;
         }
         regexList.add(txf_mail.getText(), 2, LangM.correctMail);
@@ -261,6 +260,7 @@ public class SingUpP extends javax.swing.JFrame {
 
         btr_male.setText(LangM.male);
         btr_fmale.setText(LangM.fmale);
+        bt_save.setText(LangM.sendToAdmin);
 
         txf_name.setA_textT(LangM.hName);
         txf_surname.setA_textT(LangM.hSurname);
@@ -288,10 +288,10 @@ public class SingUpP extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup StrtEnd;
+    private view.buttons.ButtonN bt_save;
     private javax.swing.JRadioButton btr_fmale;
     private javax.swing.JRadioButton btr_male;
     private javax.swing.ButtonGroup buttonGroup1;
-    private view.buttons.ButtonN buttonN1;
     private javax.swing.JComboBox<String> cmb_educaiton;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_about;

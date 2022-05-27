@@ -34,7 +34,7 @@ public class ColorChoser extends javax.swing.JFrame {
         colorCh = new javax.swing.JColorChooser();
         bt_save = new view.buttons.ButtonN();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         bt_save.setText("Kaydet");
         bt_save.addActionListener(new java.awt.event.ActionListener() {

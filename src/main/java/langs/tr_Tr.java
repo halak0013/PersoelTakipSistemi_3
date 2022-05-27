@@ -33,9 +33,7 @@ public class tr_Tr extends LangM {
         seeLog = "Günlüğü Görüntüle";
         saveLog = "Günlüğü Kaydet";
         saveTheme = "Temayı Kaydet";
-        userName="KUlllanıcı Adı";
-
-
+        userName = "Kulllanıcı Adı";
 
         commonHint = "değeri giriniz";
         hName = "Adını giriniz";
@@ -47,35 +45,22 @@ public class tr_Tr extends LangM {
         hTc = "Kimlik no giriniz";
         hSearch = "Aramak istediğiniz kelimeyi giriniz";
 
-
-
-
-
-
-
-
         // ????????????????????????????????buttonlar
         update = "Güncelle";
         delete = "Sil";
         add = "Ekle";
         save = "Kaydet";
         colorChoser = "Renk Seçici";
-        singIn="Giriş Yap";
-        singUpbtn="Kayıt Ol";
+        singIn = "Giriş Yap";
+        singUpbtn = "Kayıt Ol";
 
         close = "Kapa";
         paste = "Yapıştır";
         copy = "Kopyala";
         cut = "Kes";
-
-
-
-
-
-
-
-
-
+        sendToAdmin = "Kaydı Yöneticiye Gönder";
+        accept = "Kabul Et";
+        decline = "Redet";
 
         // ?????????????????????????????uyarı
         correctName = "Lütfen adı doğru giriniz\n Ör: Ahmet";
@@ -89,12 +74,12 @@ public class tr_Tr extends LangM {
         updatingDone = "Kayıt başarılı bir şeklide eklendi";
         deletingDone = "Kayıt başarılı bir şeklide silindi";
         errorMesage = "Hata oluştu";
-        saving = "Değişiklikler terar başladıktan sonra belli olur";
+        saving = "Değişiklikler terar başladıktan sonra belli olur\n Tekrar başlatmak ister mesiniz?";
 
         fieldError = "Lütfen alanları uygun giriniz";
         notSamePass = "Şifreler birbirleri ile aynı değil";
         uniqMail = "Bu mail zaten kayıtlı";
-
+        notUser = "Bu mail ve şifre ile kayıtlı bir kullanıcı yok";
 
         // ??????????????????????????????başlıklar
         error = "Hata";

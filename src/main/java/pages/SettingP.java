@@ -59,7 +59,7 @@ public class SettingP extends javax.swing.JFrame {
         saveLog = new javax.swing.JMenuItem();
         close = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnl_setting.setMinimumSize(new java.awt.Dimension(700, 600));
         pnl_setting.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -169,7 +169,10 @@ public class SettingP extends javax.swing.JFrame {
         String theme = cmb_theme.getSelectedIndex() == 0 ? "darkOrange" : "darkBlue";
         try {
             Setting.saveSetting(theme, lang);
-            JOptionPane.showMessageDialog(rootPane, LangM.saving);
+            int option=JOptionPane.showConfirmDialog(rootPane, LangM.saving,LangM.saving,JOptionPane.YES_NO_OPTION);
+            if (JOptionPane.YES_OPTION==option) {
+                PageP.openPage(new MainP(), "");
+            }
         } catch (Exception e) {
             e.printStackTrace();
             Setting.addLog("\n"+e.getMessage()+getClass().getName());

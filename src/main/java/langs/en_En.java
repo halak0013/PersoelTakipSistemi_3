@@ -57,6 +57,9 @@ public class en_En extends LangM {
         paste = "Paste";
         copy = "Copy";
         cut = "Cut";
+        sendToAdmin= "Send To Admin";
+        accept="Accept";
+decline="Decline";
 
         // ?????????????????????????????uyarı
         correctName = "Please enter correct name\n Ex: Ahmet";
@@ -65,15 +68,16 @@ public class en_En extends LangM {
         correctMail = "Please enter correct mail\n Ex: ahmet@mail.com";
         correctSalary = "Please enter correct salary\n Ex: 9999";
         correctTc = "Please enter correct identity number\n Ex: 12345678901";
-        correctPhone = "Please enter correct tel\n Ex: 555 666 77 88 veya 5559994477 veya 555-666-77-88";
+        correctPhone = "Please enter correct tel\n Ex: 555 666 77 88 or 5559994477 or 555-666-77-88";
         addingDone = "Adding done";
         updatingDone = "Updating done";
         deletingDone = "Deleting done";
         errorMesage = "Error";
-        saving = "Changes become apparent after restart";
+        saving = "Changes become apparent after restart\nAre you want restart now?";
         fieldError = "Please enter correct value in fields";
         notSamePass= "Passwords are not same";
         uniqMail = "Mail is not unique";
+        notUser = "User is not found";
 
 
         // ??????????????????????????????başlıklar

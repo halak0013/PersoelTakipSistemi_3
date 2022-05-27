@@ -25,7 +25,7 @@ public class RegexC {
         p = Pattern.compile(pattern);
         m = p.matcher(text);
         if (!m.matches()) {
-            JOptionPane.showMessageDialog(null, message +" "+ text);
+            JOptionPane.showMessageDialog(null, message +" <- "+ text);
 
             return false;
         }

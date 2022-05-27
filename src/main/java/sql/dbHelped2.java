@@ -134,8 +134,8 @@ public class dbHelped2 extends DbHelper {
     }
 
 
-    public static boolean isAdmin() {
-        String query = "SELECT * FROM info WHERE status= 'admin' and name= 'admin*13' and password= 'admin*13'";
+    public static boolean isAdmin(String name, String password) {
+        String query = "SELECT * FROM info WHERE status= 'admin' and name= '"+name+"' and password= '"+password+"'";
         boolean result=false;
         try {
             con = getConnection();

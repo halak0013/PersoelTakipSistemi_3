@@ -14,6 +14,7 @@ public class PersonelP extends javax.swing.JFrame {
         initComponents();
         LanPro();
         cmb_status.setModel(ListModels.cmbStatusList());
+        cmb_educaiton.setModel(ListModels.educationStatus());
         fillFields(id, "info", false);
         disableFields();
     }
@@ -55,7 +56,7 @@ public class PersonelP extends javax.swing.JFrame {
         tx_tc = new javax.swing.JLabel();
         tx_phone = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(650, 635));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -151,6 +152,7 @@ public class PersonelP extends javax.swing.JFrame {
 
     cmb_status.setEnabled(false);
     cmb_educaiton.setEnabled(false);
+    spn_experience.setEnabled(false);
     btr_fmale.setEnabled(false);
     btr_male.setEnabled(false);
     
