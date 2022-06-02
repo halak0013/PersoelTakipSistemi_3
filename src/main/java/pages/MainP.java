@@ -173,7 +173,7 @@ public class MainP extends javax.swing.JFrame {
     private void bt_closeMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_bt_closeMousePressed
         System.exit(0);
     }// GEN-LAST:event_bt_closeMousePressed
-
+ 
     private void bt_singInActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bt_singInActionPerformed
         if (btr_admin.isSelected() && dbHelped2.isAdmin(tx_name.getText(), tx_password.getText())) {
             PageP.openPage(new DataBank(), LangM.adminP);

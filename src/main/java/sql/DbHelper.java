@@ -55,7 +55,6 @@ public class DbHelper {
             con = DbHelper.getConnection();
             state = con.createStatement();
             rs = state.executeQuery(query);
-
             maxId = rs.getInt("mId");
             con.close();
         } catch (SQLException e) {
